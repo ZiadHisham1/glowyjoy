@@ -1,0 +1,538 @@
+<section class="about-testimonial">
+  <div class="container">
+    <div class="section-capture">
+      <div class="section-title">
+        {% if section.settings.section_title != '' %}
+        <h2>{{ section.settings.section_title }}</h2>
+        {% endif %}
+        {% if section.settings.section_desc != '' %}
+        <p>{{ section.settings.section_desc }}</p>
+        {% endif %}
+      </div>
+      <div class="swiper-buttons">
+        <button class="swiper-prev swiper-prev-{{ section.id }}"><i class="ri-arrow-left-line"></i></button>
+        <button class="swiper-next swiper-next-{{ section.id }}"><i class="ri-arrow-right-line"></i></button>
+      </div>
+    </div>
+
+    <div class="testimonial-slider swiper" id="testi-slider-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+        <div class="swiper-slide">
+          <div class="text-content">
+            <div class="test-img">
+              {%- if block.settings.authr_img -%}
+              {{ block.settings.authr_img | image_url: width: 1024 | image_tag:
+                loading: 'lazy',
+                width: block.settings.authr_img.width,
+                height: block.settings.authr_img.height,
+                class: "img-fluid",
+                alt: block.settings.authr_img.alt | escape }}
+              {%- else -%}
+              {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+              {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+              <span class="icon">
+                <i class="fa fa-quote-right"></i>
+              </span>
+            </div>
+            <div class="testi-desc">
+              <p>{{ block.settings.testi_desc }}</p>
+              <div class="auth-bio">
+                <h6>{{ block.settings.testi_authrtitle }}</h6>
+                <span>{{ block.settings.testi_authrbio }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="swiper-buttons mobile">
+      <button class="swiper-prev swiper-prev-{{ section.id }}"><i class="ri-arrow-left-line"></i></button>
+      <button class="swiper-next swiper-next-{{ section.id }}"><i class="ri-arrow-right-line"></i></button>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+addEventListener('DOMContentLoaded', (event) => {
+  var swiper = new Swiper('.swiper#testi-slider-{{ section.id }}', {
+    slidesPerView: {{ section.settings.about_testimonial_slider_limit }},
+    grid: {
+      rows: 1,
+      fill: 'row' | 'column',
+    },
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    {%- if settings.enable_rtl -%}
+    rtl: true,
+    {%- endif -%}
+    navigation: {
+      nextEl: '.swiper-next-{{ section.id }}',
+      prevEl: '.swiper-prev-{{ section.id }}',
+    },
+    pagination: {
+      el: ".swiper-pagination-{{ section.id }}",
+      clickable: true
+    },
+    // autoplay: {
+    //   delay: 5000,
+    //   disableOnInteraction: false,
+    //   pauseOnMouseEnter: true
+    // },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 12
+      },
+      320: {
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 12
+      },
+      360: {
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 12
+      },
+      540: {
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 12
+      },
+      640: {
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 12
+      },
+      768: {
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 30
+      },
+      1024: {
+        slidesPerView: 1,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 30
+      },
+      1199: {
+        slidesPerView: 2,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 30
+      },
+      1399: {
+        slidesPerView: 2,
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 30
+      },
+      1499: {
+        slidesPerView: {{ section.settings.about_testimonial_slider_limit }},
+        grid: {
+          rows: 1,
+          fill: 'row' | 'column',
+        },
+        spaceBetween: 30
+      }
+    }
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "About testimonials",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ipad",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ipad",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section background"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Happy client say"
+    },
+    {
+      "type": "textarea",
+      "id": "section_desc",
+      "label": "Section Description",
+      "default": "1200+ Positive customer reviews"
+    },
+    {
+      "type": "header",
+      "content": "Slider Option"
+    },
+    {
+      "type": "select",
+      "id": "about_testimonial_slider_limit",
+      "label": "slides Per View",
+      "options": [
+        {
+          "label": "1 Testimonial",
+          "value": "1"
+        },
+        {
+          "label": "2 Testimonial",
+          "value": "2"
+        },
+        {
+          "label": "3 Testimonial",
+          "value": "3"
+        }
+      ],
+      "default": "2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "single_slide",
+      "name": "Testimonial Items",
+      "settings": [
+        {
+          "type": "text",
+          "id": "testi_authrtitle",
+          "label": "Reviewer Title",
+          "default": "Johan soina"
+        },
+        {
+          "type": "text",
+          "id": "testi_authrbio",
+          "label": "Reviewer bio",
+          "default": "Jewelery designer"
+        },
+        {
+          "type": "textarea",
+          "id": "testi_desc",
+          "label": "Review Content",
+          "default": "Make a type specimen book. It has survived not only five centuries, but also the leap into eIt was make a.."
+        },
+        {
+          "type": "image_picker",
+          "id": "authr_img",
+          "label": "Authr image",
+          "info": "Recommended Size: 512px x 512px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About testimonials"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .about-testimonial {
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_bg_color }};
+  }
+  @media (max-width: 1199px) {
+    .about-testimonial {
+      padding-top: {{ section.settings.section_padding_top_ipad }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_ipad }}px;
+    }
+  }
+  @media (max-width: 767px) {
+    .about-testimonial {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+  }
+
+  
+/*list content*/
+.about-testimonial .text-content{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.about-testimonial .text-content .test-img {
+  width: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+  position: relative;
+}
+.about-testimonial .text-content .test-img img{
+  border-radius: 50%;
+}
+.about-testimonial .text-content .test-img span {
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0px;
+  background-color: var(--font-color-primary);
+  border-radius: 50%;
+}
+.about-testimonial .text-content .testi-desc {
+  width: calc(100% - 185px);
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+}
+.about-testimonial .text-content .testi-desc p{
+  font-weight: 400;
+  line-height: 30px;
+  max-width: 85%;
+}
+.about-testimonial .text-content .testi-desc .auth-bio {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+} 
+.about-testimonial .text-content .testi-desc .auth-bio h6{
+  color: var(--font-color-primary);
+  font-size: 18px;
+}
+.about-testimonial .text-content .testi-desc .auth-bio span:before{
+  content: '-';
+  margin: 0 10px;
+}
+@media(max-width: 1599px){
+  .about-testimonial .text-content .testi-desc p{
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 991px){
+  .about-testimonial .text-content .testi-desc p{
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .about-testimonial .text-content .testi-desc .auth-bio{
+    margin-top: 15px;
+  }
+}
+@media(max-width: 479px){
+  .about-testimonial .text-content .test-img{
+    width: 120px;
+  }
+  .about-testimonial .text-content{
+    flex-direction: column;
+  }
+  .about-testimonial .text-content .testi-desc{
+    text-align: center;
+    width: 100%;
+    margin: 15px 0 0 0;
+  }
+  .about-testimonial .text-content .testi-desc .auth-bio{
+    justify-content: center;
+  }
+}
+
+/*slider arrow*/
+.about-testimonial .testimonial-slider .owl-nav{
+  margin: 0;
+}
+.about-testimonial .testimonial-slider .owl-nav button{
+  font-size: 18px;
+  line-height: 1;
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0;
+  border: 1px solid rgba(0,0,0,10%);
+}
+.about-testimonial .testimonial-slider .owl-nav button.owl-prev {
+  left: -10%;
+}
+.about-testimonial .testimonial-slider .owl-nav button.owl-next {
+  right: -10%;
+}
+.about-testimonial .testimonial-slider .owl-nav button:hover{
+  color: #fff;
+  background-color: var(--font-color-primary);
+  border-color: var(--font-color-primary);
+}
+@media(max-width: 1599px){
+  .about-testimonial .testimonial-slider .owl-nav button.owl-prev {
+    left: -30px;
+  }
+  .about-testimonial .testimonial-slider .owl-nav button.owl-next {
+    right: -30px;
+  }
+}
+@media(max-width: 1199px){
+  .about-testimonial .testimonial-slider .owl-nav button{
+    font-size: 18px;
+    width: 35px;
+    height: 35px;
+  }
+  .about-testimonial .testimonial-slider .owl-nav button.owl-prev {
+    left: -30px;
+  }
+  .about-testimonial .testimonial-slider .owl-nav button.owl-next {
+    right: -30px;
+  }
+}
+@media(max-width: 767px){
+  .about-testimonial .testimonial-slider .owl-nav {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-testimonial .testimonial-slider .owl-nav button{
+    position: unset;
+    transform: none;
+    margin-right: 10px;
+  }
+  .about-testimonial .testimonial-slider .owl-nav button:last-child{
+    margin-right: 0;
+  }
+}
+
+/* section title css */
+.about-testimonial .section-capture {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-testimonial .section-capture .swiper-buttons {
+  margin-top: 0px;
+}
+@media (max-width: 479px) {
+  .about-testimonial .section-capture {
+    flex-direction: column;
+  }
+  .about-testimonial .section-capture .swiper-buttons {
+    display: none;
+  }
+}
+
+/* mobile slider button css */
+.about-testimonial .swiper-buttons.mobile {
+  display: none;
+}
+@media (max-width: 479px) {
+  .about-testimonial .swiper-buttons.mobile {
+    display: flex;
+  } 
+}
+</style>

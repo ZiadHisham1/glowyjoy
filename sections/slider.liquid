@@ -1,0 +1,462 @@
+{%- if settings.enable_rtl -%}
+{{ 'slider-rtl.css' | asset_url | stylesheet_tag }}
+{%- else -%}
+{{ 'slider.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+<section class="slider-content">
+  <div class="home-slider owl-carousel owl-theme" id="home-slider-{{ section.id }}">
+    {% for block in section.blocks %}
+    <div class="item">
+      <div class="slide-image">
+        {%- if block.settings.slider_img -%}
+        {{ block.settings.slider_img | image_url: width: 1920 | image_tag:
+        loading: 'lazy',
+        width: block.settings.slider_img.width,
+        height: block.settings.slider_img.height,
+        class: "img-fluid desk-img",
+        alt: block.settings.slider_img.alt | escape }}
+        {%- else -%}  
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg desk-img' }}
+        {%- endif -%}
+        {%- if block.settings.slider_mobile_img -%}  
+        {{ block.settings.slider_mobile_img | image_url: width: 1024 | image_tag:
+          loading: 'lazy',
+          width: block.settings.slider_mobile_img.width,
+          height: block.settings.slider_mobile_img.height,
+          class: "img-fluid mobile-img",
+          alt: block.settings.slider_mobile_img.alt | escape }} 
+        {%- else -%}
+        {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+        {{ placeholder | placeholder_svg_tag: 'placeholder-svg mobile-img' }}
+        {%- endif -%}
+        <div class="container slider-info-content">
+          <div class="row">
+            <div class="col">
+              <div>
+                <div class="slider-rates">
+                  <span style="color: #d945ff; width:auto; height: 30px; margin:5px;">
+                      <i style="font-size:12px;" class="ri-star-fill"></i>
+                      <i style="font-size:12px;" class="ri-star-fill"></i>
+                      <i style="font-size:12px;" class="ri-star-fill"></i>
+                      <i style="font-size:12px;" class="ri-star-fill"></i>
+                      <i style="font-size:12px;" class="ri-star-fill"></i>
+                  </span>
+                  <span style="font-weight:600; font-size:10px;">
+                    4.9/5.0 based on more than 1 MILLION sale
+                  </span>
+                </div>
+                </div>
+              <div class="slider-text-info item-{{ block.id }} {% if block.settings.slider_content_position == "right" %} slider-content-right{% elsif block.settings.slider_content_position == "left" %} slider-content-left{% else %} slider-content-center{% endif %}{% if block.settings.slider_text_position == "right" %} slider-text-right{% elsif block.settings.slider_text_position == "left" %} slider-text-left{% else %} slider-text-center{% endif %}">
+                {% if block.settings.slider_title != '' %}
+                <h2 style="font-weight:900; --title-color\: {{ block.settings.slider_title_color }}; --mobile-title-color: {{ block.settings.slider_title_color_mobile }};" class="{% if block.settings.slider_title_effect == "e2" %}e2{% elsif block.settings.slider_title_effect == "e3" %}e3{% elsif block.settings.slider_title_effect == "e4" %}e4{% elsif block.settings.slider_title_effect == "e5" %}e5{% else %}e1{% endif %}">{{ block.settings.slider_title }}</h2>
+                {% endif %}
+                <div class="slider-service {% if block.settings.slider_service_effect == "e2" %}e2{% elsif block.settings.slider_service_effect == "e3" %}e3{% elsif block.settings.slider_service_effect == "e4" %}e4{% elsif block.settings.slider_service_effect == "e5" %}e5{% else %}e1{% endif %}">
+                  <p class="slider-describtion">For a limited time, grab the viral SpaceBuddy at an exclusive 50% discount. Hurry, limited stock available</p>
+                  
+                </div>
+                {% if block.settings.slider_button != '' %}
+                <a href="{{ block.settings.slider_button_url }}" class="slider-button btn {% if block.settings.slider_button_style == 'btn-style1' %}btn-style{% elsif block.settings.slider_button_style == 'btn-style2' %}btn-style2{% else %}btn-style3{% endif %} {% if block.settings.slider_button_effect == "e2" %}e2{% elsif block.settings.slider_button_effect == "e3" %}e3{% elsif block.settings.slider_button_effect == "e4" %}e4{% elsif block.settings.slider_button_effect == "e5" %}e5{% else %}e1{% endif %}">{{ block.settings.slider_button }}</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var owl = $('#home-slider-{{ section.id }}');
+    owl.owlCarousel({
+      loop: true,
+      autoHeight:true,
+      items: 1,
+      rewind: false,
+      margin: 0,
+      nav: true,
+      navText: ['<i class="feather-arrow-left"></i>','<i class="feather-arrow-right"></i>'],
+      dots: false,
+      {%- if settings.enable_rtl -%}
+      rtl: true,
+      {%- endif -%}
+      {% if section.settings.slider_autoplay_enable %}
+      autoplay: true,
+      autoplayTimeout: {{ section.settings.slider_autoplay_timeout }},
+      autoplayHoverPause: true,
+      autoplaySpeed: {{ section.settings.slider_autoplay_speed }},
+      {% endif %}
+      responsive:{
+        0:{
+          items: 1,
+          nav: false,
+          dots: true
+        },
+        479:{
+          items: 1,
+          nav: false,
+          dots: true
+        },
+        768:{
+          items: 1,
+          nav: false,
+          dots: true
+        },
+        979:{
+          items: 1,
+          nav: true,
+          dots: false
+        },
+        1199: {
+          items: 1,
+          nav: true,
+          dots: false
+        }
+      }
+    });
+    {% if section.settings.slider_autoplay_enable %}
+    owl.on('changed.owl.carousel', function() {
+      owl.trigger('stop.owl.autoplay');
+      owl.trigger('play.owl.autoplay');
+    });
+    {% endif %}
+  });
+</script>
+{% schema %}
+{
+  "name": "Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slider Autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay_enable",
+      "label": "Show Slider Autoplay",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "slider_autoplay_timeout",
+      "label": "Slider Autoplay Timeout",
+      "default": "5000",
+      "info": "Put timeout by multiply 'X1000' this field"
+    },
+    {
+      "type": "text",
+      "id": "slider_autoplay_speed",
+      "label": "Slider Autoplay Speed",
+      "default": "250",
+      "info": "Put speed by multiply 'X100' this field"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Slider Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_img",
+          "label": "Image",
+          "info": "Recommended Size: 1920px x 910px"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_mobile_img",
+          "label": "Mobile Image",
+          "info": "Recommended Size: 1000px x 800px"
+        },
+        {
+          "type": "header",
+          "content": "Slider Title"
+        },
+        {
+          "type": "text",
+          "id": "slider_title",
+          "label": "Title",
+          "default": "Elegance"
+        },
+        {
+          "type": "color",
+          "id": "slider_title_color",
+          "label": "Title color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "slider_title_color_mobile",
+          "label": "Title color Mobile",
+          "default": "#3f309a"
+        },
+        {
+          "type": "select",
+          "id": "slider_title_effect",
+          "label": "Title Effect",
+          "options": [
+            {
+              "label": "Effect1",
+              "value": "e1"
+            },
+            {
+              "label": "Effect2",
+              "value": "e2"
+            },
+            {
+              "label": "Effect3",
+              "value": "e3"
+            },
+            {
+              "label": "Effect4",
+              "value": "e4"
+            },
+            {
+              "label": "Effect5",
+              "value": "e5"
+            }
+          ],
+          "default": "e1"
+        },
+        {
+          "type": "header",
+          "content": "Slider Service"
+        },
+        {
+          "type": "select",
+          "id": "slider_service_effect",
+          "label": "Service Effect",
+          "options": [
+            {
+              "label": "Effect1",
+              "value": "e1"
+            },
+            {
+              "label": "Effect2",
+              "value": "e2"
+            },
+            {
+              "label": "Effect3",
+              "value": "e3"
+            },
+            {
+              "label": "Effect4",
+              "value": "e4"
+            },
+            {
+              "label": "Effect5",
+              "value": "e5"
+            }
+          ],
+          "default": "e1"
+        },
+        {
+          "type": "header",
+          "content": "Service 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_1_image_1",
+          "label": "Service Image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_1_image_2",
+          "label": "Mobile Image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "text",
+          "id": "service_1_title",
+          "label": "Text",
+          "default": "Flight time"
+        },
+        {
+          "type": "text",
+          "id": "service_1_desc",
+          "label": "Description",
+          "default": "30 Min"
+        },
+        {
+          "type": "header",
+          "content": "Service 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_2_image_1",
+          "label": "Service Image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_2_image_2",
+          "label": "Mobile Image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "text",
+          "id": "service_2_title",
+          "label": "Text",
+          "default": "72 km / h"
+        },
+        {
+          "type": "text",
+          "id": "service_2_desc",
+          "label": "Description",
+          "default": "30 Min"
+        },
+        {
+          "type": "header",
+          "content": "Service 3"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_3_image_1",
+          "label": "Service Image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_3_image_2",
+          "label": "Mobile Image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "text",
+          "id": "service_3_title",
+          "label": "Text",
+          "default": "Touch sensor"
+        },
+        {
+          "type": "text",
+          "id": "service_3_desc",
+          "label": "Description",
+          "default": "30M to 40M"
+        },
+        {
+          "type": "header",
+          "content": "Slider Button"
+        },
+        {
+          "type": "text",
+          "id": "slider_button",
+          "label": "Button Text",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "slider_button_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "select",
+          "id": "slider_button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "label": "Button Style1",
+              "value": "btn-style1"
+            },
+            {
+              "label": "Button Style2",
+              "value": "btn-style2"
+            },
+            {
+              "label": "Button Style3",
+              "value": "btn-style3"
+            }
+          ],
+          "default": "btn-style1"
+        },
+        {
+          "type": "select",
+          "id": "slider_button_effect",
+          "label": "Button Effect",
+          "options": [
+            {
+              "label": "Effect1",
+              "value": "e1"
+            },
+            {
+              "label": "Effect2",
+              "value": "e2"
+            },
+            {
+              "label": "Effect3",
+              "value": "e3"
+            },
+            {
+              "label": "Effect4",
+              "value": "e4"
+            },
+            {
+              "label": "Effect5",
+              "value": "e5"
+            }
+          ],
+          "default": "e1"
+        },
+        {
+          "type": "header",
+          "content": "Slider Content Position"
+        },
+        {
+          "type": "select",
+          "id": "slider_content_position",
+          "label": "Content Position",
+          "options": [
+            {
+              "label": "left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "header",
+          "content": "Slider Text Position"
+        },
+        {
+          "type": "select",
+          "id": "slider_text_position",
+          "label": "Text Position",
+          "options": [
+            {
+              "label": "left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Slider"
+    }
+  ]
+}
+{% endschema %}

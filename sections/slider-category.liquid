@@ -1,0 +1,515 @@
+<section class="slider-category">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        {% if section.settings.section_title_1 != '' or section.settings.section_title_2 != '' %}
+        <div class="section-capture">
+          <div class="section-title">
+            <h2>
+              {% if section.settings.section_title_1 != '' %}
+              <span class="b-text">{{ section.settings.section_title_1 }}</span>
+              {% endif %}
+              {% if section.settings.section_title_2 != '' %}
+              <span class="n-text">{{ section.settings.section_title_2 }}</span>
+              {% endif %}
+            </h2>
+          </div>
+        </div>
+        {% endif %}
+        <div class="category-block">
+          <div class="cat-slider swiper" id="category-slider-{{ section.id }}">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+              {% assign category_product = collections[block.settings.slider_category_handle] %}
+              <div class="swiper-slide">
+                <div class="category-wrap cat-{{ block.id }}">
+                  <div class="category-main">
+                    <div class="category-image">
+                      <a href="{{ category_product.url }}" class="image-block">
+                        <span class="image">
+                          {%- if block.settings.category_image -%}  
+                          {{ block.settings.category_image | image_url: width: 1024 | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.category_image.width,
+                            height: block.settings.category_image.height,
+                            class: "img-fluid",
+                            alt: block.settings.category_image.alt | escape }} 
+                          {%- else -%}
+                          {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                          {{ placeholder | placeholder_svg_tag: 'placeholder-svg mobile-img' }}
+                          {%- endif -%}
+                        </span>
+                      </a>
+                    </div>
+                    <div class="category-content">
+                      <div class="category-item">
+                        <span class="count">{{ category_product.products.count | default: "0" }}</span>
+                        {% if category_product.products.count == 0 or category_product.products.count == 1 %}
+                        <span class="item">{{ section.settings.item_label }}</span>
+                        {%- else -%}
+                        <span class="item">{{ section.settings.items_label }}</span>
+                        {% endif %}           
+                      </div>     
+                      <a href="{{ category_product.url }}" class="category-title">{{ category_product.title | default: "Category" }}</a>
+                    </div>
+                  </div>
+                  <div class="category-hover">
+                    <div class="category-item">
+                      <span class="count">{{ category_product.products.count | default: "0" }}</span>
+                      {% if category_product.products.count == 0 or category_product.products.count == 1 %}
+                      <span class="item">{{ section.settings.item_label }}</span>
+                      {%- else -%}
+                      <span class="item">{{ section.settings.items_label }}</span>
+                      {% endif %}           
+                    </div> 
+                    {% if section.settings.category_btn_text != '' %}
+                    <div class="category-button">
+                      <a href="{{ category_product.url }}" class="cat-button">{{ section.settings.category_btn_text }}</a>  
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              {% style %}
+              .slider-category .category-block .category-wrap.cat-{{ block.id }}::before {
+                background-image: url('{% if block.settings.category_before_image %}{{ block.settings.category_before_image | image_url }}{% else %}https://dummyimage.com/355x260/232323/FFFFFF{% endif %}');
+                content: '';
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                z-index: 1;
+                opacity: 0;
+                visibility: hidden;
+                -webkit-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+                -o-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+                transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+              }
+              .slider-category .category-block .category-wrap.cat-{{ block.id }}:hover::before {
+                opacity: 1;
+                visibility: visible;
+              }
+              {% endstyle %}
+              {% endfor %}
+            </div>
+          </div>
+          <div class="swiper-dots">
+            <div class="swiper-pagination swiper-pagination-{{ section.id }}"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+addEventListener('DOMContentLoaded', (event) => {
+  var swiper = new Swiper('.swiper#category-slider-{{ section.id }}', {
+    slidesPerView: 6,
+    spaceBetween: 30,
+    observer: true,
+    observeParents: true,
+    watchSlidesProgress: true,
+    loop: false,
+    {%- if settings.enable_rtl -%}
+    rtl: true,
+    {%- endif -%}
+    pagination: {
+      el: ".swiper-pagination-{{ section.id }}",
+      clickable: true
+    },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      540: {
+        slidesPerView: 2,
+        spaceBetween: 12
+      },
+      640: {
+        slidesPerView: 3,
+        spaceBetween: 12
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 30
+      },
+      1199: {
+        slidesPerView: 5,
+        spaceBetween: 30
+      },
+      1299: {
+        slidesPerView: 5,
+        spaceBetween: 30
+      },
+      1399: {
+        slidesPerView: 6,
+        spaceBetween: 30
+      },
+      1599: {
+        slidesPerView: 6,
+        spaceBetween: 30
+      }
+    }
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Category",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_lg",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_lg",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_color_enable",
+      "label": "Show Background Color",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#F9F9F9"
+    },
+    {
+      "type": "header",
+      "content": "Section Before Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_before_image_enable",
+      "label": "Show Before Image",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "section_before_image",
+      "label": "Image",
+      "info": "Recommended Size: 100 x 75px"
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title_1",
+      "label": "Title 1",
+      "default": "Shop by"
+    },
+    {
+      "type": "text",
+      "id": "section_title_2",
+      "label": "Title 2",
+      "default": "category"
+    },
+    {
+      "type": "header",
+      "content": "Category Item Label"
+    },
+    {
+      "type": "text",
+      "id": "item_label",
+      "label": "Item Label",
+      "default": "Item"
+    },
+    {
+      "type": "text",
+      "id": "items_label",
+      "label": "Items Label",
+      "default": "Items"
+    },
+    {
+      "type": "header",
+      "content": "Category Button Text"
+    },
+    {
+      "type": "text",
+      "id": "category_btn_text",
+      "label": "Button Text",
+      "default": "Buy now"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "slider-category",
+      "type": "product_tab",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Select Your Collection"
+        },
+        {
+          "type": "collection",
+          "id": "slider_category_handle",
+          "label": "Collection"
+        },
+        {
+          "type": "header",
+          "content": "Category Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "category_image",
+          "label": "Image",
+          "info": "Recommended Size: 512px x 512px"
+        },
+        {
+          "type": "header",
+          "content": "Category Hover Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "category_before_image",
+          "label": "Hover Image",
+          "info": "Recommended Size: 355px x 260px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.slider-category {
+  position: relative;
+  padding-top:{{ section.settings.section_padding_top }}px;
+  padding-bottom:{{ section.settings.section_padding_bottom }}px;
+  {% if section.settings.section_bg_color_enable %}
+  background-color: {{ section.settings.section_bg_color }};
+  {% endif %}
+}
+@media (max-width: 1199px) {
+  .slider-category {
+    padding-top:{{ section.settings.section_padding_top_lg }}px;
+    padding-bottom:{{ section.settings.section_padding_bottom_lg }}px;
+  }
+}
+@media (max-width: 767px) {
+  .slider-category {
+    padding-top:{{ section.settings.section_padding_top_xs }}px;
+    padding-bottom:{{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+{% if section.settings.section_before_image_enable %}
+.slider-category {
+  margin-bottom: 35px;
+}
+.slider-category::before {
+  background-image: url('{% if section.settings.section_before_image %}{{ section.settings.section_before_image | image_url }}{% else %}https://dummyimage.com/70x75/232323/FFFFFF{% endif %}');
+  content: '';
+  position: absolute;
+  bottom: -35px;
+  {%- if settings.enable_rtl -%}
+  right: 16.67%;
+  {%- else -%}
+  left: 16.67%;
+  {%- endif -%}
+  width: 70px;
+  height: 75px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+@media (max-width: 767px) {
+  .slider-category::before {
+    {%- if settings.enable_rtl -%}
+    right: 50px;
+    {%- else -%}
+    left: 50px;
+    {%- endif -%}
+  }
+}
+@media (max-width: 479px) {
+  .slider-category {
+    margin-bottom: 0px;
+  }
+  .slider-category::before {
+    display: none;
+  }
+}
+{% endif %}
+
+.slider-category .category-block .category-wrap {
+  position: relative;
+  background-color: #FFFFFF;
+  text-align: center;
+}
+.slider-category .category-block .category-wrap .category-main {
+  -webkit-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+.slider-category .category-block .category-wrap:hover .category-main {
+  opacity: 0;
+  visibility: hidden;
+}
+.slider-category .category-block .category-wrap .category-main .category-image {
+  padding: 50px 15px;
+}
+.slider-category .category-block .category-wrap .category-main .category-image a.image-block {
+  width: 75px;
+}
+.slider-category .category-block .category-wrap .category-main .category-image a.image-block span.image svg {
+  width: 100%;
+}
+.slider-category .category-block .category-wrap .category-main .category-content {
+  padding: 0px 15px 30px;
+}
+.slider-category .category-block .category-wrap .category-main .category-content .category-item span {
+  color: var(--font-color-primary);
+  font-weight: var(--font-custom-weight-section-header);
+  text-transform: uppercase;
+}
+.slider-category .category-block .category-wrap .category-main .category-content a.category-title {
+  font-size: 18px;
+  margin-top: 9px;
+  font-weight: var(--font-custom-weight-header);
+}
+.slider-category .category-block .category-wrap .category-hover {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  -webkit-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+.slider-category .category-block .category-wrap:hover .category-hover {
+  opacity: 1;
+  visibility: visible;
+}
+.slider-category .category-block .category-wrap .category-hover .category-item span {
+  color: #FFFFFF;
+  font-weight: var(--font-custom-weight-section-header);
+  text-transform: uppercase;
+}
+.slider-category .category-block .category-wrap .category-hover .category-button {
+  width: 100%;
+}
+.slider-category .category-block .category-wrap .category-hover .category-button a.cat-button {
+  background-color: var(--font-color-primary);
+  color: #ffffff;
+  font-size: 16px;
+  padding: 16px 30px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: var(--font-custom-weight-header);
+  border-radius: var(--sti-border-radius);
+}
+.slider-category .category-block .category-wrap .category-hover .category-button a.cat-button:hover {
+  background-color: #FFFFFF;
+  color: var(--font-color-primary);
+}
+</style>

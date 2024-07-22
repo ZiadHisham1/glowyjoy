@@ -1,0 +1,574 @@
+<section class="home-about-area" {% if section.settings.section_bg_image_enable %}style="background-image: url('{% if section.settings.section_bg_image %}{{ section.settings.section_bg_image | image_url }}{% else %}https://dummyimage.com/1920x800/f7f7f7/999999{% endif %}');"{% endif %}>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="home-about-main">
+          <div class="home-about-image">
+            <span class="image-block">
+              {%- if section.settings.home_about_image -%}
+              {{ section.settings.home_about_image | image_url: width: 1024 | image_tag:
+              loading: 'lazy',
+              width: section.settings.home_about_image.width,
+              height: section.settings.home_about_image.height,
+              class: "img-fluid image-1",
+              alt: section.settings.home_about_image.alt | escape }}
+              {%- else -%}  
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </span>
+          </div>
+          <div class="home-about-content">
+            <div class="content-main">
+              <div class="about-content">
+                <div class="section-capture">
+                  <div class="section-title">
+                    {% if section.settings.home_about_title != '' %}
+                    <h2 style="margin:10px; color:#000;">{{ section.settings.home_about_title }}</h2>
+                    {% endif %}
+                    {% if section.settings.home_about_desc != '' %}
+                    <p class="desc">{{ section.settings.home_about_desc }}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="about-service">
+                <ul class="about-service-ul">
+                  {% for block in section.blocks %}
+                  <li class="about-service-li">
+                    <div class="about-service-main">    
+                      <a href="{{ block.settings.service_url }}" >
+                         <span class="image-block">
+                            {%- if block.settings.service_icon_image -%}
+                            {{ block.settings.service_icon_image | image_url: width: 1024 | image_tag:
+                            loading: 'lazy',
+                            width: block.settings.service_icon_image.width,
+                            height: block.settings.service_icon_image.height,
+                            class: "img-fluid image-1",
+                            style: "max-width:250px; max-height: 250px;",
+                            alt: block.settings.service_icon_image.alt | escape }}
+                            {%- else -%}  
+                            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                            {%- endif -%}
+                         </span>
+                      </a>
+                      {% if block.settings.service_title != '' %}
+                      <a href="{{ block.settings.service_url }}" style="font-weight:700; font-size: 25px;" class="title">{{ block.settings.service_title }}</a>
+                      {% endif %}
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 
+
+{% schema %}
+{
+  "name": "Home About",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_color_enable",
+      "label": "Show Background Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#F9F9F9"
+    },
+    {
+      "type": "header",
+      "content": "Section Backgorund Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bg_image",
+      "label": "Backgorund Image",
+      "info": "Recommended Size: 1920px x 800px"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_image_enable",
+      "label": "Show Backgorund Images",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#C19D60"
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.3
+    },
+    {
+      "type": "header",
+      "content": "Home About Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "home_about_image",
+      "label": "Image",
+      "info": "Recommended Size: 940x1135px"
+    },
+    {
+      "type": "header",
+      "content": "Home About Title"
+    },
+    {
+      "type": "text",
+      "id": "home_about_title",
+      "label": "Title",
+      "default": "Direction sensing"
+    },
+    {
+      "type": "textarea",
+      "id": "home_about_desc",
+      "label": "Description",
+      "default": "The limitations and different types of object avoidance in this article I’ll go through the best drones with obstacle avoidance."
+    },
+    {
+      "type": "header",
+      "content": "Home About Service"
+    },
+    {
+      "type": "header",
+      "content": "Home About Image"
+    },
+    {
+      "type": "text",
+      "id": "about_image_title",
+      "label": "Image Title",
+      "default": "Couple rings"
+    },
+    {
+      "type": "header",
+      "content": "Home About Content"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Subtitle",
+      "default": "Aolie jewellery store history 2023"
+    },
+    {
+      "type": "text",
+      "id": "section_title_1",
+      "label": "Title 1",
+      "default": "Jewellery that as"
+    },
+    {
+      "type": "text",
+      "id": "section_title_2",
+      "label": "Title 2",
+      "default": "beautiful as you are."
+    },
+    {
+      "type": "textarea",
+      "id": "about_content_desc",
+      "label": "Description",
+      "default": "Our jewelry is made by the finest artists and carefully selected to reflect your style and personality we our jewellery collection."
+    },
+    {
+      "type": "text",
+      "id": "about_content_btn_text",
+      "label": "Button Text",
+      "default": "Explore now"
+    },
+    {
+      "type": "url",
+      "id": "about_content_btn_url",
+      "label": "Button url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "About Service",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Service Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "service_icon_image",
+          "label": "Icon image",
+          "info": "recommended size 150 X 150 px"
+          
+        },
+    
+        {
+          "type": "text",
+          "id": "service_title",
+          "label": "Title",
+          "default": "Directions sensing"
+        },
+        {
+          "type": "url",
+          "id": "service_url",
+          "label": "url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home About"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.home-about-area {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  {% if section.settings.section_bg_color_enable %}
+  background-color: {{ section.settings.section_bg_color }};
+  {% endif %}
+  {% if section.settings.section_bg_image_enable %}
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  {% endif %}
+  {% if section.settings.border_enable %}
+  border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+  {% endif %}
+  margin-top: -80px;
+  z-index: 1;
+  position: relative;
+}
+@media (max-width: 1399px) {
+  .home-about-area {
+    margin-top: -50px;  
+  }
+}
+@media (max-width: 1299px) {
+  .home-about-area {
+    margin-top: -30px;  
+  }
+}
+@media (max-width: 1199px) {
+  .home-about-area {
+    padding-top: {{ section.settings.section_padding_top_ip }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+  }
+}
+@media (max-width: 991px) {
+  .home-about-area {
+    margin-top: 0px;  
+  }
+}
+@media (max-width: 767px) {
+  .home-about-area {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+/* main css */
+.home-about-area .home-about-main {
+  background-color: var(--extra-color-body);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  border-radius: var(--sti-border-radius);
+}
+.home-about-area .home-about-main .home-about-image {
+  width: 33.33%;
+}
+.home-about-area .home-about-main .home-about-content {
+  width: 66.67%;
+}
+@media (max-width: 1199px) {
+  .home-about-area .home-about-main .home-about-image,
+  .home-about-area .home-about-main .home-about-content {
+    width: 100%;
+  }
+}
+
+/* image css */
+.home-about-area .home-about-main .home-about-image span.image-block svg {
+  width: 100%;
+}
+{% if settings.enable_rtl %}
+.home-about-area .home-about-main .home-about-image span.image-block img {
+  transform: scaleX(-1);
+}
+{% endif %}
+
+/* content css */
+.home-about-area .home-about-main .home-about-content .content-main {
+  padding: 0px 120px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture {
+  margin-bottom: 0px;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture .section-title {
+  display: flex;
+  align-items: center;
+  {% if settings.enable_rtl %}
+  text-align: right;
+  {% else %}
+  text-align: left;
+  {% endif %}
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture .section-title h2 {
+  {% if settings.enable_rtl %}
+  padding-left: 60px;
+  {% else %}
+  padding-right: 60px;
+  {% endif %}
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture .section-title p {
+  {% if settings.enable_rtl %}
+  margin-right: 0px;
+  padding-right: 0px;
+  {% else %}
+  margin-left: 0px;
+  padding-left: 0px;
+  {% endif %}
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture .section-title p::before {
+  display: none;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul {
+  display: flex;
+  flex-wrap: wrap;
+  {% if settings.enable_rtl %}
+  margin-right: -30px;
+  {% else %}
+  margin-left: -30px;
+  {% endif %}
+  margin-top: -30px;
+} 
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li {
+  width: calc(33.33% - 30px);
+  margin-top: 30px; background-color:transparent;
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li .about-service-main {
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--sti-border-radius);
+  overflow: hidden;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li .about-service-main::before {
+  background-color: var(--font-color-primary);
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 5px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+  -o-transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+  transition: opacity .3s ease-in-out, visibility .3s ease-in-out;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li:hover .about-service-main::before {
+  opacity: 1;
+  visibility: visible;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li .about-service-main a.icon-block {
+  color: var(--font-color-primary);
+  font-size: 35px;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li .about-service-main a.icon-block span.icon {
+  line-height: 1;
+  display: block;
+}
+.home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li .about-service-main a.title {
+  font-size: 18px;
+  margin-top: 23px;
+  font-weight: var(--font-custom-weight-header);
+} 
+@media (max-width: 1399px) {
+  .home-about-area .home-about-main .home-about-content .content-main {
+    padding: 0px 50px;
+  }
+}
+@media (max-width: 1199px) {
+  .home-about-area .home-about-main .home-about-content .content-main {
+    padding: 50px;
+  }
+  .home-about-area .home-about-main .home-about-content .content-main .about-service {
+    margin-top: 35px;
+  }
+}
+@media (max-width: 991px) {
+  .home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture .section-title {
+    flex-direction: column;
+    text-align: center;
+  }
+  .home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li .about-service-main a.title {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .home-about-area .home-about-main .home-about-content .content-main {
+    padding: 30px 12px;
+  }
+  .home-about-area .home-about-main .home-about-content .content-main .about-service {
+    margin-top: 21px;
+  }
+  .home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul {
+    {% if settings.enable_rtl %}
+    margin-right: -12px;
+    {% else %}
+    margin-left: -12px;
+    {% endif %}
+  }
+  .home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li {
+    width: calc(33.33% - 12px);
+    {% if settings.enable_rtl %}
+    margin-right: 12px;
+    {% else %}
+    margin-left: 12px;
+    {% endif %}
+  }
+}
+@media (max-width: 479px) {
+  .home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture .section-title h2 {
+    {% if settings.enable_rtl %}
+    padding-left: 0px;
+    {% else %}
+    padding-right: 0px;
+    {% endif %}
+  }
+  .home-about-area .home-about-main .home-about-content .content-main .about-content .section-capture .section-title p {
+    margin-top: 16px; 
+  }
+  .home-about-area .home-about-main .home-about-content .content-main .about-service ul.about-service-ul li.about-service-li {
+    width: calc(100% - 12px);
+  }
+}
+</style>

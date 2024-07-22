@@ -1,0 +1,664 @@
+<section class="home-deal-area">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="home-deal-bg" {% if section.settings.deal_bg_image_enable %}style="background-image: url('{% if section.settings.deal_bg_image %}{{ section.settings.deal_bg_image | image_url }}{% else %}https://dummyimage.com/1350x100/f7f7f7/999999{% endif %}');"{% endif %}>
+          <div class="home-deal-wrap">
+            <div class="home-deal-block">
+              <div class="home-deal-image">
+                <div class="deal-image">
+                  <span class="banner-block">
+                    {% comment %}
+                    <img src="https://dummyimage.com/150x165/333333/999999" class="img-fluid" alt="image">
+                    {% endcomment %}
+                    
+                    {%- if section.settings.home_deal_image -%}
+                    {{ section.settings.home_deal_image | image_url: width: 1024 | image_tag:
+                    loading: 'lazy',
+                    width: section.settings.home_deal_image.width,
+                    height: section.settings.home_deal_image.height,
+                    class: "img-fluid image-1",
+                    alt: section.settings.home_deal_image.alt | escape }}
+                    {%- else -%}  
+                    {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {%- endif -%}
+                  </span>
+                </div>
+              </div>
+              <div class="home-deal-content">
+                <div class="deal-content">
+                  {% if section.settings.home_deal_title != '' %}
+                  <div class="home-deal-title">
+                    <h2 class="title" style="color: {{ section.settings.home_deal_title_color }};">{{ section.settings.home_deal_title }}</h2>
+                  </div>
+                  {% endif %}
+                  <div class="home-deal-timer">
+                    <div class="content-timer">
+                      <div class="timer-block">
+                        <div class="banner-countdown">
+                          <span id="deal_banner_days" class="banner-countdown-timer"></span>
+                          <span class="banner-countdown-title">{{ section.settings.deal_banner_day_title }}</span>
+                        </div>
+                      </div>
+                      <div class="timer-block">
+                        <div class="banner-countdown">
+                          <span id="deal_banner_hours" class="banner-countdown-timer"></span>
+                          <span class="banner-countdown-title">{{ section.settings.deal_banner_hour_title }}</span>
+                        </div>
+                      </div>
+                      <div class="timer-block">
+                        <div class="banner-countdown">
+                          <span id="deal_banner_minutes" class="banner-countdown-timer"></span>
+                          <span class="banner-countdown-title">{{ section.settings.deal_banner_minute_title }}</span>
+                        </div>
+                      </div>
+                      <div class="timer-block">
+                        <div class="banner-countdown">
+                          <span id="deal_banner_seconds" class="banner-countdown-timer"></span>
+                          <span class="banner-countdown-title">{{ section.settings.deal_banner_second_title }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home-deal-button">
+                    <a href="{{ section.settings.home_deal_button_url }}" class="btn {% if section.settings.home_deal_button_style == 'btn-style1' %}btn-style{% elsif section.settings.home_deal_button_style == 'btn-style2' %}btn-style2{% else %}btn-style3{% endif %}">{{ section.settings.home_deal_button_text }}</a>                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  addEventListener('DOMContentLoaded', (event) => {
+    const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+    let countDown = new Date('{{ section.settings.deal_banner_month }} {{ section.settings.deal_banner_date }}, {{ section.settings.deal_banner_year }} 00:00:00').getTime(),
+    x = setInterval(function() {
+      let now = new Date().getTime(),
+      distance = countDown - now;
+      document.getElementById('deal_banner_days').innerText = Math.floor(distance / (day)),
+      document.getElementById('deal_banner_hours').innerText = Math.floor((distance % (day)) / (hour)),
+      document.getElementById('deal_banner_minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+      document.getElementById('deal_banner_seconds').innerText = Math.floor((distance % (minute)) / second);
+    }, second)
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Deal Of The Day",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_color_enable",
+      "label": "Show Background Color",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#F9F9F9"
+    },
+    {
+      "type": "header",
+      "content": "Section Backgorund Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "deal_bg_image",
+      "label": "Backgorund Image",
+      "info": "Recommended Size: 1350px x 100px"
+    },
+    {
+      "type": "checkbox",
+      "id": "deal_bg_image_enable",
+      "label": "Show Backgorund Images",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.2
+    },
+    {
+      "type": "header",
+      "content": "Deal Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "home_deal_image",
+      "label": "Image",
+      "info": "Recommended Size: 150x165px"
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "home_deal_title",
+      "label": "Title",
+      "default": "Deal of the day"
+    },
+    {
+      "type": "color",
+      "id": "home_deal_title_color",
+      "label": "Title Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Deal Timer"
+    },
+    {
+      "type": "text",
+      "id": "deal_banner_date",
+      "label": "Timer Date",
+      "default": "15"
+    },
+    {
+      "type": "select",
+      "id": "deal_banner_month",
+      "label": "Timer Month",
+      "options": [
+        {
+          "label": "Jan",
+          "value": "jan"
+        },
+        {
+          "label": "Feb",
+          "value": "feb"
+        },
+        {
+          "label": "Mar",
+          "value": "mar"
+        },
+        {
+          "label": "Apr",
+          "value": "apr"
+        },
+        {
+          "label": "May",
+          "value": "may"
+        },
+        {
+          "label": "Jun",
+          "value": "jun"
+        },
+        {
+          "label": "Jul",
+          "value": "jul"
+        },
+        {
+          "label": "Aug",
+          "value": "aug"
+        },
+        {
+          "label": "Sep",
+          "value": "sep"
+        },
+        {
+          "label": "Oct",
+          "value": "oct"
+        },
+        {
+          "label": "Nov",
+          "value": "nov"
+        },
+        {
+          "label": "Dec",
+          "value": "dec"
+        }
+      ],
+      "default": "dec"
+    },
+    {
+      "type": "text",
+      "id": "deal_banner_year",
+      "label": "Timer Year",
+      "default": "2025"
+    },
+    {
+      "type": "header",
+      "content": "Deal Title"
+    },
+    {
+      "type": "text",
+      "id": "deal_banner_day_title",
+      "label": "Day Title",
+      "default": "Dys"
+    },
+    {
+      "type": "text",
+      "id": "deal_banner_hour_title",
+      "label": "Hour Title",
+      "default": "Hrs"
+    },
+    {
+      "type": "text",
+      "id": "deal_banner_minute_title",
+      "label": "Minute Title",
+      "default": "Min"
+    },
+    {
+      "type": "text",
+      "id": "deal_banner_second_title",
+      "label": "Second Title",
+      "default": "Sec"
+    },
+    {
+      "type": "header",
+      "content": "Deal Button"
+    },
+    {
+      "type": "text",
+      "id": "home_deal_button_text",
+      "label": "Button Text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "home_deal_button_url",
+      "label": "Button url"
+    },
+    {
+      "type": "select",
+      "id": "home_deal_button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "label": "Button Style1",
+          "value": "btn-style1"
+        },
+        {
+          "label": "Button Style2",
+          "value": "btn-style2"
+        },
+        {
+          "label": "Button Style3",
+          "value": "btn-style3"
+        }
+      ],
+      "default": "btn-style3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Deal Of The Day"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.home-deal-area {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+}
+@media (max-width: 1199px) {
+  .home-deal-area {
+    padding-top: {{ section.settings.section_padding_top_ip }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+  }
+}
+@media (max-width: 767px) {
+  .home-deal-area {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+.home-deal-area .home-deal-bg {
+  position: relative;
+  margin-top: 65px;
+  {% if section.settings.deal_bg_image_enable %}
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  {% endif %}
+  {% if section.settings.section_bg_color_enable %}
+  background-color: {{ section.settings.section_bg_color }};
+  {% endif %}
+  border-radius: var(--sti-border-radius);
+}
+/* main css */
+.home-deal-area .home-deal-bg .home-deal-wrap {
+  width: 83.33%;
+  margin: 0 auto;
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  {% if settings.enable_rtl %}
+  margin-right: -30px;
+  {% else %}
+  margin-left: -30px;
+  {% endif %}
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-image {
+  width: calc(16.67% - 30px);
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+  position: relative;
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content {    
+  width: calc(83.33% - 30px);
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+  padding: 30px 0px;
+}
+@media (max-width: 1399px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap {
+    width: 100%;
+    padding: 0px 30px;
+  }
+}
+@media (max-width: 1199px) {
+  .home-deal-area .home-deal-bg {
+    margin-top: 0px;
+  }
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-image,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content {
+    width: calc(100% - 30px);
+  }
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-image {
+    order: 1;
+    text-align: center;
+  }
+}
+@media (max-width: 767px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap {
+    padding: 0px 12px;
+  }
+}
+
+/* deal content main css */
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  {% if settings.enable_rtl %}
+  margin-right: -30px;
+  {% else %}
+  margin-left: -30px;
+  {% endif %}
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title {
+  width: calc(41.67% - 30px);
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+  text-align: center;
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer {
+  width: calc(33.33% - 30px);
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-button {
+  width: calc(25% - 30px);
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+@media (max-width: 1199px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-button {
+    width: calc(33.33% - 30px);
+  }
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title {
+    {% if settings.enable_rtl %}
+    text-align: right;
+    {% else %}
+    text-align: left;
+    {% endif %}
+  }
+}
+@media (max-width: 991px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content {
+    flex-direction: column;
+  }
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-button {
+    width: calc(50% - 30px);
+  }
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title {
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-button {
+    margin-top: 20px;
+    justify-content: center;
+  }
+}
+@media (max-width: 767px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content {
+    {% if settings.enable_rtl %}
+    margin-right: -12px;
+    {% else %}
+    margin-left: -12px;
+    {% endif %}
+  }
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-button {
+    width: calc(50% - 12px);
+    {% if settings.enable_rtl %}
+    margin-right: 12px;
+    {% else %}
+    margin-left: 12px;
+    {% endif %}
+  }
+}
+@media (max-width: 479px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer,
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-button {
+    width: calc(100% - 12px);
+  }
+}
+
+/* deal image css */
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-image span.banner-block {
+  position: absolute;
+  bottom: 0;
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-image span.banner-block svg {
+  width: 100%;
+}
+@media (max-width: 1199px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-image span.banner-block {
+    position: relative;
+  }
+}
+/* deal title css */
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title h2.title {
+  font-size: 40px;
+  font-weight: var(--font-custom-weight-section-header);
+}
+@media (max-width: 1199px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-title h2.title {
+    font-size: 30px;
+  }
+}
+/* deal timer css */
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer .content-timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer .content-timer .timer-block {
+  position: relative;
+  padding-bottom: 100%;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer .content-timer .timer-block .banner-countdown {
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer .content-timer .timer-block .banner-countdown span.banner-countdown-timer {
+  color: var(--font-color-primary);
+  font-size: 18px;
+  font-weight: var(--font-custom-weight-section-header);
+}
+.home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer .content-timer .timer-block .banner-countdown span.banner-countdown-title {
+  font-size: 12px;
+  margin-top: 3px;
+  font-weight: var(--font-custom-weight-section-header);
+  text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .home-deal-area .home-deal-bg .home-deal-wrap .home-deal-block .home-deal-content .deal-content .home-deal-timer .content-timer {
+    gap: 12px;
+  }
+}
+</style>

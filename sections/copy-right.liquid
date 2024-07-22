@@ -1,0 +1,283 @@
+{% if section.settings.copyright_enable %}
+<footer class="copyright-block">
+  <div class="copyright-logo">
+    {% render 'company-logo' %}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="copyright-main">
+          <ul class="copyright-ul">
+            <li class="copyright-li copy-text">
+              <div class="text-block">
+                <p>
+                  <span>{{ section.settings.copy_right_text1 }}</span>
+                  <span class="copy-icon"><i class="{{ section.settings.copy_right_icon }}"></i></span>
+                  <span>{{ section.settings.copy_right_text2 }}</span>
+                </p>
+              </div>
+            </li>
+            <li class="copyright-li link-block">
+              <div class="link-area">
+                {% if section.settings.copy_link_1_text != '' %}
+                <a href="{{ section.settings.copy_link_1_url }}" class="link">{{ section.settings.copy_link_1_text }}</a>
+                {% endif %}
+                {% if section.settings.copy_link_2_text != '' %}
+                <a href="{{ section.settings.copy_link_2_url }}" class="link">{{ section.settings.copy_link_2_text }}</a>
+                {% endif %}
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endif %}
+{% schema %}
+{
+  "name": "Copyright",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "copyright_enable",
+      "label": "Copyright Enable",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Section Background"
+    },
+    {
+      "type": "header",
+      "content": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "copyright_text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.1
+    },
+    {
+      "type": "header",
+      "content": "Copyright Text"
+    },
+    {
+      "type": "text",
+      "id": "copy_right_text1",
+      "label": "CopyRight Text1",
+      "default": "Copyright"
+    },
+    {
+      "type": "text",
+      "id": "copy_right_icon",
+      "label": "CopyRight Class",
+      "default": "fa fa-copyright"
+    },
+    {
+      "type": "textarea",
+      "id": "copy_right_text2",
+      "label": "CopyRight Text2",
+      "default": "2023 by qodex<sup>TM</sup>"
+    },
+    {
+      "type": "header",
+      "content": "Copyright Link"
+    },
+    {
+      "type": "header",
+      "content": "Link 1"
+    },
+    {
+      "type": "text",
+      "id": "copy_link_1_text",
+      "label": "Link Text",
+      "default": "Privacy policy"
+    },
+    {
+      "type": "url",
+      "id": "copy_link_1_url",
+      "label": "url"
+    },
+    {
+      "type": "header",
+      "content": "Link 2"
+    },
+    {
+      "type": "text",
+      "id": "copy_link_2_text",
+      "label": "Link Text",
+      "default": "Return policy"
+    },
+    {
+      "type": "url",
+      "id": "copy_link_2_url",
+      "label": "url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copyright"
+    }
+  ]
+}
+{% endschema %}
+{% if section.settings.copyright_enable %}
+<style>
+.copyright-block {
+  position: relative;
+  background-color: {{ section.settings.section_bg_color }};
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  {% if section.settings.border_enable %}
+  border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+  {% endif %}
+}
+/* logo css */
+.copyright-block .copyright-logo {
+  position: relative;
+  text-align: center;
+}
+.copyright-block .copyright-logo::before{
+  content: '';
+  position: absolute;
+  right: 0px;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: 0px;
+  border: 1px solid var(--theme-border-color);
+  z-index: -1;
+}
+.copyright-block .copyright-logo a.theme-header-logo {
+  background-color: #FFFFFF;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0px 70px;
+}
+@media (max-width: 1199px) {
+  .copyright-block .copyright-logo a.theme-header-logo {
+    padding: 0px 30px;
+  }
+}
+
+/* main css */
+.copyright-block .copyright-main {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.copyright-block .copyright-main ul.copyright-ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.copyright-block .copyright-main ul.copyright-ul li.copyright-li {
+  width: 50%;
+}
+@media (max-width: 479px) {
+  .copyright-block .copyright-main ul.copyright-ul {
+    flex-direction: column;
+    text-align: center;
+  }
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li {
+    width: 100%;
+  }
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.link-block {
+    margin-top: 6px;
+  }
+}
+/* link css */
+.copyright-block .copyright-main ul.copyright-ul li.copyright-li.link-block .link-area {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.copyright-block .copyright-main ul.copyright-ul li.copyright-li.link-block .link-area a.link {
+  {%- if settings.enable_rtl -%}
+  margin-right: 30px;
+  {%- else -%}
+  margin-left: 30px;
+  {%- endif -%}
+  color: var(--font-color-paragraph);
+}
+.copyright-block .copyright-main ul.copyright-ul li.copyright-li.link-block .link-area a.link:first-child {
+  {%- if settings.enable_rtl -%}
+  margin-right: 0px;
+  {%- else -%}
+  margin-left: 0px;
+  {%- endif -%}
+}
+.copyright-block .copyright-main ul.copyright-ul li.copyright-li.link-block .link-area a.link:hover {
+  color: var(--font-color-primary);
+}
+@media (max-width: 479px) {
+  .copyright-block .copyright-main ul.copyright-ul li.copyright-li.link-block .link-area {
+    justify-content: center;
+  }
+}
+</style>
+{% endif %}

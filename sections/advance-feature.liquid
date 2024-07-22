@@ -1,0 +1,550 @@
+<section class="advance-feature-area" {% if section.settings.section_bg_image_enable %}style="background-image: url('{% if section.settings.section_bg_image %}{{ section.settings.section_bg_image | image_url }}{% else %}https://dummyimage.com/1920x800/f7f7f7/999999{% endif %}');"{% endif %}>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="section-capture">
+          <div class="section-title">
+            {% if section.settings.section_title != '' %}
+            <h2>{{ section.settings.section_title }}</h2>
+            {% endif %}
+            {% if section.settings.section_desc != '' %}
+            <p>{{ section.settings.section_desc }}</p>
+            {% endif %}
+          </div>
+          <div class="swiper-buttons">
+            <button class="swiper-prev swiper-prev-{{ section.id }}"><i class="ri-arrow-left-line"></i></button>
+            <button class="swiper-next swiper-next-{{ section.id }}"><i class="ri-arrow-right-line"></i></button>
+          </div>
+        </div>
+        <div class="advance-feature">
+          <div class="feature-slider swiper" id="advance-feature-slider">
+            <div class="swiper-wrapper">
+              {% for block in section.blocks %}
+              <div class="swiper-slide">
+                <div class="feature-main">
+                  <div class="feature-content">
+                    {% if block.settings.feature_count != '' %}
+                    <h2 class="count">{{ block.settings.feature_count }}</h2>
+                    {% endif %}
+                    {% if block.settings.feature_title != '' %}
+                    <h4 class="title">{{ block.settings.feature_title }}</h4>
+                    {% endif %}
+                    {% if block.settings.feature_desc != '' %}
+                    <p class="desc">{{ block.settings.feature_desc }}</p>
+                    {% endif %}
+                  </div>
+                  <div class="feature-image">
+                    <span class="image">
+                      {% comment %}
+                      <img src="https://dummyimage.com/201x172/e2e2e2/999999" class="img-fluid" alt="image">
+                      {% endcomment %}
+
+                      {%- if block.settings.advance_feature_image -%}
+                      {{ block.settings.advance_feature_image | image_url: width: 512 | image_tag:
+                      loading: 'lazy',
+                      width: block.settings.advance_feature_image.width,
+                      height: block.settings.advance_feature_image.height,
+                      class: "img-fluid image-1",
+                      alt: block.settings.advance_feature_image.alt | escape }}
+                      {%- else -%}  
+                      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="swiper-buttons mobile">
+            <button class="swiper-prev swiper-prev-{{ section.id }}"><i class="ri-arrow-left-line"></i></button>
+            <button class="swiper-next swiper-next-{{ section.id }}"><i class="ri-arrow-right-line"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var swiper = new Swiper('.swiper#advance-feature-slider', {
+      slidesPerView: 3,
+      grid: {
+        rows: 1,
+        fill: 'row' | 'column',
+      },
+      spaceBetween: 30,
+      observer: true,
+      observeParents: true,
+      watchSlidesProgress: true,
+      {%- if settings.enable_rtl -%}
+      rtl: true,
+      {%- endif -%}
+      navigation: {
+        nextEl: '.swiper-next-{{ section.id }}',
+        prevEl: '.swiper-prev-{{ section.id }}',
+      },
+      pagination: {
+        el: ".swiper-pagination-{{ section.id }}",
+        clickable: true
+      },
+      // autoplay: {
+      //   delay: 5000,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true
+      // },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        320: {
+          slidesPerView: 1,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        360: {
+          slidesPerView: 1,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        540: {
+          slidesPerView: 1,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        540: {
+          slidesPerView: 1,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        640: {
+          slidesPerView: 2,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 12
+        },
+        768: {
+          slidesPerView: 2,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        },
+        1024: {
+          slidesPerView: 2,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        },
+        1199: {
+          slidesPerView: 3,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        },
+        1399: {
+          slidesPerView: 3,
+          grid: {
+            rows: 1,
+            fill: 'row' | 'column',
+          },
+          spaceBetween: 30
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Advance Feature",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background Color"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_color_enable",
+      "label": "Show Background Color",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background Color",
+      "default": "#F9F9F9"
+    },
+    {
+      "type": "header",
+      "content": "Section Backgorund Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bg_image",
+      "label": "Backgorund Image",
+      "info": "Recommended Size: 1920px x 800px"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_image_enable",
+      "label": "Show Backgorund Images",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.2
+    },
+    {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Advance features"
+    },
+    {
+      "type": "textarea",
+      "id": "section_desc",
+      "label": "Section Description",
+      "default": "Every best performance features"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "advance_feature_item",
+      "name": "Advance Feature Item",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Feature Content"
+        },
+        {
+          "type": "text",
+          "id": "feature_count",
+          "label": "Feature Count",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Feature Title",
+          "default": "Mobile holder"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_desc",
+          "label": "Description",
+          "default": "In addition to the software, autonomous drones also employ a host."
+        },
+        {
+          "type": "header",
+          "content": "Feature Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "advance_feature_image",
+          "label": "Image",
+          "info": "Recommended Size: 201x172px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advance Feature"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.advance-feature-area {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  {% if section.settings.section_bg_color_enable %}
+  background-color: {{ section.settings.section_bg_color }};
+  {% endif %}
+  {% if section.settings.section_bg_image_enable %}
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  {% endif %}
+  {% if section.settings.border_enable %}
+  border-top: {{ section.settings.border }}px solid {{ section.settings.border_color | color_modify: 'alpha', section.settings.border_color_opacity }};
+  {% endif %}
+}
+@media (max-width: 1199px) {
+  .advance-feature-area {
+    padding-top: {{ section.settings.section_padding_top_ip }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+  }
+}
+@media (max-width: 767px) {
+  .advance-feature-area {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+/* section title css */
+.advance-feature-area .section-capture {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 479px) {
+  .advance-feature-area .section-capture {
+    flex-direction: column;
+  }
+  .advance-feature-area .swiper-buttons {
+    display: none;
+  }
+}
+
+/* feature css */
+.advance-feature-area .advance-feature .feature-main {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 50px 0px;
+}
+.advance-feature-area .advance-feature .feature-slider .swiper-wrapper .swiper-slide.swiper-slide-visible.swiper-slide-active .feature-main::before,
+.advance-feature-area .advance-feature .feature-slider .swiper-wrapper .swiper-slide.swiper-slide-visible.swiper-slide-next .feature-main::before {
+  background-color: var(--theme-border-color);
+  content: "";
+  position: absolute;
+  {% if settings.enable_rtl %}
+  left: 0px;
+  {% else %}
+  right: 0px;
+  {% endif %}
+  height: 100%;
+  width: 1px;
+}
+.advance-feature-area .advance-feature .feature-main .feature-content {
+  width: 50%;
+  {% if settings.enable_rtl %}
+  padding-left: 15px;
+  {% else %}
+  padding-right: 15px;
+  {% endif %}
+}
+.advance-feature-area .advance-feature .feature-main .feature-content h2.count {
+  color: #FFFFFF;
+  font-size: 60px;
+  text-shadow: 1px 0 0 var(--font-color-primary), 0 1px 0 var(--font-color-primary), -1px 0 0 var(--font-color-primary), 0 -1px 0 var(--font-color-primary);
+  font-weight: var(--font-custom-weight-section-header);
+  opacity: 0.2;
+  -webkit-transition: color 0.5s ease-in-out,text-shadow 0.5s ease-in-out,opacity 0.5s ease-in-out,text-decoration-color 0.5s ease-in-out;
+  -o-transition: color 0.5s ease-in-out,text-shadow 0.5s ease-in-out,opacity 0.5s ease-in-out,text-decoration-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out,text-shadow 0.5s ease-in-out,opacity 0.5s ease-in-out,text-decoration-color 0.5s ease-in-out;
+  line-height: 1;
+}
+.advance-feature-area .advance-feature .feature-slider .swiper-wrapper .swiper-slide.swiper-slide-visible.swiper-slide-next .feature-main .feature-content h2.count {
+  opacity: 1;
+}
+.advance-feature-area .advance-feature .feature-main .feature-content h4.title {
+  font-size: 18px;
+  margin-top: 19px;
+}
+.advance-feature-area .advance-feature .feature-main .feature-content p.desc {
+  margin-top: 17px;
+}
+.advance-feature-area .advance-feature .feature-main .feature-image {
+  width: 50%;
+  {% if settings.enable_rtl %}
+  padding-right: 15px;
+  {% else %}
+  padding-left: 15px;
+  {% endif %}
+}
+.advance-feature-area .advance-feature .feature-main .feature-image span.image {
+  display: block;
+  {% if settings.enable_rtl %}
+  transform: translateX(calc(-50% + 30px));
+  {% else %}
+  transform: translateX(calc(50% - 30px));
+  {% endif %}
+}
+.advance-feature-area .advance-feature .feature-main .feature-image span.image svg {
+  width: 100%;
+}
+{% if settings.enable_rtl %}
+.advance-feature-area .advance-feature .feature-main .feature-image span.image img {
+  transform: scaleX(-1);
+}
+{% endif %}
+@media (max-width: 1399px) {
+  .advance-feature-area .advance-feature .feature-main {
+    padding: 30px 0px;
+  }
+}
+@media (max-width: 600px) {
+  .advance-feature-area .advance-feature .feature-main .feature-content {
+    {% if settings.enable_rtl %}
+    padding-left: 6px;
+    {% else %}
+    padding-right: 6px;
+    {% endif %}
+  }
+  .advance-feature-area .advance-feature .feature-main .feature-image {
+    {% if settings.enable_rtl %}
+    padding-right: 6px;
+    {% else %}
+    padding-left: 6px;
+    {% endif %}
+  }
+}
+@media (max-width: 600px) {
+  .advance-feature-area .advance-feature .feature-main .feature-content h2.count {
+    opacity: 1;
+  }
+}
+
+/* mobile slider button css */
+.advance-feature-area .advance-feature .swiper-buttons.mobile {
+  display: none;
+}
+@media (max-width: 479px) {
+  .advance-feature-area .advance-feature .swiper-buttons.mobile {
+    display: flex;
+  } 
+}
+</style>

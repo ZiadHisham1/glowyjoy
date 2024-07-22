@@ -1,0 +1,11 @@
+{%- if product.compare_at_price > product.price -%}
+{%- assign on_sale = true -%}
+{%- endif -%}
+
+{% if on_sale %}
+{% if settings.sale_percent_enable and product.available %}
+<span class="label">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | money_without_currency | replace: ',', '.' | times: 100 | remove: '.0' | prepend: 'Sale ' | append: '%' }}</span>
+{% endif %}
+{% else %}
+<span class="new-label">{{ settings.product_new_label_text }}</span>
+{% endif %}

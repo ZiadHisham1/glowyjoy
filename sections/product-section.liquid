@@ -1,0 +1,40 @@
+<section class="home-product">
+
+  <h1>{{ product.title }}</h1>
+  <p>{{ product.body }}</p>
+  <img src="{{ product.featured_image.src }}" alt="{{ product.title }}">
+
+
+</section>
+{% schema %}
+  {
+    "name": "Product Section",
+    "settings": [
+      
+    ],
+  "presets": [
+    {
+      "name": "Home Product",
+      "category": "product"
+    }
+  ]
+  }
+{% endschema %}
+
+<style>
+  .product-wraper{
+    display: flex;
+    padding:30px!important;
+  }
+
+  .product-wraper .product-content-media{
+    width:60%;
+    background: #000;
+  }
+
+   .product-wraper .product-content-details{
+     width:40%;
+     margin: 30px;
+     background: #d1d1d1;
+  }
+</style>

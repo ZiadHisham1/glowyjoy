@@ -1,0 +1,433 @@
+<section class="feature-info-area">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="feature-info-main">
+          <div class="feature-info-content">
+            <div class="content-block">
+              {% if section.settings.feature_info_title != '' %}
+              <div class="section-capture">
+                <div class="section-title">
+                  <h2>{{ section.settings.feature_info_title }}</h2>
+                </div>
+              </div>
+              {% endif %}
+              <div class="info-service-block">
+                <ul class="info-service-ul">
+                  {% for block in section.blocks %}
+                  <li class="info-service-li">
+                    <div class="info-service">
+                      {% if block.settings.service_icon_class != '' %}
+                      <div class="service-icon">
+                        <span class="icon">
+                          <i class="{{ block.settings.service_icon_class }}"></i>
+                        </span>
+                      </div>
+                      {% endif %}
+                      <div class="service-content">
+                        {% if block.settings.service_title != '' %}
+                        <h4 class="title">{{ block.settings.service_title }}</h4>
+                        {% endif %}
+                        {% if block.settings.service_desc != '' %}
+                        <p class="desc">{{ block.settings.service_desc }}</p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% if section.settings.feature_button_text != '' %}
+              <div class="feature-button">
+                <a href="{{ section.settings.feature_button_url }}" class="feature-btn btn {% if section.settings.feature_button_style == 'btn-style1' %}btn-style{% elsif section.settings.feature_button_style == 'btn-style2' %}btn-style2{% else %}btn-style3{% endif %}">{{ section.settings.feature_button_text }}</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="feature-info-image">
+            <span class="info-image">
+              {%- if section.settings.feature_info_image -%}
+              {{ section.settings.feature_info_image | image_url: width: 1024 | image_tag:
+              loading: 'lazy',
+              width: section.settings.feature_info_image.width,
+              height: section.settings.feature_info_image.height,
+              class: "img-fluid image-1",
+              alt: section.settings.feature_info_image.alt | escape }}
+              {%- else -%}  
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Feature Info",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop / Laptop / tablet"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Ipad pro / Ipad"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_ip",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_ip",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Section Border"
+    },
+    {
+      "type": "checkbox",
+      "id": "border_enable",
+      "label": "Show Section Border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border",
+      "label": "Border",
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#808080"
+    },
+    {
+      "type": "range",
+      "id": "border_color_opacity",
+      "label": "Theme Border Color Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.2
+    },
+    {
+      "type": "header",
+      "content": "Feature Info Content"
+    },
+    {
+      "type": "text",
+      "id": "feature_info_title",
+      "label": "Title",
+      "default": "The sky’s not the limit, it’s our eye playground."
+    },
+    {
+      "type": "header",
+      "content": "Feature Info Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "feature_info_image",
+      "label": "Image",
+      "info": "Recommended Size: 620x635px"
+    },
+    {
+      "type": "header",
+      "content": "Feature Button"
+    },
+    {
+      "type": "text",
+      "id": "feature_button_text",
+      "label": "Button Text",
+      "default": "Read more"
+    },
+    {
+      "type": "url",
+      "id": "feature_button_url",
+      "label": "url"
+    },
+    {
+      "type": "select",
+      "id": "feature_button_style",
+      "label": "Button Style",
+      "options": [
+        {
+          "label": "Button Style1",
+          "value": "btn-style1"
+        },
+        {
+          "label": "Button Style2",
+          "value": "btn-style2"
+        },
+        {
+          "label": "Button Style3",
+          "value": "btn-style3"
+        }
+      ],
+      "default": "btn-style1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_service",
+      "name": "Feature Service",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Service Icon"
+        },
+        {
+          "type": "text",
+          "id": "service_icon_class",
+          "label": "Icon class",
+          "default": "ri-landscape-line"
+        },
+        {
+          "type": "text",
+          "id": "service_title",
+          "label": "Title",
+          "default": "A fly drone"
+        },
+        {
+          "type": "textarea",
+          "id": "service_desc",
+          "label": "Description",
+          "default": "The term drone has been used from the early days of aviation, being applied tolook like our readable..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Info"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+/* main css */
+.feature-info-area .feature-info-main {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -30px;
+  {% if settings.enable_rtl %}
+  margin-right: -30px;
+  {% else %}
+  margin-left: -30px;
+  {% endif %}
+}
+.feature-info-area .feature-info-main .feature-info-content,
+.feature-info-area .feature-info-main .feature-info-image {
+  width: calc(50% - 30px);
+  margin-top: 30px;
+  {% if settings.enable_rtl %}
+  margin-right: 30px;
+  {% else %}
+  margin-left: 30px;
+  {% endif %}
+}
+.feature-info-area .feature-info-main .feature-info-content {
+  padding-top: {{ section.settings.section_padding_top }}px;
+  padding-bottom: {{ section.settings.section_padding_bottom }}px;
+}
+.feature-info-area .feature-info-main .feature-info-image {
+  {% if settings.enable_rtl %}
+  text-align: left;
+  {% else %}
+  text-align: right;
+  {% endif %}
+}
+{% if settings.enable_rtl %}
+.feature-info-area .feature-info-main .feature-info-image span.info-image img {
+  transform: scaleX(-1);
+}
+{% endif %}
+.feature-info-area .feature-info-main .feature-info-image span.info-image svg {
+  width: 100%;
+}
+@media (max-width: 1199px) {
+  .feature-info-area .feature-info-main .feature-info-content {
+    padding-top: {{ section.settings.section_padding_top_ip }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_ip }}px;
+  }
+}
+@media (max-width: 991px) {
+  .feature-info-area .feature-info-main .feature-info-content,
+  .feature-info-area .feature-info-main .feature-info-image {
+    width: calc(100% - 30px);
+  }
+  .feature-info-area .feature-info-main .feature-info-content {
+    padding-top: 0px;
+  }
+  .feature-info-area .feature-info-main .feature-info-image {
+    text-align: center;
+    order: -1;
+  }
+}
+@media (max-width: 767px) {
+  .feature-info-area .feature-info-main .feature-info-content {
+    padding-top: {{ section.settings.section_padding_top_xs }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+  }
+}
+
+/* info css */
+.feature-info-area .feature-info-main .feature-info-content .content-block {
+  padding-right: 115px;
+  padding-left: 115px;
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .section-capture .section-title {
+  {% if settings.enable_rtl %}
+  text-align: right;
+  {% else %}
+  text-align: left;
+  {% endif %}
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li {
+  margin-top: 46px;
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li:first-child {
+  margin-top: 0px;
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service {
+  display: flex;
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service .service-icon span.icon {
+  color: var(--font-color-primary);
+  font-size: 50px;
+  line-height: 1;
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service .service-content {
+  {% if settings.enable_rtl %}
+  padding-right: 30px;
+  {% else %}
+  padding-left: 30px;
+  {% endif %}
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service .service-content h4.title {
+  font-size: 18px;
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service .service-content p.desc {
+  margin-top: 17px;
+}
+.feature-info-area .feature-info-main .feature-info-content .content-block .feature-button {
+  margin-top: 50px;
+}
+@media (max-width: 1499px) {
+  .feature-info-area .feature-info-main .feature-info-content .content-block {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+}
+@media (max-width: 1399px) {
+  .feature-info-area .feature-info-main .feature-info-content .content-block {
+    padding-right: 55px;
+    padding-left: 55px;
+  }
+  .feature-info-area .feature-info-main .feature-info-content .content-block .section-capture {
+    margin-bottom: 30px;
+  }
+  .feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li {
+    margin-top: 26px;
+  }
+  .feature-info-area .feature-info-main .feature-info-content .content-block .feature-button {
+    margin-top: 30px;
+  }
+}
+@media (max-width: 1199px) {
+  .feature-info-area .feature-info-main .feature-info-content .content-block {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+}
+@media (max-width: 991px) {
+  .feature-info-area .feature-info-main .feature-info-content .content-block {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+@media (max-width: 479px) {
+  .feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service .service-content {
+    {% if settings.enable_rtl %}
+    padding-right: 15px;
+    {% else %}
+    padding-left: 15px;
+    {% endif %}
+  }
+  .feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service .service-icon span.icon {
+    font-size: 30px;
+  }
+  .feature-info-area .feature-info-main .feature-info-content .content-block .info-service-block ul.info-service-ul li.info-service-li .info-service .service-content p.desc {
+    margin-top: 6px;
+  }
+}
+</style>

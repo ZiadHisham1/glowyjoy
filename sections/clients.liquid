@@ -1,0 +1,199 @@
+<section class="testimonial-clients-area">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="title-capture">
+          <div class="section-title">
+            {% if section.settings.section_title != '' %}
+            <h2 style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
+            {% endif %}
+            {% if section.settings.section_title_2 != '' %}
+              <h2 style="color:{{ section.settings.section_title2_color }}">{{ section.settings.section_title_2 }}</h2>
+            {% endif %}  
+            <div class="desc">
+              <p style="color: #fff;">{{ section.settings.section_desc }}</p>
+            </div>
+          </div>   
+        </div>
+        <div class="imag-wraper">
+          {% for block in section.blocks %}
+          <div class="imag-holder">
+              {%- if block.settings.custom_imag -%}
+              {{ block.settings.custom_imag | image_url: width: 512 | image_tag:
+              loading: 'lazy',
+              width: block.settings.custom_imag.width,
+              height: block.settings.custom_imag.height,
+              class: "img-fluid image-1",
+              alt: block.settings.custom_imag.alt | escape }}
+              {%- endif -%}
+            </div>
+          {% endfor %}  
+        </div>
+      </div>  
+    </div>
+  </div>
+</section>
+
+{% schema %}
+ {
+  "name": "Testimonial",
+  "settings": [
+    {
+      "type": "header",
+      "content": "testimontial settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "section title",
+      "default": "type here"
+    },
+    {
+      "type": "color",
+      "id": "section_title_color",
+      "label": "title one color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "section_title_2",
+      "label": "section 2nd title",
+      "default": "type here"
+    },
+    {
+      "type": "color",
+      "id": "section_title2_color",
+      "label": "title two color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "section_desc",
+      "label": "section describtion",
+      "default": "type here"
+    },
+    {
+      "type": "color",
+      "id": "testi_bgcolor",
+      "label": "background color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "testi_bgcolor2",
+      "label": "background color",
+      "default": "#000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testi_slide",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Testimonial Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_imag",
+          "label": "Customer Image",
+          "info": "recommended 500 X 200 PX"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "clients",
+      "category": "7. Testimonial"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .testimonial-clients-area{
+    position: relative;
+    padding-top: {{ section.settings.testi_padding_top }}px;
+    padding-bottom: {{ section.settings.testi_padding_bottom }}px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background: radial-gradient(circle at center, {{ section.settings.testi_bgcolor }} 20%, {{ section.settings.testi_bgcolor2 }} 80%);
+    
+  }
+
+  .testimonial-clients-area .title-capture{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto;
+  }
+  .testimonial-clients-area .title-capture .section-title{
+    display:block;
+    
+  }
+   .testimonial-clients-area .title-capture .section-title h2{
+     color: #fff;
+     font-weight:700;
+     text-align: center;
+   }
+  .testimonial-clients-area .title-capture .section-title .desc{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+  }
+  .testimonial-clients-area .title-capture .section-title .desc p{
+    color: #fff;
+    font-weight:500;
+    position:unset;
+    margin: 0;
+    padding: 0;
+    width:450px;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    text-align: center;
+  }
+@media (max-width: 460px){  
+  .testimonial-clients-area .title-capture .section-title .desc p{
+    color: #fff;
+    font-weight:500;
+    position:unset;
+    margin: 0;
+    padding: 0;
+    width:350px;
+    overflow-wrap: break-word;
+    line-height:1.2;
+    text-align: center;
+  }}
+
+  .imag-wraper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:50px;
+  }
+
+@media (max-width: 1200px){
+   .imag-wraper {
+     display:block;
+     align-items: center;
+    justify-content: center;
+     margin:50px;
+   }
+}  
+  
+  .imag-wraper .imag-holder{
+    margin: 20px;
+    margin-top: 0;
+    width: 600px;
+  }
+
+@media (max-width: 1200px){
+  .imag-wraper .imag-holder{
+     width: auto;
+   }
+}
+</style>
