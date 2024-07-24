@@ -251,7 +251,7 @@
 <body  id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name | handle }}">
  <!-- visitor counter html -->
   <div id="floating-info" class="center-text center-vertical">
-   <div> <div>Current Visitors: </div><span id="visitors-count">0</span></div>
+   <div> <div>Live Visitors: </div><span id="visitors-count">0</span></div>
     <div><div>Sales: </div><span id="sales-count">0</span></div>
   </div>
   
@@ -334,16 +334,17 @@
 
 <style>
   #floating-info {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 200px;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 9999;
+    display:flex;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
 }
 
 #floating-info div {
