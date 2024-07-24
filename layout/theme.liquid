@@ -249,6 +249,11 @@
 </head>
 
 <body  id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name | handle }}">
+  <div id="floating-info" class="center-text center-vertical">
+    <div>Current Visitors: <span id="visitors-count">0</span></div>
+    <div>Sales: <span id="sales-count">0</span></div>
+  </div>
+  
   {% render 'slow-window' %}
   {%- liquid
     if template == 'index' and settings.newsletter_popup_enable
@@ -286,5 +291,41 @@
       predictive_search_url: '{{ routes.predictive_search_url }}'
     };
   </script>
+  
+  <script>
+      function getRandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    
+      function generateNearbyNumber(previousNumber, range) {
+        let min = Math.max(1, previousNumber - range);
+        let max = Math.min(1000, previousNumber + range);
+        return getRandomNumber(min, max);
+      }
+    
+      function updateFloatingInfo(currentNumber, range) {
+        let newNumber = generateNearbyNumber(currentNumber, range);
+    
+        // Update the spans with the new numbers
+        document.getElementById('visitors-count').innerText = newNumber;
+        document.getElementById('sales-count').innerText = newNumber; // You can modify this if you have separate logic for sales
+    
+        let delay = getRandomNumber(1, 10) * 1000; // Random delay between 1 and 10 seconds
+    
+        setTimeout(() => {
+          updateFloatingInfo(newNumber, range);
+        }, delay);
+      }
+    
+      let initialNumber = getRandomNumber(1, 1000);
+      document.getElementById('visitors-count').innerText = initialNumber;
+      document.getElementById('sales-count').innerText = initialNumber; // You can modify this if you have separate logic for sales
+    
+      let initialDelay = getRandomNumber(1, 10) * 1000;
+      setTimeout(() => {
+        updateFloatingInfo(initialNumber, 50);
+      }, initialDelay);
+    </script>
+
   </body>
 </html>
