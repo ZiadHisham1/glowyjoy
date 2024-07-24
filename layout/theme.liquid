@@ -328,19 +328,19 @@
         updateFloatingInfo(initialNumber, 20);
       }, initialDelay);
     
-     document.addEventListener('scroll', function() {
-      var element = document.getElementById('floating-info'); // Replace 'yourDivId' with your actual div ID
-      var scrollPosition = window.scrollY + window.innerHeight;
-      var elementPosition = element.offsetTop + element.offsetHeight;
-      
-      // Check if the scroll position is greater than 95% of the page height
-      if (scrollPosition > document.documentElement.scrollHeight * 0.95) {
-        element.classList.add('hidden');
+     window.addEventListener('scroll', function() {
+      var myDiv = document.getElementById('floating-info');
+      var scrollHeight = document.documentElement.scrollHeight;
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var windowHeight = window.innerHeight;
+      var scrolledPercentage = (scrollTop / (scrollHeight - windowHeight)) * 100;
+    
+      if (scrolledPercentage >= 95) {
+        myDiv.classList.add('hidden');
       } else {
-        element.classList.remove('hidden');
+        myDiv.classList.remove('hidden');
       }
-      });
-
+     });
     </script>
 
   </body>
