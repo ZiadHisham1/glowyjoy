@@ -328,14 +328,19 @@
         updateFloatingInfo(initialNumber, 20);
       }, initialDelay);
     
-      window.addEventListener('scroll', function() {
-        var myDiv = document.getElementById('floating-info');
-        if (window.scrollY > 5) {
-          myDiv.style.display = 'none';
-        } else {
-          myDiv.style.display = 'block';
-        }
-      });
+     window.addEventListener('scroll', function() {
+      var myDiv = document.getElementById('floating-info');
+      var scrollHeight = document.documentElement.scrollHeight;
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      var windowHeight = window.innerHeight;
+      var scrolledPercentage = (scrollTop / (scrollHeight - windowHeight)) * 100;
+    
+      if (scrolledPercentage >= 95) {
+        myDiv.style.display = 'none';
+      } else {
+        myDiv.style.display = 'block';
+      }
+     });
     </script>
 
   </body>
