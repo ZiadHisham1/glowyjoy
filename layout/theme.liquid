@@ -251,8 +251,8 @@
 <body  id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name | handle }}">
  <!-- visitor counter html -->
   <div id="floating-info" class="center-text center-vertical">
-   <div class="num_holder"> <div>Live Visitors: </div><span id="visitors-count">0</span></div>
-   <div class="num_holder"><div>Sales: </div><span id="sales-count">0</span></div>
+   <div class="num_holder"> <div>Live Visitors: </div><span class="counter" id="visitors-count">0</span></div>
+   <div class="num_holder"><div>Sales: </div><span class="counter" id="sales-count">0</span></div>
   </div>
   
   {% render 'slow-window' %}
@@ -339,7 +339,7 @@
     bottom: 20px;
     right: 20px;
     width: fit-content;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: rgba(63, 48, 154, 0.7);
     color: white;
     border-radius: 5px;
