@@ -1582,6 +1582,7 @@
       },
       "9c5641ac-0233-4dfb-a58a-782f60bdd204": {
         "type": "new-product",
+        "disabled": true,
         "settings": {
           "category_special_padding_top": 100,
           "category_special_padding_bottom": 100,
