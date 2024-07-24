@@ -328,19 +328,19 @@
         updateFloatingInfo(initialNumber, 20);
       }, initialDelay);
     
-     window.addEventListener('scroll', function() {
-      var myDiv = document.getElementById('floating-info');
-      var scrollHeight = document.documentElement.scrollHeight;
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      var windowHeight = window.innerHeight;
-      var scrolledPercentage = (scrollTop / (scrollHeight - windowHeight)) * 100;
-    
-      if (scrolledPercentage >= 95) {
-        myDiv.style.display = 'none';
+     document.addEventListener('scroll', function() {
+      var element = document.getElementById('floating-info'); // Replace 'yourDivId' with your actual div ID
+      var scrollPosition = window.scrollY + window.innerHeight;
+      var elementPosition = element.offsetTop + element.offsetHeight;
+      
+      // Check if the scroll position is greater than 95% of the page height
+      if (scrollPosition > document.documentElement.scrollHeight * 0.95) {
+        element.classList.add('hidden');
       } else {
-        myDiv.style.display = 'block';
+        element.classList.remove('hidden');
       }
-     });
+      });
+
     </script>
 
   </body>
@@ -372,4 +372,13 @@
     border-radius:5px;
     background-color: rgba(73, 58, 144, 0.7);
   }
+  .fade-out {
+  transition: opacity 0.5s ease-out;
+  opacity: 1;
+}
+
+.fade-out.hidden {
+  opacity: 0;
+}
+
 </style>
