@@ -933,7 +933,7 @@
           "58585e36-a886-4e60-984d-69575dbc4190": {
             "type": "slide",
             "settings": {
-              "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f6d4b5525f334a11b05ddd6b45e2abc8.mp4",
+              "slider_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f6d4b5525f334a11b05ddd6b45e2abc8.mp4",
               "slider_img": "shopify:\/\/shop_images\/banner_blur_c998b8b6-f8e2-43b7-a73f-b693f4155aa0.jpg",
               "slider_mobile_img": "shopify:\/\/shop_images\/download.jpg",
               "slider_title": "turn your room into cozy space",
@@ -961,7 +961,7 @@
             "type": "slide",
             "disabled": true,
             "settings": {
-              "video_link": "",
+              "slider_video_url": "",
               "slider_title": "Drone skydive made simple !",
               "slider_title_color": "#333333",
               "slider_title_color_mobile": "#333333",
@@ -985,7 +985,7 @@
             "type": "slide",
             "disabled": true,
             "settings": {
-              "video_link": "",
+              "slider_video_url": "",
               "slider_title": "Drone skydive made simple !",
               "slider_title_color": "#333333",
               "slider_title_color_mobile": "#333333",
