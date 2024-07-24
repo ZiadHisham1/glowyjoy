@@ -933,7 +933,6 @@
           "58585e36-a886-4e60-984d-69575dbc4190": {
             "type": "slide",
             "settings": {
-              "slider_video_url": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f6d4b5525f334a11b05ddd6b45e2abc8.mp4",
               "slider_img": "shopify:\/\/shop_images\/banner_blur_c998b8b6-f8e2-43b7-a73f-b693f4155aa0.jpg",
               "slider_mobile_img": "shopify:\/\/shop_images\/download.jpg",
               "slider_title": "turn your room into cozy space",
@@ -961,7 +960,6 @@
             "type": "slide",
             "disabled": true,
             "settings": {
-              "slider_video_url": "",
               "slider_title": "Drone skydive made simple !",
               "slider_title_color": "#333333",
               "slider_title_color_mobile": "#333333",
@@ -985,7 +983,6 @@
             "type": "slide",
             "disabled": true,
             "settings": {
-              "slider_video_url": "",
               "slider_title": "Drone skydive made simple !",
               "slider_title_color": "#333333",
               "slider_title_color_mobile": "#333333",
@@ -1922,6 +1919,30 @@
         "type": "product-section",
         "settings": {
         }
+      },
+      "video_banner_WNVUTk": {
+        "type": "video_banner",
+        "blocks": {
+          "video_cXERDH": {
+            "type": "video",
+            "settings": {
+              "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f6d4b5525f334a11b05ddd6b45e2abc8.mp4",
+              "overlay_opacity": 0,
+              "title": "Video slid",
+              "text": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+              "color_text": "#ffffff",
+              "button_label": "",
+              "button_link": "",
+              "color_btn_bg": "#ffffff",
+              "color_btn_text": "#ffffff"
+            }
+          }
+        },
+        "block_order": [
+          "video_cXERDH"
+        ],
+        "settings": {
+        }
       }
     },
     "content_for_index": [
@@ -1932,6 +1953,7 @@
       "transformation_Hf4tPe",
       "clients_7k9K8Y",
       "transformation_rYJmTJ",
+      "video_banner_WNVUTk",
       "9d642c64-80ee-4fef-a69c-7f8f8115fdc1",
       "product_section_ADAKBq",
       "9c5641ac-0233-4dfb-a58a-782f60bdd204",
