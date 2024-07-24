@@ -693,8 +693,8 @@
           "copyright_enable": true,
           "section_padding_top": 0,
           "section_padding_bottom": 0,
-          "section_bg_color": "rgba(0,0,0,0)",
-          "copyright_text_color": "#808080",
+          "section_bg_color": "#000000",
+          "copyright_text_color": "#FFFFFF",
           "border": 1,
           "border_color": "#808080",
           "border_enable": false,
@@ -1449,6 +1449,9 @@
           "5fc28ab4-8f0b-4745-a0d6-0ae58b9d5c19",
           "5a5a196b-528a-42a7-bee6-b45780f86d90",
           "c0bd0644-0cae-4f9c-9261-6895b2433ed9"
+        ],
+        "custom_css": [
+
         ],
         "settings": {
           "foot_padding_top": 100,
