@@ -7,27 +7,28 @@
   <div class="home-slider owl-carousel owl-theme" id="home-slider-{{ section.id }}">
     {% for block in section.blocks %}
     <div class="item">
-      <div class="slide-media">
-        {%- if block.settings.slider_video_url != blank -%}
-        <video class="img-fluid desk-img" controls autoplay loop muted>
-          <source src="{{ block.settings.slider_video_url }}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        {%- else -%}
-          {%- if block.settings.slider_img -%}
-          {{ block.settings.slider_img | image_url: width: 1920 | image_tag:
-          loading: 'lazy',
-          width: block.settings.slider_img.width,
-          height: block.settings.slider_img.height,
-          class: "img-fluid desk-img",
-          alt: block.settings.slider_img.alt | escape }}
-          {%- else -%}  
-          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg desk-img' }}
-          {%- endif -%}
+      <div class="slide-image">
+        {%- if block.settings.slider_img -%}
+        {{ block.settings.slider_img | image_url: width: 1920 | image_tag:
+        loading: 'lazy',
+        width: block.settings.slider_img.width,
+        height: block.settings.slider_img.height,
+        class: "img-fluid desk-img",
+        alt: block.settings.slider_img.alt | escape }}
+        {%- else -%}  
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg desk-img' }}
         {%- endif -%}
-
-       
-
+        {%- if block.settings.slider_mobile_img -%}  
+        {{ block.settings.slider_mobile_img | image_url: width: 1024 | image_tag:
+          loading: 'lazy',
+          width: block.settings.slider_mobile_img.width,
+          height: block.settings.slider_mobile_img.height,
+          class: "img-fluid mobile-img",
+          alt: block.settings.slider_mobile_img.alt | escape }} 
+        {%- else -%}
+        {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+        {{ placeholder | placeholder_svg_tag: 'placeholder-svg mobile-img' }}
+        {%- endif -%}
         <div class="container slider-info-content">
           <div class="row">
             <div class="col">
@@ -158,18 +159,12 @@
       "settings": [
         {
           "type": "header",
-          "content": "Slider Media"
-        },
-        {
-          "type": "url",
-          "id": "slider_video_url",
-          "label": "Video URL",
-          "info": "Enter the video URL"
+          "content": "Slider Image"
         },
         {
           "type": "image_picker",
           "id": "slider_img",
-          "label": "Fallback Image",
+          "label": "Image",
           "info": "Recommended Size: 1920px x 910px"
         },
         {
