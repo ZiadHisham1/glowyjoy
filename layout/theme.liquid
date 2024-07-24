@@ -249,6 +249,7 @@
 </head>
 
 <body  id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name | handle }}">
+ <!-- visitor counter html -->
   <div id="floating-info" class="center-text center-vertical">
     <div>Current Visitors: <span id="visitors-count">0</span></div>
     <div>Sales: <span id="sales-count">0</span></div>
@@ -291,6 +292,7 @@
       predictive_search_url: '{{ routes.predictive_search_url }}'
     };
   </script>
+  
   <!-- visitor counter java -->
   <script>
       function getRandomNumber(min, max) {
