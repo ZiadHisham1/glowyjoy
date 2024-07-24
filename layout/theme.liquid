@@ -327,6 +327,15 @@
       setTimeout(() => {
         updateFloatingInfo(initialNumber, 20);
       }, initialDelay);
+    
+      window.addEventListener('scroll', function() {
+        var myDiv = document.getElementById('floating-info');
+        if (window.scrollY > 0) {
+          myDiv.style.display = 'none';
+        } else {
+          myDiv.style.display = 'block';
+        }
+      });
     </script>
 
   </body>
