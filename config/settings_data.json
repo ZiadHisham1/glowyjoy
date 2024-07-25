@@ -1630,7 +1630,7 @@
           "section_padding_bottom_ip": 80,
           "section_padding_top_xs": 60,
           "section_padding_bottom_xs": 60,
-          "section_bg_color_enable": false,
+          "section_bg_color_enable": true,
           "section_bg_color": "#d945ff",
           "section_bg_image_enable": false,
           "border_enable": false,
