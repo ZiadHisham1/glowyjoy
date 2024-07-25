@@ -955,58 +955,10 @@
               "slider_content_position": "center",
               "slider_text_position": "center"
             }
-          },
-          "a5e55ab8-34e4-4159-857d-b260cda00262": {
-            "type": "slide",
-            "disabled": true,
-            "settings": {
-              "slider_title": "Drone skydive made simple !",
-              "slider_title_color": "#333333",
-              "slider_title_color_mobile": "#333333",
-              "slider_title_effect": "e1",
-              "slider_service_effect": "e1",
-              "service_1_title": "Flight time",
-              "service_1_desc": "30 Min",
-              "service_2_title": "72 km \/ h",
-              "service_2_desc": "30 Min",
-              "service_3_title": "Touch sensor",
-              "service_3_desc": "30M to 40M",
-              "slider_button": "Shop now",
-              "slider_button_url": "",
-              "slider_button_style": "btn-style1",
-              "slider_button_effect": "e1",
-              "slider_content_position": "left",
-              "slider_text_position": "left"
-            }
-          },
-          "a1d185d1-8230-4cf9-a456-e85875111264": {
-            "type": "slide",
-            "disabled": true,
-            "settings": {
-              "slider_title": "Drone skydive made simple !",
-              "slider_title_color": "#333333",
-              "slider_title_color_mobile": "#333333",
-              "slider_title_effect": "e1",
-              "slider_service_effect": "e1",
-              "service_1_title": "Flight time",
-              "service_1_desc": "30 Min",
-              "service_2_title": "72 km \/ h",
-              "service_2_desc": "30 Min",
-              "service_3_title": "Touch sensor",
-              "service_3_desc": "30M to 40M",
-              "slider_button": "Shop now",
-              "slider_button_url": "",
-              "slider_button_style": "btn-style1",
-              "slider_button_effect": "e1",
-              "slider_content_position": "left",
-              "slider_text_position": "left"
-            }
           }
         },
         "block_order": [
-          "58585e36-a886-4e60-984d-69575dbc4190",
-          "a5e55ab8-34e4-4159-857d-b260cda00262",
-          "a1d185d1-8230-4cf9-a456-e85875111264"
+          "58585e36-a886-4e60-984d-69575dbc4190"
         ],
         "settings": {
           "slider_autoplay_enable": true,
@@ -1667,6 +1619,9 @@
           "16bdabe1-56f0-4e12-8458-81d5c30285d0",
           "75c88f04-3064-45dc-9ba1-814966060beb"
         ],
+        "custom_css": [
+          ".advance-feature-area{background: radial-gradient(circle at top, #231b53 20%, #0b0720 80%);}"
+        ],
         "settings": {
           "section_padding_top": 100,
           "section_padding_bottom": 100,
@@ -1674,8 +1629,8 @@
           "section_padding_bottom_ip": 80,
           "section_padding_top_xs": 60,
           "section_padding_bottom_xs": 60,
-          "section_bg_color_enable": false,
-          "section_bg_color": "#f9f9f9",
+          "section_bg_color_enable": true,
+          "section_bg_color": "#d945ff",
           "section_bg_image_enable": false,
           "border_enable": false,
           "border": 1,
@@ -1812,7 +1767,7 @@
           "section_padding_top_xs": 60,
           "section_padding_bottom_xs": 0,
           "section_bg_color_enable": true,
-          "section_bg_color": "#5333dc",
+          "section_bg_color": "#d945ff",
           "deal_bg_image": "shopify:\/\/shop_images\/Untitled_design_22.png",
           "deal_bg_image_enable": true,
           "border_enable": false,
