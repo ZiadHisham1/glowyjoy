@@ -1223,6 +1223,7 @@
       },
       "1661863923c985dc6b": {
         "type": "blog-home",
+        "disabled": true,
         "settings": {
           "blog_padding_top": 100,
           "blog_padding_bottom": 100,
