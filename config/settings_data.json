@@ -1620,8 +1620,7 @@
           "75c88f04-3064-45dc-9ba1-814966060beb"
         ],
         "custom_css": [
-          "button {background-color: #3f309a;}",
-          "p {color: #fff;}"
+
         ],
         "settings": {
           "section_padding_top": 100,
