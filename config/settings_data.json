@@ -1813,6 +1813,7 @@
           "section_padding_bottom_xs": 0,
           "section_bg_color_enable": true,
           "section_bg_color": "#5333dc",
+          "deal_bg_image": "shopify:\/\/shop_images\/Untitled_design_22.png",
           "deal_bg_image_enable": true,
           "border_enable": false,
           "border": 1,
@@ -1919,11 +1920,6 @@
           "transformation_button_style": "btn-style1"
         }
       },
-      "product_section_ADAKBq": {
-        "type": "product-section",
-        "settings": {
-        }
-      },
       "video_banner_WNVUTk": {
         "type": "video_banner",
         "blocks": {
@@ -1959,7 +1955,6 @@
       "transformation_rYJmTJ",
       "video_banner_WNVUTk",
       "9d642c64-80ee-4fef-a69c-7f8f8115fdc1",
-      "product_section_ADAKBq",
       "9c5641ac-0233-4dfb-a58a-782f60bdd204",
       "e38be1ce-f645-4feb-a897-f823035b4de0",
       "d0ee490b-18c4-4778-a329-e4a451a66598",
