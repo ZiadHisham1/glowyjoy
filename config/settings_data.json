@@ -1620,9 +1620,8 @@
           "75c88f04-3064-45dc-9ba1-814966060beb"
         ],
         "custom_css": [
-          ".advance-feature-area {background: radial-gradient(circle at top, #231b53 20%, #000 80%);}",
           "button {background-color: #3f309a;}",
-          "p{color:#fff;}"
+          "p {color: #fff;}"
         ],
         "settings": {
           "section_padding_top": 100,
