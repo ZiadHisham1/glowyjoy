@@ -1737,6 +1737,9 @@
           "62ab1872-be94-4d51-86ab-1804bdf0e657",
           "b05e6755-78bc-4fac-b8e3-2d3fd9329f78"
         ],
+        "custom_css": [
+          "h2{color:#fff;}"
+        ],
         "settings": {
           "section_padding_top": 100,
           "section_padding_bottom": 100,
