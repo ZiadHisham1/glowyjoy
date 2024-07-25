@@ -11,9 +11,9 @@
   "current": {
     "color_primary": "#211d1d",
     "color_secondary": "#000000",
-    "body_text_color": "#FFFFFF",
+    "body_text_color": "#1e1d1d",
     "extra_bgcolor": "#f9f9f9",
-    "heading_text_color": "#ffffff",
+    "heading_text_color": "#1e1d1d",
     "section_heading_text_color": "#3f309a",
     "para_text_color": "#FFFFFF",
     "theme_border_color": "#808080",
