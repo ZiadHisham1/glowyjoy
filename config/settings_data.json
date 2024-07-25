@@ -11,9 +11,9 @@
   "current": {
     "color_primary": "#211d1d",
     "color_secondary": "#000000",
-    "body_text_color": "#6f6f6f",
+    "body_text_color": "#FFFFFF",
     "extra_bgcolor": "#f9f9f9",
-    "heading_text_color": "#000000",
+    "heading_text_color": "#ffffff",
     "section_heading_text_color": "#3f309a",
     "para_text_color": "#FFFFFF",
     "theme_border_color": "#808080",
@@ -1688,7 +1688,7 @@
           "section_padding_top_xs": 60,
           "section_padding_bottom_xs": 60,
           "section_bgcolor_enable": true,
-          "section_bgcolor": "#ffffff",
+          "section_bgcolor": "#212121",
           "border_enable": true,
           "border": 1,
           "border_color": "#808080",
@@ -1738,7 +1738,7 @@
           "b05e6755-78bc-4fac-b8e3-2d3fd9329f78"
         ],
         "custom_css": [
-
+          "{color: #fff;}"
         ],
         "settings": {
           "section_padding_top": 100,
