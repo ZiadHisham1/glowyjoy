@@ -39,7 +39,7 @@
           <div class="home-faq-content">
             {% if section.settings.faq_content_title != '' %}
             <div class="faq-content-title">
-              <h2 class="title">{{ section.settings.faq_content_title }}</h2>
+              <h2 style="color:#fff;" class="title">{{ section.settings.faq_content_title }}</h2>
             </div>
             {% endif %}
             <div class="faq-content">
@@ -508,7 +508,7 @@
   text-align: center;
 }
 .home-faq-area .home-faq-block .home-faq-content .faq-content-title h2.title {
-  color: #fff;!important
+  color: #fff;
   font-size: 180px;
   {% if settings.other_custom_font_handle_enable %}
   font-family: '{{ settings.other_custom_font_handle }}', sans-serif;
