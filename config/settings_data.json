@@ -1570,14 +1570,6 @@
               "feature_desc": "In addition to the software, autonomous drones also employ a host."
             }
           },
-          "01c3fb98-2b0f-49c5-99c5-f9a6362fbab6": {
-            "type": "advance_feature_item",
-            "settings": {
-              "feature_count": "01",
-              "feature_title": "Mobile holder",
-              "feature_desc": "In addition to the software, autonomous drones also employ a host."
-            }
-          },
           "3eadeb5f-dc0d-423d-ab4d-a83cf8698053": {
             "type": "advance_feature_item",
             "settings": {
@@ -1621,7 +1613,6 @@
         },
         "block_order": [
           "advance_feature_item_hywPAt",
-          "01c3fb98-2b0f-49c5-99c5-f9a6362fbab6",
           "3eadeb5f-dc0d-423d-ab4d-a83cf8698053",
           "78930957-1997-4cff-8db8-6e20dc16fc09",
           "91b0df19-7e20-4b5a-8fe2-f87d9dcdc33b",
@@ -1630,7 +1621,8 @@
         ],
         "custom_css": [
           ".advance-feature-area {background: radial-gradient(circle at top, #231b53 20%, #000 80%);}",
-          "button {background-color: #3F309A;}"
+          "button {background-color: #3f309a;}",
+          "p{color:#fff;}"
         ],
         "settings": {
           "section_padding_top": 100,
@@ -1639,7 +1631,7 @@
           "section_padding_bottom_ip": 80,
           "section_padding_top_xs": 60,
           "section_padding_bottom_xs": 60,
-          "section_bg_color_enable": true,
+          "section_bg_color_enable": false,
           "section_bg_color": "#d945ff",
           "section_bg_image_enable": false,
           "border_enable": false,
