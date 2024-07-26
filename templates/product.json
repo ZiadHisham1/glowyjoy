@@ -33,7 +33,7 @@
           "type": "product_variant_picker",
           "settings": {
             "product_variant_handle": "product_variant_swatch_option",
-            "product_variant_color_image_enable": true
+            "product_variant_color_image_enable": false
           }
         },
         "product_sku": {
