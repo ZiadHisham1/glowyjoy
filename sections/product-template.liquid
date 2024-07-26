@@ -166,7 +166,7 @@
                 {% if on_sale %}
                 {% if settings.sale_percent_enable %}
                 <div class="product-label">
-                  <span id="ProductDiscount">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | money_without_currency | replace: ',', '.' | times: 100 | remove: '.0' }}<span> Sale</span></span> 
+                  <span id="ProductDiscount">{{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100.0 | divided_by: product.selected_or_first_available_variant.compare_at_price | money_without_currency | replace: ',', '.' | times: 100 | remove: '.0' }}</span> 
                 </div>
                 {% endif %}
                 {% endif %}
@@ -182,22 +182,6 @@
             </div>
             
           </div>
-            
-            <div class="brand-block">
-              <div class="product-brand">
-                <h6>{{ section.settings.brand_title }}</h6>
-                <span>{{ product.vendor }}</span>
-              </div>
-              <div class="product-inventory">
-                <h6>{{ section.settings.availability_title }}</h6>
-                <span class="out-stock text-danger">
-                  <span>{{ section.settings.out_of_stock_title }}<i class="feather-x"></i></span>
-                </span>
-                <span class="in-stock text-success">
-                  <span>{{ section.settings.in_stock_title }}<i class="feather-check"></i></span>
-                </span>
-              </div>
-            </div>
             
           {%- when 'short_description' -%}
           {% if product.metafields.custom.short_description %}
@@ -221,6 +205,21 @@
                 </div>
               </div>
             </form>
+            <div class="brand-block">
+              <div class="product-brand">
+                <h6>{{ section.settings.brand_title }}</h6>
+                <span>{{ product.vendor }}</span>
+              </div>
+              <div class="product-inventory">
+                <h6>{{ section.settings.availability_title }}</h6>
+                <span class="out-stock text-danger">
+                  <span>{{ section.settings.out_of_stock_title }}<i class="feather-x"></i></span>
+                </span>
+                <span class="in-stock text-success">
+                  <span>{{ section.settings.in_stock_title }}<i class="feather-check"></i></span>
+                </span>
+              </div>
+            </div>
           </div>
           {%- when 'product_sku' -%}
           <div class="pro-skss">
