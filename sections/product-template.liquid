@@ -200,9 +200,14 @@
                 <div class="instant-buy">
                   {% render 'instant-buy', product: product %}
                 </div>
-              
-            
-              <div class="brand-block">
+
+                <div class="additional">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                
+                <div class="brand-block">
               <div class="product-brand">
                 <h6>{{ section.settings.brand_title }}</h6>
                 <span>{{ product.vendor }}</span>
@@ -218,10 +223,11 @@
               </div>
             </div>
 
-               <div class="product-quantity-action">
+                <div class="product-quantity-action">
                   {% render 'product-quantity', product: product %}
                   {% render 'product-cart-action', product: product %}
                 </div>
+                
               </div>
             </form>
           </div>
