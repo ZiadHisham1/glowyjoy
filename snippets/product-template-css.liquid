@@ -445,6 +445,8 @@
 }  
 .product_details_info .product-actions .additional .additional-container{
   display: flex;
+   flex-wrap: wrap; /* allows items to wrap to the next line if they don't fit */
+  justify-content: space-between;
 }
 .product_details_info .product-actions .additional .additional-container img{
   max-width:45px; max-height:45px;
@@ -463,7 +465,7 @@
 .product_details_info .product-actions .additional .additional-container{
   display: flex;
   max-width:500px;
-   flex-wrap: wrap; 
+  flex-wrap: wrap; 
   justify-content: space-between;
 }
 .product_details_info .product-actions .additional .additional-container span{
