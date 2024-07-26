@@ -1,4 +1,4 @@
-<div class="product-variant-option">
+<div class="product-variant-option"> 
   <div class="select-variant">
     <select
       name="id"
@@ -43,6 +43,9 @@
 </div>
 
 <style>
+  .product-variant-option .select-variant{
+    display:none;
+  }
   {%- if block.settings.product_variant_handle == 'product_variant_swatch_option' -%}
   .product-variant-option .selector-wrapper{
     display: none;
