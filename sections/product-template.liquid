@@ -158,10 +158,10 @@
             <div class="price-block">
               <div class="pro-prlb{% if on_sale %} pro-sale{% endif %}">
                 <div class="price-box">
-                  <span class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</span>
                   {%- if product.compare_at_price_max > product.price -%}
                   <span class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</span>
                   {%- endif -%}
+                  <span class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</span>
                 </div>
                 {% if on_sale %}
                 {% if settings.sale_percent_enable %}
