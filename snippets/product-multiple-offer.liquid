@@ -35,7 +35,7 @@
     function updateTotalPrice() {
       const priceElement = document.getElementById('ComparePrice').value;
       const quantity = 2;
-      const totalPrice = (parseFloat(priceElement) * parseInt(quantity)).toFixed(2);
+      const totalPrice = priceElement * 2;
       document.getElementById('totalComparePrice').innerText = 'Total Price: $' + totalPrice;
     }
   </script>
