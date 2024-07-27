@@ -196,7 +196,7 @@
             <form value="1" action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
               {% render 'product-swatch-variant' product: product, block: block %}
               <div class="product-actions">
-               <input type="radio" value="1" />
+               
                 <div class="instant-buy">
                   {% render 'instant-buy', product: product %}
                 </div>
@@ -245,7 +245,7 @@
                 </div>
               </div>
             </div>
-            <form action="/checkout/" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form-2">    
+            <form action="/checkout/" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">    
               <div class="product-quantity-action">
                 {% render 'product-multiple-offer', product: product %}
               </div>
