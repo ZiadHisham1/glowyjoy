@@ -193,7 +193,7 @@
           {% endif %}
           {%- when 'product_variant_picker' -%}
           <div class="pro-detail-action">
-            <form action="/checkout" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
+            <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
               {% render 'product-swatch-variant' product: product, block: block %}
               <div class="product-actions">
                
@@ -246,12 +246,11 @@
               </div>
             </div>
                 
-              </div>
-            </form>
-            <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
-              <div class="product-quantity-action">
+                <div class="product-quantity-action">
                   {% render 'product-multiple-offer', product: product %}
                 </div>
+                
+              </div>
             </form>
           </div>
           {%- when 'product_sku' -%}
