@@ -15,7 +15,7 @@
            <div class="moneyHolder">
              <p>save 15%</p>
              <span>
-               <div class="old-price" id="ComparePrice">{{ (product.selected_or_first_available_variant.compare_at_price | money) * 2 }}</div>
+               <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
              </span>
              <span>
