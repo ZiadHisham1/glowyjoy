@@ -19,8 +19,8 @@
                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
              </span>
              <span>
-               <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
-               <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+               <div class="old-price" id="totalComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+               <div class="new-price" id="totalProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
              </span>
            </div>
          </div>
@@ -30,6 +30,15 @@
     {% endif %}
   </div>
 </div>
+
+<script>
+    function updateTotalPrice() {
+      const priceElement = document.querySelector('.price').innerText.replace('Price: $', '');
+      const quantity = document.getElementById('quantity').value;
+      const totalPrice = (parseFloat(priceElement) * parseInt(quantity)).toFixed(2);
+      document.getElementById('total-price').innerText = 'Total Price: $' + totalPrice;
+    }
+  </script>
 
 <style>
   .box-cont{
