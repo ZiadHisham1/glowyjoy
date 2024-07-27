@@ -13,7 +13,7 @@
              </div>
            </div>
            <div class="moneyHolder">
-             <h5>save 15%</h5>
+             <p>save 15%</p>
              <span>
                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
@@ -71,7 +71,7 @@
     display: block;
     text-align: right;
   }
-  .moneyHolder h5{
+  .moneyHolder p{
     color: blue;
   }
   .moneyHolder span{
