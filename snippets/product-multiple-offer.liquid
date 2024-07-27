@@ -1,30 +1,35 @@
 <div style="width: 100%;" class="row">
   <div class="column">        
     {% if product.available %}
-       <div class="box">
-         <div class="box-cont">
-           <div class="box-cont-holder">
-             <div>
-               <input type="radio"/>
-             </div>
-             <div>               
-               <span>Most Popular</span>
-               <p>Buy two and save 15%</p>
-             </div>
-           </div>
-           <div class="moneyHolder">
-             <p>save 15%</p>
-             <span>
-               <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
-               <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
-             </span>
-             <span>
-               <div class="old-price" id="totalComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
-               <div class="new-price" id="totalProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
-             </span>
-           </div>
-         </div>
-       </div> 
+      <div class="box">
+        <div class="box-cont">
+          <div class="box-cont-holder">
+            <div>
+              <input type="radio"/>
+            </div>
+            <div>               
+              <span>Most Popular</span>
+              <p>Buy two and save 15%</p>
+            </div>
+          </div>
+          <div class="moneyHolder">
+            <p>Save 15%</p>
+            <span>
+              <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+              <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+            </span>
+            <span>
+              {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+              {% assign product_price = product.selected_or_first_available_variant.price %}
+              {% assign quantity = 2 %}
+              {% assign total_compare_price = compare_price | times: quantity %}
+              {% assign total_product_price = product_price | times: quantity %}
+              <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+              <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+            </span>
+          </div>
+        </div>
+      </div> 
     {% else %}
       <div>Out of stock</div>
     {% endif %}
@@ -32,49 +37,57 @@
 </div>
 
 <script>
-    function updateTotalPrice() {
-      const priceElement = document.getElementById('ComparePrice').value;
-      const quantity = 2;
-      const totalPrice = priceElement * 2;
-      document.getElementById('totalComparePrice').innerText = 'Total Price: $' + totalPrice;
-    }
-  </script>
+  function updateTotalPrice() {
+    const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }};
+    const productPrice = {{ product.selected_or_first_available_variant.price }};
+    const quantity = 2;
+
+    const totalComparePrice = (comparePrice * quantity) / 100;
+    const totalProductPrice = (productPrice * quantity) / 100;
+
+    document.getElementById('totalComparePrice').innerText = '$' + totalComparePrice.toFixed(2);
+    document.getElementById('totalProductPrice').innerText = '$' + totalProductPrice.toFixed(2);
+  }
+
+  // Initial call to update prices
+  updateTotalPrice();
+</script>
 
 <style>
-  .box-cont{
+  .box-cont {
     display: flex;
     margin: 10px;
     padding: 10px;
     justify-content: space-between;
     background-color: #ced8ff;
   }
-  .box .box-cont .box-cont-holder{
+  .box .box-cont .box-cont-holder {
     display: flex;
   }
-  .box .box-cont .box-cont-holder input{
+  .box .box-cont .box-cont-holder input {
     width: 20px;
     height: 20px;
     margin: 10px;
   }
-  .box .box-cont .box-cont-holder span{
+  .box .box-cont .box-cont-holder span {
     background-color: #e15f00;
     border-radius: 10px;
     color: #fff;
     font-weight: 500;
     padding: 5px;
   }
-  .box .box-cont .box-cont-holder p{
+  .box .box-cont .box-cont-holder p {
     font-size: 20px;
     font-weight: 600;
   }
-  .moneyHolder{
+  .moneyHolder {
     display: block;
     text-align: right;
   }
-  .moneyHolder p{
+  .moneyHolder p {
     color: blue;
   }
-  .moneyHolder span{
+  .moneyHolder span {
     display: flex;
   }
 </style>
