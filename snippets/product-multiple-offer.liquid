@@ -1,28 +1,32 @@
-<div class="multipleContainer">
-  {% if product.available %}
-  <div class="multi-option">
-    <div class="sm-con-left">
-      <input type="radio" >
-      <div>
-        <span>Most Populare</span>
-        <p>Buy two and sava 15%</p>
-      </div>
-      <div style="display:block; margin-left:20px;">
-        <div class="price-holder"><span>save 15%</span></div>
-        <div class="price-holder">100</div>
-        <div class="price-holder">100</div>
-      </div>
-    </div>
-
-    <div></div>
-    <div></div>
-  </div>
+<div class="row">
+  <div class="column">        
+    <div class="multipleContainer">
+      {% if product.available %}
+      <div class="multi-option">
+        <div class="sm-con-left">
+          <input type="radio" >
+          <div>
+            <span>Most Populare</span>
+            <p>Buy two and sava 15%</p>
+          </div>
+          <div style="display:block; margin-left:20px;">
+            <div class="price-holder"><span>save 15%</span></div>
+            <div class="price-holder">100</div>
+            <div class="price-holder">100</div>
+          </div>
+        </div>
     
-  {% else %}
-  <div>
-    <input >
+        <div></div>
+        <div></div>
+      </div>
+        
+      {% else %}
+      <div>
+        <input >
+      </div>
+      {% endif %}
+    </div>
   </div>
-  {% endif %}
 </div>
 
 <style>
