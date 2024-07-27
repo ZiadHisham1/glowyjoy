@@ -33,7 +33,7 @@
 
 <script>
     function updateTotalPrice() {
-      const priceElement = document.querySelector('.price').innerText.replace('Price: $', '');
+      const priceElement = document.getElementById('ComparePrice').innerText.replace('Price: $', '');
       const quantity = document.getElementById('quantity').value;
       const totalPrice = (parseFloat(priceElement) * parseInt(quantity)).toFixed(2);
       document.getElementById('total-price').innerText = 'Total Price: $' + totalPrice;
