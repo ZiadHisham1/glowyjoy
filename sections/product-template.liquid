@@ -193,7 +193,7 @@
           {% endif %}
           {%- when 'product_variant_picker' -%}
           <div class="pro-detail-action">
-            <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
+            <form value="1" action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
               {% render 'product-swatch-variant' product: product, block: block %}
               <div class="product-actions">
                
