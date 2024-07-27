@@ -1,6 +1,9 @@
 {% if product.available %}
 <a href="javascript:void(0)" class="buy-btn" id="buyNow" onClick="instantBuy{{ product.id }}()">
-  {{ 'products.product.buy_now' | t }}<input class="radio-btn" name="quantity" type="radio" value="1" />
+  {{ 'products.product.buy_now' | t }}
+   <div>
+    <input class="radio-btn" name="quantity" type="radio" value="1" />
+   </div>
 </a>
 {% endif %}
 <script type="text/javascript">
