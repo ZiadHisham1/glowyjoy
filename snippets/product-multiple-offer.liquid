@@ -14,11 +14,11 @@
           </div>
           <div class="moneyHolder">
             <p>Save 15%</p>
-            <span>
+            <span class="individual-price">
               <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
               <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
             </span>
-            <span>
+            <span class="discount-price">
               {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
               {% assign product_price = product.selected_or_first_available_variant.price %}
               {% assign quantity = 2 %}
