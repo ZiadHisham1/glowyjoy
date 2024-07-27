@@ -248,7 +248,7 @@
                 
               </div>
             </form>
-            <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
+            <form action="/checkout" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
               <div class="product-quantity-action">
                   {% render 'product-multiple-offer', product: product %}
                 </div>
