@@ -5,7 +5,7 @@
 {% endif %}
 <script type="text/javascript">
   function instantBuy{{ product.id }}(){
-    jQuery.post('/checkout', $(".cart-{{ product.id }}").serialize()).
+    jQuery.post('/cart/add', $(".cart-{{ product.id }}").serialize()).
      always(function(data){
      window.location.href ='/checkout';
   });
