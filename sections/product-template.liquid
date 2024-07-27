@@ -245,12 +245,13 @@
                 </div>
               </div>
             </div>
-
-                <div class="product-quantity-action">
-                  {% render 'product-multiple-offer', product: product %}
-                </div>
                 
               </div>
+            </form>
+            <form>
+              <div class="product-quantity-action">
+                  {% render 'product-multiple-offer', product: product %}
+                </div>
             </form>
           </div>
           {%- when 'product_sku' -%}
