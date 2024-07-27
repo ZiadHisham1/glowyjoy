@@ -18,7 +18,10 @@
                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
              </span>
-             <span>100</span>
+             <span>
+               <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+               <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+             </span>
            </div>
          </div>
        </div> 
