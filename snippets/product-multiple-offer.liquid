@@ -129,8 +129,8 @@
 
     containers.forEach(container => {
       const group = container.getAttribute('data-group');
-      const primaryRadio = container.querySelector(`#quantity-option-${group}`);
-      const secondaryRadio = container.querySelector(`#hidden-option-${group}`);
+      const primaryRadio = container.querySelector(`#hidden-option-${group}`);
+      const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
 
       primaryRadio.addEventListener('change', function () {
         if (this.checked) {
