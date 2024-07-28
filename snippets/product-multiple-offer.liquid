@@ -109,20 +109,22 @@
 </div>
 
 <script>
-  function updateTotalPrice() {
-    const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }};
-    const productPrice = {{ product.selected_or_first_available_variant.price }};
-    const quantity = 2;
+  function updateTotalPrice(group) {
+    const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }} / 100;
+    const productPrice = {{ product.selected_or_first_available_variant.price }} / 100;
+    const quantity = document.getElementById(`hidden-option-${group}`).value;
 
-    const totalComparePrice = (comparePrice * quantity) / 100;
-    const totalProductPrice = (productPrice * quantity) / 100;
+    const totalComparePrice = comparePrice * quantity;
+    const totalProductPrice = productPrice * quantity;
 
-    document.getElementById('totalComparePrice').innerText = '$' + totalComparePrice.toFixed(2);
-    document.getElementById('totalProductPrice').innerText = '$' + totalProductPrice.toFixed(2);
+    document.getElementById(`totalComparePrice-${group}`).innerText = '$' + totalComparePrice.toFixed(2);
+    document.getElementById(`totalProductPrice-${group}`).innerText = '$' + totalProductPrice.toFixed(2);
   }
 
-  // Initial call to update prices
-  updateTotalPrice();
+  // Initial call to update prices for each group
+  updateTotalPrice(1);
+  updateTotalPrice(2);
+  updateTotalPrice(3);
 
   document.addEventListener('DOMContentLoaded', function () {
     const containers = document.querySelectorAll('.box-cont');
