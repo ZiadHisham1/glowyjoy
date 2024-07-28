@@ -4,11 +4,11 @@
       <div class="box">
         <div class="box-cont" data-group="1">
           <div class="hidden-option">
-            <input type="radio" name="quantity" value="2" checked/>
+            <input type="radio" id="hidden-option-1" name="quantity" value="2" checked/>
           </div>
           <div class="box-cont-holder">
             <div>
-              <input type="radio" name="quantity-option"/>
+              <input type="radio" id="quantity-option-1" name="quantity-option"/>
             </div>
             <div>               
               <span>Most Popular</span>
@@ -36,19 +36,19 @@
 
         <div class="box-cont" data-group="2">
           <div class="hidden-option">
-            <input type="radio" name="quantity" value="3" checked/>
+            <input type="radio" id="hidden-option-2" name="quantity" value="3" checked/>
           </div>
           <div class="box-cont-holder">
             <div>
-              <input type="radio" name="quantity-option"/>
+              <input type="radio" id="quantity-option-2" name="quantity-option"/>
             </div>
             <div>               
               <span>Most Popular</span>
-              <p>Buy two and save 15%</p>
+              <p>Buy three and save 20%</p>
             </div>
           </div>
           <div class="moneyHolder">
-            <p>Save 15%</p>
+            <p>Save 20%</p>
             <span class="individual-price">
               <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
               <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
@@ -56,7 +56,7 @@
             <span class="discount-price">
               {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
               {% assign product_price = product.selected_or_first_available_variant.price %}
-              {% assign quantity = 2 %}
+              {% assign quantity = 3 %}
               {% assign total_compare_price = compare_price | times: quantity %}
               {% assign total_product_price = product_price | times: quantity %}
               <div class="new-price">Total</div>
@@ -68,19 +68,19 @@
 
         <div class="box-cont" data-group="3">
           <div class="hidden-option">
-            <input type="radio" name="quantity" value="4" checked/>
+            <input type="radio" id="hidden-option-3" name="quantity" value="4" checked/>
           </div>
           <div class="box-cont-holder">
             <div>
-              <input type="radio" name="quantity-option"/>
+              <input type="radio" id="quantity-option-3" name="quantity-option"/>
             </div>
             <div>               
               <span>Most Popular</span>
-              <p>Buy two and save 15%</p>
+              <p>Buy four and save 25%</p>
             </div>
           </div>
           <div class="moneyHolder">
-            <p>Save 15%</p>
+            <p>Save 25%</p>
             <span class="individual-price">
               <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
               <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
@@ -88,7 +88,7 @@
             <span class="discount-price">
               {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
               {% assign product_price = product.selected_or_first_available_variant.price %}
-              {% assign quantity = 2 %}
+              {% assign quantity = 4 %}
               {% assign total_compare_price = compare_price | times: quantity %}
               {% assign total_product_price = product_price | times: quantity %}
               <div class="new-price">Total</div>
@@ -129,8 +129,8 @@
 
     containers.forEach(container => {
       const group = container.getAttribute('data-group');
-      const primaryRadio = container.querySelector(`input[name="quantity-option${group}"]`);
-      const secondaryRadio = container.querySelector(`input[name="quantity${group}"]`);
+      const primaryRadio = container.querySelector(`#quantity-option-${group}`);
+      const secondaryRadio = container.querySelector(`#hidden-option-${group}`);
 
       primaryRadio.addEventListener('change', function () {
         if (this.checked) {
