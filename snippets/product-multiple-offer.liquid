@@ -33,11 +33,44 @@
             </span>
           </div>
         </div>
-        
-        <!-- <div class="box-cont">
+        <div class="box-cont">
+          <div class="hidden-option">
+            <input type="radio" name="quantity" value="2" checked/>
+          </div>
           <div class="box-cont-holder">
             <div>
-              <input type="radio" name="quantity" value="3"/>
+              <input type="radio" name="quantity-option"/>
+            </div>
+            <div>               
+              <span>Most Popular</span>
+              <p>Buy two and save 15%</p>
+            </div>
+          </div>
+          <div class="moneyHolder">
+            <p>Save 15%</p>
+            <span class="individual-price">
+              <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+              <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+            </span>
+            <span class="discount-price">
+              {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+              {% assign product_price = product.selected_or_first_available_variant.price %}
+              {% assign quantity = 2 %}
+              {% assign total_compare_price = compare_price | times: quantity %}
+              {% assign total_product_price = product_price | times: quantity %}
+              <div class="new-price">Total</div>
+              <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+              <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+            </span>
+          </div>
+        </div>
+        <div class="box-cont">
+          <div class="hidden-option">
+            <input type="radio" name="quantity" value="2" checked/>
+          </div>
+          <div class="box-cont-holder">
+            <div>
+              <input type="radio" name="quantity-option"/>
             </div>
             <div>               
               <span>Most Popular</span>
@@ -63,34 +96,7 @@
           </div>
         </div>
         
-        <div class="box-cont">
-          <div class="box-cont-holder">
-            <div>
-              <input type="radio" name="quantity" value="4"/>
-            </div>
-            <div>               
-              <span>Most Popular</span>
-              <p>Buy two and save 15%</p>
-            </div>
-          </div>
-          <div class="moneyHolder">
-            <p>Save 15%</p>
-            <span class="individual-price">
-              <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
-              <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
-            </span>
-            <span class="discount-price">
-              {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
-              {% assign product_price = product.selected_or_first_available_variant.price %}
-              {% assign quantity = 2 %}
-              {% assign total_compare_price = compare_price | times: quantity %}
-              {% assign total_product_price = product_price | times: quantity %}
-              <div class="new-price">Total</div>
-              <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
-              <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
-            </span>
-          </div>
-        </div> -->
+        
         <div class="btn-cont">
           {% render 'discount-instant-buy', product: product %}
         </div>
