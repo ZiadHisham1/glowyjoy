@@ -115,7 +115,7 @@
     const quantity = document.getElementById(`hidden-option-${group}`).value;
 
     const totalComparePrice = comparePrice * quantity;
-    const totalProductPrice = (productPrice * quantity) - (productPrice * quantity) * 0.2 ;
+    const totalProductPrice = productPrice * quantity ;
 
     document.getElementById(`totalComparePrice-${group}`).innerText = '$' + totalComparePrice.toFixed(2);
     document.getElementById(`totalProductPrice-${group}`).innerText = '$' + totalProductPrice.toFixed(2);
