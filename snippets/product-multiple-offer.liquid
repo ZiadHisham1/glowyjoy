@@ -71,7 +71,6 @@
                 <input type="radio" id="quantity-option-2" name="quantity-option"/>
               </div>
               <div>               
-                <span>Most Popular</span>
                 <p>Buy three and save 20%</p>
               </div>
             </div>
@@ -96,34 +95,36 @@
         </div>
 
         <div class="box-cont" data-group="3">
-          <div class="hidden-option">
-            <input type="radio" id="hidden-option-3" name="quantity" value="4" checked/>
-          </div>
-          <div class="box-cont-holder">
-            <div>
-              <input type="radio" id="quantity-option-3" name="quantity-option"/>
+          <div class="carry-hld">
+            <div class="hidden-option">
+              <input type="radio" id="hidden-option-3" name="quantity" value="4" checked/>
             </div>
-            <div>               
-              <span>Most Popular</span>
-              <p>Buy four and save 25%</p>
+            <div class="box-cont-holder">
+              <div>
+                <input type="radio" id="quantity-option-3" name="quantity-option"/>
+              </div>
+              <div>               
+                <span>Most Popular</span>
+                <p>Buy four and save 25%</p>
+              </div>
             </div>
-          </div>
-          <div class="moneyHolder">
-            <p>Save 25%</p>
-            <span class="individual-price">
-              <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
-              <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
-            </span>
-            <span class="discount-price">
-              {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
-              {% assign product_price = product.selected_or_first_available_variant.price %}
-              {% assign quantity = 4 %}
-              {% assign total_compare_price = compare_price | times: quantity %}
-              {% assign total_product_price = product_price | times: quantity %}
-              <div class="new-price">Total</div>
-              <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
-              <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
-            </span>
+            <div class="moneyHolder">
+              <p>Save 25%</p>
+              <span class="individual-price">
+                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+              </span>
+              <span class="discount-price">
+                {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+                {% assign product_price = product.selected_or_first_available_variant.price %}
+                {% assign quantity = 4 %}
+                {% assign total_compare_price = compare_price | times: quantity %}
+                {% assign total_product_price = product_price | times: quantity %}
+                <div class="new-price">Total</div>
+                <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+                <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+              </span>
+            </div>
           </div>
         </div>
 
