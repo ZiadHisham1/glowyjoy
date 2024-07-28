@@ -50,8 +50,8 @@
             <span class="disc-opt-mun">
               #1
             </span>
-            <div>
-              <select>
+            <div class="selection-div">
+              <select class="disc-opt-selection">
                 <option>one</option>
                 <option>two</option>
                 <option>three</option>
@@ -197,6 +197,17 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+  }
+  .box .box-cont .carry-hld .disc-opt-mun{
+    display: inline-block;
+    margin: 5px 30px 5px 30px;
+  }
+  .box .box-cont .carry-hld .selection-div{
+    width: 100%;
+    margin-right: 30px;
+  }
+  .box .box-cont .carry-hld .selection-div .disc-opt-selection{
+    height: 40px;
   }
   .box .box-cont .hidden-option {
     position: absolute;
