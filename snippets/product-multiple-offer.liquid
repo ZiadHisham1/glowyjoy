@@ -242,51 +242,68 @@
     document.getElementById('totalProductPrice').innerText = '$' + totalProductPrice.toFixed(2);
   }
 
+  function toggleVisibility(selectedGroup) {
+    const allSelectorDivs = document.querySelectorAll('[id^="selectorDiv-"]');
+    allSelectorDivs.forEach(div => {
+      if (div.id === `selectorDiv-${selectedGroup}`) {
+        div.classList.remove('hidden');
+      } else {
+        div.classList.add('hidden');
+      }
+    });
+  }
+
   // Initial call to update prices
   updateTotalPrice();
 
- document.addEventListener('DOMContentLoaded', function () {
-  const containers = document.querySelectorAll('.box-cont');
+  document.addEventListener('DOMContentLoaded', function () {
+    const containers = document.querySelectorAll('.box-cont');
 
-  containers.forEach(container => {
-    const group = container.getAttribute('data-group');
-    const primaryRadio = container.querySelector(`#hidden-option-${group}`);
-    const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
-    const card = document.getElementById(`box-cont-${group}`);
+    containers.forEach(container => {
+      const group = container.getAttribute('data-group');
+      const primaryRadio = container.querySelector(`#hidden-option-${group}`);
+      const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
+      const card = document.getElementById(`box-cont-${group}`);
 
-    primaryRadio.addEventListener('change', function () {
-      if (this.checked) {
-        // Remove the highlight class from all containers
-        containers.forEach(cont => cont.classList.remove('highlight'));
+      primaryRadio.addEventListener('change', function () {
+        if (this.checked) {
+          // Remove the highlight class from all containers
+          containers.forEach(cont => cont.classList.remove('highlight'));
 
-        // Add the highlight class to the currently checked container
-        card.classList.add('highlight');
-        secondaryRadio.checked = true;
-      }
+          // Add the highlight class to the currently checked container
+          card.classList.add('highlight');
+          secondaryRadio.checked = true;
+
+          // Toggle visibility
+          toggleVisibility(group);
+        }
+      });
+
+      secondaryRadio.addEventListener('change', function () {
+        if (this.checked) {
+          // Remove the highlight class from all containers
+          containers.forEach(cont => cont.classList.remove('highlight'));
+
+          // Add the highlight class to the currently checked container
+          card.classList.add('highlight');
+          primaryRadio.checked = true;
+        }
+      });
     });
 
-    secondaryRadio.addEventListener('change', function () {
-      if (this.checked) {
-        // Remove the highlight class from all containers
-        containers.forEach(cont => cont.classList.remove('highlight'));
-
-        // Add the highlight class to the currently checked container
-        card.classList.add('highlight');
-        primaryRadio.checked = true;
+    // Add highlight class to the first checked box
+    const firstChecked = document.querySelector('.box-cont input[type="radio"]:checked');
+    if (firstChecked) {
+      const firstCheckedContainer = firstChecked.closest('.box-cont');
+      if (firstCheckedContainer) {
+        firstCheckedContainer.classList.add('highlight');
+        const group = firstCheckedContainer.getAttribute('data-group');
+        toggleVisibility(group);
       }
-    });
-  });
-
-  // Add highlight class to the first checked box
-  const firstChecked = document.querySelector('.box-cont input[type="radio"]:checked');
-  if (firstChecked) {
-    const firstCheckedContainer = firstChecked.closest('.box-cont');
-    if (firstCheckedContainer) {
-      firstCheckedContainer.classList.add('highlight');
     }
-  }
-});
+  });
 </script>
+
 
 <style>
   .box-cont {
