@@ -2,7 +2,7 @@
   <div class="column">
     {% if product.available %}
       <div class="box">
-        <div class="box-cont" data-group="1">
+        <div class="box-cont" id="box-cont-1" data-group="1">
           <div class="carry-hld">  
             <div class="hidden-option">
               <input type="radio" id="hidden-option-1" name="quantity" value="2" checked/>
@@ -61,7 +61,7 @@
           </div>
         </div>
 
-        <div class="box-cont" data-group="2">
+        <div class="box-cont" id="box-cont-2" data-group="2">
           <div class="carry-hld">
             <div class="hidden-option">
               <input type="radio" id="hidden-option-2" name="quantity" value="3" checked/>
@@ -133,7 +133,7 @@
           </div>
         </div>
 
-        <div class="box-cont" data-group="3">
+        <div class="box-cont" id="box-cont-3" data-group="3">
           <div class="carry-hld">
             <div class="hidden-option">
               <input type="radio" id="hidden-option-3" name="quantity" value="4" checked/>
@@ -251,9 +251,12 @@
       const primaryRadio = container.querySelector(`#hidden-option-${group}`);
       const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
 
+      const card = container.querySelector(`box-cont-${group}`);
+
       primaryRadio.addEventListener('change', function () {
         if (this.checked) {
           secondaryRadio.checked = true;
+          card.style.backgroundColor = 'blue';
         }
       });
     });
