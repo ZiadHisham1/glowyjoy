@@ -244,23 +244,37 @@
   updateTotalPrice();
 
   document.addEventListener('DOMContentLoaded', function () {
-    const containers = document.querySelectorAll('.box-cont');
+  const containers = document.querySelectorAll('.box-cont');
 
-    containers.forEach(container => {
-      const group = container.getAttribute('data-group');
-      const primaryRadio = container.querySelector(`#hidden-option-${group}`);
-      const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
+  containers.forEach(container => {
+    const group = container.getAttribute('data-group');
+    const primaryRadio = container.querySelector(`#hidden-option-${group}`);
+    const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
+    const card = document.getElementById(`box-cont-${group}`);
 
-        const card = container.querySelector(`#box-cont-${group}`);
+    primaryRadio.addEventListener('change', function () {
+      if (this.checked) {
+        // Remove the highlight class from all containers
+        containers.forEach(cont => cont.classList.remove('highlight'));
 
-      primaryRadio.addEventListener('change', function () {
-        if (this.checked) {
-          secondaryRadio.checked = true;
-           document.getElementById(`cont-box-${group}`).classList.add("highlight");
-        }
-      });
+        // Add the highlight class to the currently checked container
+        card.classList.add('highlight');
+        secondaryRadio.checked = true;
+      }
+    });
+
+    secondaryRadio.addEventListener('change', function () {
+      if (this.checked) {
+        // Remove the highlight class from all containers
+        containers.forEach(cont => cont.classList.remove('highlight'));
+
+        // Add the highlight class to the currently checked container
+        card.classList.add('highlight');
+        primaryRadio.checked = true;
+      }
     });
   });
+});
 </script>
 
 <style>
@@ -273,6 +287,9 @@
     border: solid 1px #02020230;
     border-radius: 2px;
     clip-path: inset(0 0 0);
+  }
+  .box-cont.highlight {
+    background-color: blue;
   }
   .btn-cont {
     margin: 10px;
