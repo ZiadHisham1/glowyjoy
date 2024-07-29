@@ -256,7 +256,7 @@
       primaryRadio.addEventListener('change', function () {
         if (this.checked) {
           secondaryRadio.checked = true;
-          card.classList.add("highlight");
+           document.getElementById(`cont-box-${group}`).classList.add("highlight");
         }
       });
     });
