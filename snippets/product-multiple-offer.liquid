@@ -243,7 +243,7 @@
   // Initial call to update prices
   updateTotalPrice();
 
-  document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', function () {
   const containers = document.querySelectorAll('.box-cont');
 
   containers.forEach(container => {
@@ -274,6 +274,15 @@
       }
     });
   });
+
+  // Add highlight class to the first checked box
+  const firstChecked = document.querySelector('.box-cont input[type="radio"]:checked');
+  if (firstChecked) {
+    const firstCheckedContainer = firstChecked.closest('.box-cont');
+    if (firstCheckedContainer) {
+      firstCheckedContainer.classList.add('highlight');
+    }
+  }
 });
 </script>
 
