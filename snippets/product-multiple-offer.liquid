@@ -251,7 +251,7 @@
       const primaryRadio = container.querySelector(`#hidden-option-${group}`);
       const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
 
-      const card = container.querySelector(`box-cont-${group}`);
+      const card = container.querySelector(`.box-cont[data-group="${group}"]`);
 
       primaryRadio.addEventListener('change', function () {
         if (this.checked) {
