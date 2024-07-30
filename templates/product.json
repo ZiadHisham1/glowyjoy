@@ -78,6 +78,18 @@
         "out_of_stock_title": "Out of stock"
       }
     },
+    "clients_4e7qkb": {
+      "type": "clients",
+      "settings": {
+        "section_title": "type here",
+        "section_title_color": "#fff",
+        "section_title_2": "type here",
+        "section_title2_color": "#fff",
+        "section_desc": "type here",
+        "testi_bgcolor": "#bd6262",
+        "testi_bgcolor2": "#000000"
+      }
+    },
     "single-product-tab": {
       "type": "single-product-tab",
       "blocks": {
@@ -137,6 +149,7 @@
   },
   "order": [
     "product-template",
+    "clients_4e7qkb",
     "single-product-tab",
     "related-product"
   ]
