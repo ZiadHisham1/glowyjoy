@@ -3,7 +3,7 @@
 ======================================*/
 body.hidden {
   overflow-y: hidden;
-  padding-right: 17px;
+  /* padding-right: 17px; */
 }
 @media (max-width: 1199px) {
   body.hidden {
