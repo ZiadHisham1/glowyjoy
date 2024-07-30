@@ -6,6 +6,9 @@ Author: pirate of careppian
 Author URI: https://glowyjoy.store
 Version: 2.3
 -----------------------------------------------------------------------------------*/
+:root{
+  overflow-x: hidden;
+}
 
 @font-face {
     font-family: 'Holligate Signature Demo';
