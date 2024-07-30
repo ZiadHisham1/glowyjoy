@@ -1,4 +1,4 @@
-<section class="testimonial-clients-area {% if section.settings.enable_animation %}animate-background{% endif %}">
+<section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.enable_animation %}animate-background{% endif %}">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -119,104 +119,108 @@
 {% endschema %}
 
 
+
 <style>
   .testimonial-clients-area {
   position: relative;
-  padding-top: {{ section.settings.testi_padding_top }}px;
-  padding-bottom: {{ section.settings.testi_padding_bottom }}px;
+  padding-top: var(--testi-padding-top);
+  padding-bottom: var(--testi-padding-bottom);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  background: radial-gradient(circle at center, {{ section.settings.testi_bgcolor }} 20%, {{ section.settings.testi_bgcolor2 }} 80%);
-  }
-  
-  .animate-background {
-    background-size: 150%;
-    animation: moveBackground 10s infinite alternate;
-  }
+  background-size: 150%;
+}
 
-  @keyframes moveBackground {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 50% 50%;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
+.animate-background {
+  animation: moveBackground 10s infinite alternate;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
   }
-  
-  .testimonial-clients-area .title-capture{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 40px auto;
+  50% {
+    background-position: 50% 50%;
   }
-  .testimonial-clients-area .title-capture .section-title{
-    display:block;
-    
+  100% {
+    background-position: 100% 100%;
   }
-   .testimonial-clients-area .title-capture .section-title h2{
-     color: #fff;
-     font-weight:700;
-     text-align: center;
-   }
-  .testimonial-clients-area .title-capture .section-title .desc{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    margin: 15px;
-  }
-  .testimonial-clients-area .title-capture .section-title .desc p{
+}
+
+/* Example CSS Variables for Dynamic Styles */
+#testimonial-{{ section.id }} {
+  --testi-bgcolor: {{ section.settings.testi_bgcolor }};
+  --testi-bgcolor2: {{ section.settings.testi_bgcolor2 }};
+  --testi-padding-top: {{ section.settings.testi_padding_top }}px;
+  --testi-padding-bottom: {{ section.settings.testi_padding_bottom }}px;
+}
+
+#testimonial-{{ section.id }} .title-capture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+}
+#testimonial-{{ section.id }} .title-capture .section-title {
+  display: block;
+}
+#testimonial-{{ section.id }} .title-capture .section-title h2 {
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .desc p {
+  color: #fff;
+  font-weight: 500;
+  position: unset;
+  margin: 0;
+  padding: 0;
+  width: 450px;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  text-align: center;
+}
+@media (max-width: 460px) {  
+  #testimonial-{{ section.id }} .title-capture .section-title .desc p {
     color: #fff;
-    font-weight:500;
-    position:unset;
+    font-weight: 500;
+    position: unset;
     margin: 0;
     padding: 0;
-    width:450px;
+    width: 350px;
     overflow-wrap: break-word;
-    line-height: 1.5;
+    line-height: 1.2;
     text-align: center;
   }
-@media (max-width: 460px){  
-  .testimonial-clients-area .title-capture .section-title .desc p{
-    color: #fff;
-    font-weight:500;
-    position:unset;
-    margin: 0;
-    padding: 0;
-    width:350px;
-    overflow-wrap: break-word;
-    line-height:1.2;
-    text-align: center;
-  }}
-
-  .imag-wraper{
-    display: flex;
+}
+#testimonial-{{ section.id }} .imag-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+@media (max-width: 1200px) {
+  #testimonial-{{ section.id }} .imag-wraper {
+    display: block;
     align-items: center;
     justify-content: center;
-    margin:50px;
+    margin: 50px;
   }
-
-@media (max-width: 1200px){
-   .imag-wraper {
-     display:block;
-     align-items: center;
-    justify-content: center;
-     margin:50px;
-   }
-}  
-  
-  .imag-wraper .imag-holder{
-    margin: 20px;
-    margin-top: 0;
-    width: 600px;
+}
+#testimonial-{{ section.id }} .imag-wraper .imag-holder {
+  margin: 20px;
+  margin-top: 0;
+  width: 600px;
+}
+@media (max-width: 1200px) {
+  #testimonial-{{ section.id }} .imag-wraper .imag-holder {
+    width: auto;
   }
-
-@media (max-width: 1200px){
-  .imag-wraper .imag-holder{
-     width: auto;
-   }
 }
 </style>
