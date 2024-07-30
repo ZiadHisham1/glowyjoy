@@ -1814,7 +1814,8 @@
           "section_title2_color": "#c0b6fc",
           "section_desc": "With over 100k customers, it’s clear to see why this is the top rated product to gift yourself or your loved ones in 2023",
           "testi_bgcolor": "#231b53",
-          "testi_bgcolor2": "#0b0720"
+          "testi_bgcolor2": "#0b0720",
+          "enable_animation": true
         }
       },
       "transformation_Hf4tPe": {
@@ -1861,7 +1862,8 @@
           "section_title2_color": "#c0b6fc",
           "section_desc": "With over 100k customers, it’s clear to see why this is the top rated product to gift yourself or your loved ones in 2023",
           "testi_bgcolor": "#231b53",
-          "testi_bgcolor2": "#0b0720"
+          "testi_bgcolor2": "#0b0720",
+          "enable_animation": false
         }
       },
       "transformation_rYJmTJ": {
