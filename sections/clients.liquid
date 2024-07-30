@@ -1,4 +1,4 @@
-<section class="testimonial-clients-area">
+<section class="testimonial-clients-area {% if section.settings.enable_animation %}animate-background{% endif %}">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -35,54 +35,60 @@
 </section>
 
 {% schema %}
- {
+{
   "name": "Testimonial",
   "settings": [
     {
       "type": "header",
-      "content": "testimontial settings"
+      "content": "Testimonial settings"
     },
     {
       "type": "text",
       "id": "section_title",
-      "label": "section title",
-      "default": "type here"
+      "label": "Section title",
+      "default": "Type here"
     },
     {
       "type": "color",
       "id": "section_title_color",
-      "label": "title one color",
+      "label": "Title one color",
       "default": "#fff"
     },
     {
       "type": "text",
       "id": "section_title_2",
-      "label": "section 2nd title",
-      "default": "type here"
+      "label": "Section 2nd title",
+      "default": "Type here"
     },
     {
       "type": "color",
       "id": "section_title2_color",
-      "label": "title two color",
+      "label": "Title two color",
       "default": "#fff"
     },
     {
       "type": "text",
       "id": "section_desc",
-      "label": "section describtion",
-      "default": "type here"
+      "label": "Section description",
+      "default": "Type here"
     },
     {
       "type": "color",
       "id": "testi_bgcolor",
-      "label": "background color",
+      "label": "Background color",
       "default": "#000"
     },
     {
       "type": "color",
       "id": "testi_bgcolor2",
-      "label": "background color",
+      "label": "Background color 2",
       "default": "#000"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animation",
+      "label": "Enable background animation",
+      "default": true
     }
   ],
   "blocks": [
@@ -98,19 +104,20 @@
           "type": "image_picker",
           "id": "custom_imag",
           "label": "Customer Image",
-          "info": "recommended 500 X 200 PX"
+          "info": "Recommended 500 X 200 PX"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "clients",
+      "name": "Clients",
       "category": "7. Testimonial"
     }
   ]
 }
 {% endschema %}
+
 
 <style>
   .testimonial-clients-area{
