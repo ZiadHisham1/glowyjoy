@@ -121,9 +121,21 @@
     background-position: center;
     background-size: cover;
     background: radial-gradient(circle at center, {{ section.settings.testi_bgcolor }} 20%, {{ section.settings.testi_bgcolor2 }} 80%);
-    
+    animation: moveBackground 10s infinite alternate;
   }
 
+  @keyframes moveBackground {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 50% 50%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  
   .testimonial-clients-area .title-capture{
     display: flex;
     align-items: center;
