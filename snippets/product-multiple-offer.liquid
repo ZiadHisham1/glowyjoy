@@ -45,7 +45,7 @@
                 <select class="disc-opt-selection" id="product-select-1" name="id-1">
                   {% for variant in product.variants %}
                     <option value="{{ variant.id }}">
-                      {{ variant.title }} - {{ variant.price | money }}
+                      {{ variant.title }}
                     </option>
                   {% endfor %}
                 </select>  
