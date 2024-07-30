@@ -42,7 +42,6 @@
             </span>
             <div class="selection-div">
               {% if product.variants.size > 1 %}
-               <label for="product-select-1">{{ 'products.product.select_variant' | t }} 1</label>
                 <select class="disc-opt-selection" id="product-select-1" name="id-1">
                   {% for variant in product.variants %}
                     <option value="{{ variant.id }}">
