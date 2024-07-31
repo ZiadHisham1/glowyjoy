@@ -42,7 +42,7 @@
             </span>
             <div class="selection-div">
               {% if product.variants.size > 1 %}
-                <select class="disc-opt-selection" id="product-select-1" name="id-1">
+                <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
                   {% for variant in product.variants %}
                     <option value="{{ variant.id }}">
                       {{ variant.title }}
@@ -58,7 +58,7 @@
             </span>
             <div class="selection-div">
               {% if product.variants.size > 1 %}
-                <select class="disc-opt-selection" id="product-select-2" name="id-2">
+                <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
                   {% for variant in product.variants %}
                     <option value="{{ variant.id }}">
                       {{ variant.title }}
@@ -109,11 +109,15 @@
                 #1
               </span>
               <div class="selection-div">
-                <select class="disc-opt-selection">
-                  <option value="one">one</option>
-                  <option value="two">two</option>
-                  <option value="three">three</option>
-                </select>
+                {% if product.variants.size > 1 %}
+                <select class="disc-opt-selection" id="product-select-2-1" name="id-2-1">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                 </select>  
+                {% endif %}
               </div>
             </div>
             <div class="carry-hld">
@@ -121,11 +125,15 @@
                 #2
               </span>
               <div class="selection-div">
-                <select class="disc-opt-selection">
-                  <option value="one">one</option>
-                  <option value="two">two</option>
-                  <option value="three">three</option>
-                </select>
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-2-2" name="id-2-2">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
               </div>
             </div>
             <div class="carry-hld">
@@ -133,11 +141,15 @@
               #3
             </span>
             <div class="selection-div">
-              <select class="disc-opt-selection">
-                <option value="one">one</option>
-                <option value="two">two</option>
-                <option value="three">three</option>
-              </select>
+             {% if product.variants.size > 1 %}
+                <select class="disc-opt-selection" id="product-select-2-3" name="id-2-3">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>  
+              {% endif %}
             </div>
           </div>
           </div>
@@ -181,11 +193,15 @@
                 #1
               </span>
               <div class="selection-div">
-                <select class="disc-opt-selection">
-                  <option value="one">one</option>
-                  <option value="two">two</option>
-                  <option value="three">three</option>
-                </select>
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-1" name="id-3-1">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
               </div>
             </div>
             <div class="carry-hld">
@@ -193,11 +209,15 @@
                 #2
               </span>
               <div class="selection-div">
-                <select class="disc-opt-selection">
-                  <option value="one">one</option>
-                  <option value="two">two</option>
-                  <option value="three">three</option>
-                </select>
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-2" name="id-3-2">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
               </div>
             </div>
             <div class="carry-hld">
@@ -205,11 +225,15 @@
                 #3
               </span>
               <div class="selection-div">
-                <select class="disc-opt-selection">
-                  <option value="one">one</option>
-                  <option value="two">two</option>
-                  <option value="three">three</option>
-                </select>
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-3" name="id-3-3">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
               </div>
             </div>
             <div class="carry-hld">
@@ -217,11 +241,15 @@
                 #4
               </span>
               <div class="selection-div">
-                <select class="disc-opt-selection">
-                  <option value="one">one</option>
-                  <option value="two">two</option>
-                  <option value="three">three</option>
-                </select>
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-4" name="id-3-4">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
               </div>
             </div>
           </div>
