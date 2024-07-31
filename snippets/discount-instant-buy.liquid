@@ -3,13 +3,47 @@
   {{ 'products.product.buy_now' | t }}
 </a>
 {% endif %}
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   function instantBuy{{ product.id }}(){
     jQuery.post('/cart/add', $(".cart-{{ product.id }}").serialize()).
      always(function(data){
      window.location.href ='/checkout';
   });
   }
+</script> -->
+<script>
+  <script type="text/javascript">
+function instantBuy() {
+  const form = document.getElementById('add-item-form');
+  const variantSelectors = form.querySelectorAll('.variant-selector');
+  const formData = new FormData();
+
+  // Iterate through each variant selector and collect selected variants
+  variantSelectors.forEach(function(selector) {
+    const variantId = selector.value;
+    if (variantId) {
+      formData.append('id[]', variantId);
+      formData.append('quantity[]', 1); // Assuming quantity of 1, adjust if needed
+    }
+  });
+
+  // Send the form data to the server
+  fetch('/cart/add', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Added to cart:', data);
+    // Redirect to checkout after adding items to the cart
+    window.location.href = '/checkout';
+  })
+  .catch(error => {
+    console.error('Error adding to cart:', error);
+  });
+}
+</script>
+
 </script>
 <style>
   a.discount-buy-btn{
