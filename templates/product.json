@@ -80,6 +80,17 @@
     },
     "clients_4e7qkb": {
       "type": "clients",
+      "blocks": {
+        "testi_slide_C7aPGk": {
+          "type": "testi_slide",
+          "settings": {
+            "custom_imag": "shopify:\/\/shop_images\/Untitled_design_23.png"
+          }
+        }
+      },
+      "block_order": [
+        "testi_slide_C7aPGk"
+      ],
       "settings": {
         "section_title": "type here",
         "section_title_color": "#ffffff",
