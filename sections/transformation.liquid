@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="transformation-main">
+        <div id="transformation-main-{{ section.id }}" class="transformation-main">
           <div class="image">
             {%- if section.settings.trans_imag -%}
               {{ section.settings.trans_imag | image_url: width: 512 | image_tag:
@@ -149,7 +149,6 @@
     background-attachment: fixed!important;
   }
   .transformation-section-area{
-   
     background-size: cover!important;
     background-position: center center!important;
     background-attachment: fixed!important;
@@ -197,12 +196,12 @@
     padding: 0 20px 0 20px;
   }}
 
-  .transformation-main .title-capture h1{
+  #transformation-main-{{ section.id }} .title-capture h1{
     font-weight: 600;
     color: {{ section.settings.heading_color}};
   }
 
-  .transformation-main .title-capture p{
+  #transformation-main-{{ section.id }} .title-capture p{
     color: {{ section.settings.desc_color}};
     font-weight: 500;
     text-align: justify;
