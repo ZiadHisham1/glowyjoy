@@ -3,14 +3,56 @@
   {{ 'products.product.buy_now' | t }}
 </a>
 {% endif %}
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   function instantBuy{{ product.id }}(){
     jQuery.post('/cart/add', $(".cart-{{ product.id }}").serialize()).
      always(function(data){
      window.location.href ='/checkout';
   });
   }
-</script>
+</script> -->
+<script type="text/javascript">
+function instantBuy() {
+  const form = document.getElementById('instant-buy-form');
+  const variantSelectors = form.querySelectorAll('.variant-selector');
+
+  // Iterate through each variant selector and add selected variants to the cart
+  variantSelectors.forEach(function(selector) {
+    const variantId = selector.value;
+    if (variantId) {
+      addToCart(variantId, 1); // Assuming quantity of 1
+    }
+  });
+
+  // Redirect to checkout after adding items to the cart
+  setTimeout(function() {
+    window.location.href = '/checkout';
+  }, 1000); // Adjust delay if needed
+}
+
+// Function to add a variant to the cart
+function addToCart(variantId, quantity) {
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: variantId,
+      quantity: quantity
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Added to cart:', data);
+  })
+  .catch(error => {
+    console.error('Error adding to cart:', error);
+  });
+}
+<
+/script>
+
 <style>
   a.discount-buy-btn{
     font-family: "poppins", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
@@ -64,7 +106,7 @@
     border-color: transparent;
     color: #e3e3e3;
   }
-  /*  */
+  /* 3d button styles */
   .discount-buy-btn:focus-visible {
   box-shadow: 0 .1875rem .0625rem -.0625rem rgba(26, 26, 26, .07);
   outline: 2px solid rgb(0, 91, 211);
