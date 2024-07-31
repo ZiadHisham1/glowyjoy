@@ -257,7 +257,6 @@
 
         <div class="btn-cont">
           {% render 'discount-instant-buy', product: product %}
-          <button id="instantBuyButton" type="button">Instant Buy</button>
         </div>
       </div> 
     {% else %}
@@ -339,53 +338,6 @@
       }
     }
   });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('instantBuyButton').addEventListener('click', function() {
-    // Get all box-cont divs
-    const boxConts = document.querySelectorAll('.box-cont');
-
-    // Iterate through each box-cont div
-    boxConts.forEach(function(boxCont) {
-      const group = boxCont.getAttribute('data-group');
-      const selectors = boxCont.querySelectorAll(`select[id^='product-select-${group}-']`);
-
-      // Collect selected variant IDs
-      const variantIds = [];
-      selectors.forEach(function(selector) {
-        variantIds.push(selector.value);
-      });
-
-      // Add each selected variant to the cart
-      variantIds.forEach(function(variantId) {
-        addToCart(variantId, 1); // Assuming quantity of 1 for simplicity
-      });
-    });
-  });
-
-  // Function to add a variant to the cart
-  function addToCart(variantId, quantity) {
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        id: variantId,
-        quantity: quantity
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Added to cart:', data);
-      // Optionally, you can update the cart UI here
-    })
-    .catch(error => {
-      console.error('Error adding to cart:', error);
-    });
-  }
-});
 </script>
 
 
