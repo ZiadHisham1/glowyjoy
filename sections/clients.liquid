@@ -1,7 +1,4 @@
 <section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.enable_animation %}animate-background{% endif %}">
-  <div class="blur-container">
-    <div class="blurred-background"></div>
-  </div>
   <div class="container">
     <div class="row">
       <div class="col">
@@ -121,133 +118,121 @@
 }
 {% endschema %}
 
+
+
 <style>
   .testimonial-clients-area {
-    position: relative;
-    padding-top: var(--testi-padding-top);
-    padding-bottom: var(--testi-padding-bottom);
-    overflow: hidden;
-  }
-
-  .blur-container {
+  position: relative;
+  padding-top: var(--testi-padding-top);
+  padding-bottom: var(--testi-padding-bottom);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
+}
+  .testimonial-clients-area::before {
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-
-  .blurred-background {
-    width: calc(100% + 20px); /* Increase the size slightly to cover edges */
-    height: calc(100% + 20px);
-    position: absolute;
-    top: -10px;
-    left: -10px;
     background: radial-gradient(circle at center, var(--testi-bgcolor), var(--testi-bgcolor2));
     filter: blur(10px); /* Adjust the blur intensity as needed */
+    z-index: -1;
   }
 
-  .animate-background .blurred-background {
+  .animate-background::before {
     animation: moveBackground 10s infinite alternate;
   }
 
-  @keyframes moveBackground {
-    0% {
-      background-position: 0% 0%;
-    }
-    50% {
-      background-position: 50% 50%;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
   }
-
-  /* Example CSS Variables for Dynamic Styles */
-  #testimonial-{{ section.id }} {
-    --testi-bgcolor: {{ section.settings.testi_bgcolor }};
-    --testi-bgcolor2: {{ section.settings.testi_bgcolor2 }};
-    --testi-padding-top: {{ section.settings.testi_padding_top }}px;
-    --testi-padding-bottom: {{ section.settings.testi_padding_bottom }}px;
+  50% {
+    background-position: 50% 50%;
   }
-
-  #testimonial-{{ section.id }} .title-capture {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 40px auto;
+  100% {
+    background-position: 100% 100%;
   }
+}
 
-  #testimonial-{{ section.id }} .title-capture .section-title {
-    display: block;
-  }
+/* Example CSS Variables for Dynamic Styles */
+#testimonial-{{ section.id }} {
+  --testi-bgcolor: ;
+  --testi-bgcolor2: ;
+  --testi-padding-top: {{ section.settings.testi_padding_top }}px;
+  --testi-padding-bottom: {{ section.settings.testi_padding_bottom }}px;
+  background-image: radial-gradient(circle at center ,{{ section.settings.testi_bgcolor }} , {{ section.settings.testi_bgcolor2 }} )
+}
 
-  #testimonial-{{ section.id }} .title-capture .section-title h2 {
-    color: #fff;
-    font-weight: 700;
-    text-align: center;
-  }
-
-  #testimonial-{{ section.id }} .title-capture .section-title .desc {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 15px;
-  }
-
+#testimonial-{{ section.id }} .title-capture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+}
+#testimonial-{{ section.id }} .title-capture .section-title {
+  display: block;
+}
+#testimonial-{{ section.id }} .title-capture .section-title h2 {
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .desc p {
+  color: #fff;
+  font-weight: 500;
+  position: unset;
+  margin: 0;
+  padding: 0;
+  width: 450px;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  text-align: center;
+}
+@media (max-width: 460px) {  
   #testimonial-{{ section.id }} .title-capture .section-title .desc p {
     color: #fff;
     font-weight: 500;
     position: unset;
     margin: 0;
     padding: 0;
-    width: 450px;
+    width: 350px;
     overflow-wrap: break-word;
-    line-height: 1.5;
+    line-height: 1.2;
     text-align: center;
   }
-
-  @media (max-width: 460px) {  
-    #testimonial-{{ section.id }} .title-capture .section-title .desc p {
-      color: #fff;
-      font-weight: 500;
-      position: unset;
-      margin: 0;
-      padding: 0;
-      width: 350px;
-      overflow-wrap: break-word;
-      line-height: 1.2;
-      text-align: center;
-    }
-  }
-
+}
+#testimonial-{{ section.id }} .imag-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+@media (max-width: 1200px) {
   #testimonial-{{ section.id }} .imag-wraper {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     margin: 50px;
   }
-
-  @media (max-width: 1200px) {
-    #testimonial-{{ section.id }} .imag-wraper {
-      display: block;
-      align-items: center;
-      justify-content: center;
-      margin: 50px;
-    }
-  }
-
+}
+#testimonial-{{ section.id }} .imag-wraper .imag-holder {
+  margin: 20px;
+  margin-top: 0;
+  width: 600px;
+}
+@media (max-width: 1200px) {
   #testimonial-{{ section.id }} .imag-wraper .imag-holder {
-    margin: 20px;
-    margin-top: 0;
-    width: 600px;
+    width: auto;
   }
-
-  @media (max-width: 1200px) {
-    #testimonial-{{ section.id }} .imag-wraper .imag-holder {
-      width: auto;
-    }
-  }
+}
 </style>
