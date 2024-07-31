@@ -42,7 +42,7 @@
             </span>
             <div class="selection-div">
               {% if product.variants.size > 1 %}
-                <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
+                <select class="disc-opt-selection" name="id" data-product-id="{{ product.id }}">
                   {% for variant in product.variants %}
                     <option value="{{ variant.id }}">
                       {{ variant.title }}
@@ -58,7 +58,7 @@
             </span>
             <div class="selection-div">
               {% if product.variants.size > 1 %}
-                <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
+                <select class="disc-opt-selection" name="id" data-product-id="{{ product.id }}">
                   {% for variant in product.variants %}
                     <option value="{{ variant.id }}">
                       {{ variant.title }}
