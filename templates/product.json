@@ -99,15 +99,19 @@
         "testi_slide_T67HHr"
       ],
       "settings": {
-        "vertical_alignment": "bottom",
+        "vertical_alignment": "left",
         "section_title": "there’s the knockoffs and there’s the original",
-        "section_title_color": "#ffffff",
+        "section_title_color": "#e68efd",
         "section_title_2": "",
         "section_title2_color": "#ffffff",
+        "section_desk_color": "#fff",
         "section_desc": "Avoid the cheap knockoffs and experience the difference with SpaceBuddy’s vibrant and high quality projection",
         "testi_bgcolor": "#673374",
         "testi_bgcolor2": "#000000",
-        "enable_animation": true
+        "bg_style": "normal",
+        "normal_background": "#000",
+        "anble-rtl": false,
+        "bg_link": ""
       }
     },
     "home_store_hMByiV": {
