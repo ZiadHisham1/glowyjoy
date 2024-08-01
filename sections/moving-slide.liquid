@@ -1,59 +1,311 @@
-<div class="simple-slider">
-  {% for image in section.settings.slider_images %}
-    <div class="slide">
-      {{ section.settings.slider_images | image_url: width: 1024 | image_tag:
-      loading: 'lazy',
-      width: section.settings.slider_images.width,
-      height: section.settings.slider_images.height,
-      class: "img-fluid",
-      alt: section.settings.slider_images.alt | escape }}
+<section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.bg_style == "normal" %}none{% elsif section.settings.bg_style == "animated-bg" %}animate-background{% elsif section.settings.bg_style == "background-img" %}background-imge{% endif %}">
+  <div class="container">
+    <div class="row">
+      <div class="col" style="{% if section.settings.vertical_alignment == "middle" %}display: unset;{% elsif section.settings.vertical_alignment == "left" %}display: flex; margin: 20px 0 0 0; flex-direction: row;{% endif %}">
+        <div class="title-capture" style="{% if section.settings.vertical_alignment == "middle" %}justify-content: center;{% elsif section.settings.vertical_alignment == "left" %}justify-content: left;{% if section.settings.anble-rtl %}order: 2;{% endif %}{% endif %}">
+          <div class="section-title">
+            {% if section.settings.section_title != '' %}
+            <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
+            {% endif %}
+            {% if section.settings.section_title_2 != '' %}
+              <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title2_color }}">{{ section.settings.section_title_2 }}</h2>
+            {% endif %}  
+            <div class="desc" style="{% if section.settings.vertical_alignment == "middle" %}justify-content: center; margin: 15px;{% elsif section.settings.vertical_alignment == "left" %}justify-content: left; margin: 15px 0 15px 0;{% endif %}">
+              <p style="{% if section.settings.vertical_alignment == "middle" %}text-align: center;{% elsif section.settings.vertical_alignment == "left" %}text-align: left;{% endif %}">{{ section.settings.section_desc }}</p>
+            </div>
+          </div>   
+        </div>
+        <div class="imag-wraper">
+          {% for block in section.blocks %}
+          <div class="imag-holder">
+              {%- if block.settings.custom_imag -%}
+              {{ block.settings.custom_imag | image_url: width: 512 | image_tag:
+              loading: 'lazy',
+              width: 1000,
+              height: 562,
+              class: "img-fluid image-1",
+              alt: block.settings.custom_imag.alt | escape }}
+              {%- endif -%}
+            </div>
+          {% endfor %}  
+        </div>
+      </div>  
     </div>
-  {% endfor %}
-</div>
-
-<style>
-  .simple-slider {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  .slide {
-    min-width: 100%;
-    transition: transform 0.5s ease-in-out;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var slides = document.querySelectorAll('.slide');
-    var currentIndex = 0;
-
-    function showNextSlide() {
-      slides[currentIndex].style.transform = 'translateX(-100%)';
-      currentIndex = (currentIndex + 1) % slides.length;
-      slides[currentIndex].style.transform = 'translateX(0)';
-    }
-
-    setInterval(showNextSlide, 2500); // Change slide every 2.5 seconds
-  });
-</script>
+  </div>
+</section>
 
 {% schema %}
 {
-  "name": "Simple Image Slider",
+  "name": "Testimonial",
   "settings": [
     {
-      "type": "image_picker",
-      "id": "slider_images",
-      "label": "Upload Images",
-      "info": "Add images for the slider"
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Vertical alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "middle",
+          "label": "Middle"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "middle"
+    },
+    {
+      "type": "header",
+      "content": "Testimonial settings"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section title",
+      "default": "Type here"
+    },
+    {
+      "type": "color",
+      "id": "section_title_color",
+      "label": "Title one color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "section_title_2",
+      "label": "Section 2nd title",
+      "default": "Type here"
+    },
+    {
+      "type": "color",
+      "id": "section_title2_color",
+      "label": "Title two color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "section_desk_color",
+      "label": "describtion two color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "section_desc",
+      "label": "Section description",
+      "default": "Type here"
+    },
+    {
+      "type": "color",
+      "id": "testi_bgcolor",
+      "label": "Background color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "testi_bgcolor2",
+      "label": "Background color 2",
+      "default": "#000"
+    },
+    {
+      "type": "select",
+      "id": "bg_style",
+      "label": "background style",
+      "options": [
+        {
+          "value": "normal",
+          "label": "none"
+        },
+        {
+          "value": "animated-bg",
+          "label": "animated background"
+        },
+        {
+          "value": "background-img",
+          "label": "background-imge"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "color",
+      "id": "normal_background",
+      "label": "normal Background color",
+      "default": "#000"
+    },
+    {
+      "type": "checkbox",
+      "id": "anble-rtl",
+      "label": "left to right",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "background URL"      
+    },
+    {
+      "type": "url",
+      "id": "bg_link",
+      "label": "background link"
+    }
+
+  ],
+  "blocks": [
+    {
+      "type": "testi_slide",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Testimonial Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_imag",
+          "label": "Customer Image",
+          "info": "Recommended 500 X 200 PX"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "photo slider"
+      "name": "Clients",
+      "category": "7. Testimonial"
     }
   ]
 }
 {% endschema %}
+
+
+
+<style>
+#testimonial-{{ section.id }} .title-capture .section-title .styleOne {
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .styleTwo {
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+}
+  
+.testimonial-clients-area {
+  position: relative;
+  padding-top: var(--testi-padding-top);
+  padding-bottom: var(--testi-padding-bottom);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
+}
+
+ @keyframes slide {
+      0% {
+        transform: translateX(-150%); /* Start off-screen to the left */
+      }
+      100% {
+        transform: translateX(150%); /* Move off-screen to the right */
+      }
+    }
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Example CSS Variables for Dynamic Styles */
+#testimonial-{{ section.id }} {
+  --testi-bgcolor: ;
+  --testi-bgcolor2: ;
+  --testi-padding-top: {{ section.settings.testi_padding_top }}px;
+  --testi-padding-bottom: {{ section.settings.testi_padding_bottom }}px;
+  {% if section.settings.bg_style == "normal" %}
+    background-color: {{ section.settings.normal_background }};
+  {% elsif section.settings.bg_style == "animated-bg" %}
+    background-image: radial-gradient(circle at center ,{{ section.settings.testi_bgcolor }} , {{ section.settings.testi_bgcolor2 }} );
+    animation: moveBackground 10s infinite alternate;
+  {% elsif section.settings.bg_style == "background-img" %}
+    background-image:url('{{ section.settings.bg_link }}');
+  {% endif %}
+}
+
+#testimonial-{{ section.id }} .title-capture {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 10px 0;
+  {% if section.settings.vertical_alignment == "middle" %}
+  align-items: center;
+  {% endif %}
+}
+#testimonial-{{ section.id }} .title-capture .section-title {
+  display: block;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .desc p {
+  color: {{ section.settings.section_desk_color }};
+  font-weight: 500;
+  position: unset;
+  margin: 0;
+  padding: 0;
+  width: 450px;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  text-align: center;
+}
+@media (max-width: 460px) {  
+  #testimonial-{{ section.id }} .title-capture .section-title .desc p {
+    color: #fff;
+    font-weight: 500;
+    position: unset;
+    margin: 0;
+    padding: 0;
+    width: 350px;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+#testimonial-{{ section.id }} .imag-wraper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 10px 0;
+}
+@media (max-width: 1200px) {
+  #testimonial-{{ section.id }} .imag-wraper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 10px 0;
+    flex-direction: column;
+  }
+}
+#testimonial-{{ section.id }} .imag-wraper .imag-holder {
+   width: auto;
+    /* justify-content: center; */
+    align-content: center;
+    padding: 20px;
+}
+@media (max-width: 1200px) {
+  #testimonial-{{ section.id }} .imag-wraper .imag-holder {
+    width: auto;
+  }
+}
+</style>
