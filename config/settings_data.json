@@ -1917,6 +1917,12 @@
         ],
         "settings": {
         }
+      },
+      "photo_to_transtion_DJ74y4": {
+        "type": "photo-to-transtion",
+        "settings": {
+          "bg_img": ""
+        }
       }
     },
     "content_for_index": [
@@ -1924,6 +1930,7 @@
       "9139de7f-66ee-4826-a858-1cd9a7531267",
       "af6db34d-a076-4955-8a2f-810f290f81f5",
       "clients_bU9mh9",
+      "photo_to_transtion_DJ74y4",
       "transformation_Hf4tPe",
       "clients_7k9K8Y",
       "transformation_rYJmTJ",
