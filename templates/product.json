@@ -105,7 +105,7 @@
     "home_store_hMByiV": {
       "type": "home-store",
       "custom_css": [
-        ".home-store{}"
+        ".home-store {}"
       ],
       "settings": {
         "section_padding_top": 100,
