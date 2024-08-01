@@ -246,8 +246,8 @@
             </form>    
             </form>
           </div>
-          <!-- {%- when 'product_sku' -%}
-          <div class="pro-skss">
+          {%- when 'product_sku' -%}
+          <!-- <div class="pro-skss">
             {%- if current_variant.sku.size > 0 -%}
             <div class="product-sku">
               <h6>{{ block.settings.product_sku_title }}</h6>
@@ -257,11 +257,11 @@
             {% if block.settings.social_share_enable %}
             {% render 'social-share' %}
             {% endif %}
-          </div>
-          {%- when 'payment_img' -%}
-          <div class="product-payment-image">
-            {% render 'payment-icon' %}
           </div> -->
+          {%- when 'payment_img' -%}
+          <!-- <div class="product-payment-image"> -->
+            {% render 'payment-icon' %}
+          </div>
           {%- endcase -%}
           {%- endfor -%}
         </div>
