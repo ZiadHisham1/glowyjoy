@@ -1,46 +1,6 @@
 <div style="width: 100%;" class="">
   <div class="">
     {% if product.available %}
-    <form action="/cart/add" method="post" enctype="multipart/form-data" id="add-multiple-variants-form">
-  <!-- First variant selector -->
-  <div class="variant-selection">
-    <label for="productSelect1">Choose Variant 1:</label>
-    <select name="id1" id="productSelect1" class="product-single__variants">
-      {% for variant in product.variants %}
-        <option
-          data-stocks="{{ variant.inventory_quantity }}"
-          {% if variant == current_variant %}
-          selected="selected"
-          {% endif %}
-          data-sku="{{ variant.sku }}"
-          value="{{ variant.id }}">{{ variant.title }}</option>
-      {% endfor %}
-    </select>
-    <label for="quantity1">Quantity:</label>
-    <input type="number" name="quantity1" id="quantity1" value="1" min="1">
-  </div>
-
-  <!-- Second variant selector -->
-  <div class="variant-selection">
-    <label for="productSelect2">Choose Variant 2:</label>
-    <select name="id2" id="productSelect2" class="product-single__variants">
-      {% for variant in product.variants %}
-        <option
-          data-stocks="{{ variant.inventory_quantity }}"
-          {% if variant == current_variant %}
-          selected="selected"
-          {% endif %}
-          data-sku="{{ variant.sku }}"
-          value="{{ variant.id }}">{{ variant.title }}</option>
-      {% endfor %}
-    </select>
-    <label for="quantity2">Quantity:</label>
-    <input type="number" name="quantity2" id="quantity2" value="1" min="1">
-  </div>
-
-  <button type="submit">Add to Cart</button>
-</form>
-
       <!-- <div class="box">
         <div class="box-cont" id="box-cont-1" data-group="1">
           <div class="carry-hld">  
@@ -298,7 +258,7 @@
         <div class="btn-cont">
           {% render 'discount-instant-buy', product: product %}
         </div>
-      <!-- </div>  --> -->
+      </div>  -->
     {% else %}
       <div>Out of stock</div>
     {% endif %}
