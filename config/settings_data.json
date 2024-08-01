@@ -1818,7 +1818,8 @@
           "section_desc": "With over 100k customers, it’s clear to see why this is the top rated product to gift yourself or your loved ones in 2023",
           "testi_bgcolor": "#291b60",
           "testi_bgcolor2": "#0b0720",
-          "bg_style": "normal"
+          "bg_style": "normal",
+          "normal_background": "#000"
         }
       },
       "transformation_Hf4tPe": {
@@ -1868,7 +1869,8 @@
           "section_desc": "With over 100k customers, it’s clear to see why this is the top rated product to gift yourself or your loved ones in 2023",
           "testi_bgcolor": "#231b53",
           "testi_bgcolor2": "#0b0720",
-          "bg_style": "background-img"
+          "bg_style": "normal",
+          "normal_background": "#211d1d"
         }
       },
       "transformation_rYJmTJ": {
