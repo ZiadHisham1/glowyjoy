@@ -15,8 +15,8 @@ Version: 2.3
     src: url('Holligate Signature Demo.ttf')  format('truetype');
 }
 @font-face {
-  font-family: 'kg';
-  src: url('{{ 'KGHAPPYShadows.ttf' }}') format('ttf');
+  font-family: 'KGHAPPYShadow';
+  src: url('{{ 'KGHAPPYShadow.ttf' | asset_url }}') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
