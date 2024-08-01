@@ -209,7 +209,7 @@
   {% if section.settings.bg_style == "normal" %}
     background-color: {{ section.settings.normal_background }};
   {% elsif section.settings.bg_style == "animated-bg" %}
-    background-image: radial-gradient(circle at center ,{{ section.settings.testi_bgcolor }} , {{ section.settings.testi_bgcolor2 }} )
+    background-image: radial-gradient(circle at center ,{{ section.settings.testi_bgcolor }} , {{ section.settings.testi_bgcolor2 }} );
     animation: moveBackground 10s infinite alternate;
   {% elsif section.settings.bg_style == "background-img" %}
     background-image:url('https://ucarecdn.com/7c5e9a84-4170-4b63-a228-125f0231a18d/-/format/auto/-/preview/3000x3000/-/quality/lighter/image%201.png');
