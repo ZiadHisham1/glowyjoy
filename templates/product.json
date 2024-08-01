@@ -86,10 +86,17 @@
           "settings": {
             "custom_imag": "shopify:\/\/shop_images\/Untitled_design_23.png"
           }
+        },
+        "testi_slide_T67HHr": {
+          "type": "testi_slide",
+          "settings": {
+            "custom_imag": "shopify:\/\/shop_images\/Untitled_design_23.png"
+          }
         }
       },
       "block_order": [
-        "testi_slide_C7aPGk"
+        "testi_slide_C7aPGk",
+        "testi_slide_T67HHr"
       ],
       "settings": {
         "section_title": "type here",
