@@ -1921,7 +1921,15 @@
       "photo_to_transtion_DJ74y4": {
         "type": "photo-to-transtion",
         "settings": {
-          "bg_img": ""
+          "bg_img": "",
+          "height_length": 80
+        }
+      },
+      "photo_to_transtion_8QR8Lq": {
+        "type": "photo-to-transtion",
+        "settings": {
+          "bg_img": "https:\/\/ucarecdn.com\/7c5e9a84-4170-4b63-a228-125f0231a18d\/-\/format\/auto\/-\/preview\/3000x3000\/-\/quality\/lighter\/image%201.png",
+          "height_length": 80
         }
       }
     },
@@ -1930,6 +1938,7 @@
       "9139de7f-66ee-4826-a858-1cd9a7531267",
       "af6db34d-a076-4955-8a2f-810f290f81f5",
       "clients_bU9mh9",
+      "photo_to_transtion_8QR8Lq",
       "photo_to_transtion_DJ74y4",
       "transformation_Hf4tPe",
       "clients_7k9K8Y",
