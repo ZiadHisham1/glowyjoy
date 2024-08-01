@@ -20,7 +20,7 @@
            <div>
              <a 
             id="explore_button" 
-            href="/Products/" 
+            href="/Products/{{ product.url }}" 
             class="btn exploreBtn {% if section.settings.transformation_button_style == 'btn-style1' %}btn-style{% elsif section.settings.transformation_button_style == 'btn-style2' %}btn-style2{% else %}btn-style3{% endif %}">
             {{ section.settings.transformation_button_text }}
              </a>
