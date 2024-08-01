@@ -1,6 +1,54 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<div class="simple-slider">
+  {% for image in section.settings.slider_images %}
+    <div class="slide">
+      {{ section.settings.slider_images | image_url: width: 1024 | image_tag:
+      loading: 'lazy',
+      width: section.settings.slider_images.width,
+      height: section.settings.slider_images.height,
+      class: "img-fluid",
+      alt: section.settings.slider_images.alt | escape }}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .simple-slider {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
   }
+  .slide {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var slides = document.querySelectorAll('.slide');
+    var currentIndex = 0;
+
+    function showNextSlide() {
+      slides[currentIndex].style.transform = 'translateX(-100%)';
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].style.transform = 'translateX(0)';
+    }
+
+    setInterval(showNextSlide, 2500); // Change slide every 2.5 seconds
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Simple Image Slider",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "slider_images",
+      "label": "Upload Images",
+      "info": "Add images for the slider"
+    }
+  ]
+}
 {% endschema %}
