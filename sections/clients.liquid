@@ -148,6 +148,13 @@
 
 
 <style>
+#testimonial-{{ section.id }} .title-capture .section-title .styleOne {
+  text-align: center;
+}
+#testimonial-{{ section.id }} .title-capture .section-title .styleTwo {
+  text-align: left;
+}
+  
   .testimonial-clients-area {
   position: relative;
   padding-top: var(--testi-padding-top);
@@ -190,17 +197,9 @@
   margin: 40px auto;
 }
 #testimonial-{{ section.id }} .title-capture .section-title {
+  color: #fff;
   display: block;
-}
-#testimonial-{{ section.id }} .title-capture .section-title .styleOne {
-  color: #fff;
   font-weight: 700;
-  text-align: center;
-}
-#testimonial-{{ section.id }} .title-capture .section-title .styleTwo {
-  color: #fff;
-  font-weight: 700;
-  text-align: left;
 }
 #testimonial-{{ section.id }} .title-capture .section-title .desc {
   display: flex;
