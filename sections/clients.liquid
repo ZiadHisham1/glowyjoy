@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="title-capture">
+        <div class="title-capture {% if section.settings.vertical_alignment == "middle" %}styleOne{% elsif section.settings.vertical_alignment == "left" %}{% endif %}">
           <div class="section-title">
             {% if section.settings.section_title != '' %}
             <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
@@ -44,8 +44,8 @@
       "label": "Vertical alignment",
       "options": [
         {
-          "value": "top",
-          "label": "Top"
+          "value": "left",
+          "label": "left"
         },
         {
           "value": "middle",
@@ -149,9 +149,13 @@
 
 <style>
 #testimonial-{{ section.id }} .title-capture .section-title .styleOne {
+  color: #fff;
+  font-weight: 700;
   text-align: center;
 }
 #testimonial-{{ section.id }} .title-capture .section-title .styleTwo {
+  color: #fff;
+  font-weight: 700;
   text-align: left;
 }
   
@@ -197,9 +201,7 @@
   margin: 40px auto;
 }
 #testimonial-{{ section.id }} .title-capture .section-title {
-  color: #fff;
   display: block;
-  font-weight: 700;
 }
 #testimonial-{{ section.id }} .title-capture .section-title .desc {
   display: flex;
