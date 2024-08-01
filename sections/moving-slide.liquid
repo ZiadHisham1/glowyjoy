@@ -29,6 +29,14 @@
             </div>
           {% endfor %}  
         </div>
+        <div>
+          <a 
+          id="explore_button" 
+          href="{{ section.settings.transformation_button_url }}" 
+          class="btn exploreBtn {% if section.settings.transformation_button_style == 'btn-style1' %}btn-style{% elsif section.settings.transformation_button_style == 'btn-style2' %}btn-style2{% else %}btn-style3{% endif %}">
+          {{ section.settings.transformation_button_text }}
+          </a>
+        </div>
       </div>  
     </div>
   </div>
@@ -130,8 +138,12 @@
       "type": "url",
       "id": "bg_link",
       "label": "background link"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "button link"
     }
-
   ],
   "blocks": [
     {
