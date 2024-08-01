@@ -29,7 +29,7 @@
             </div>
           {% endfor %}  
         </div>
-        <div>
+        <div class="btnHolder">
           <a 
           id="explore_button" 
           href="{{ section.settings.button_link }}" 
@@ -222,6 +222,9 @@
   {% if section.settings.vertical_alignment == "middle" %}
   align-items: center;
   {% endif %}
+}
+#movingSlider-{{ section.id }} .title-capture .btnHolder{
+  display: flex;
 }
 #movingSlider-{{ section.id }} .title-capture .section-title {
   display: block;
