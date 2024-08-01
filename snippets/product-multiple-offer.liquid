@@ -46,7 +46,7 @@
               {% if product.variants.size > 1 %}
                 <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
                   {% for variant in product.variants %}
-                    <option value="green">
+                    <option value="Green">
                       {{ variant.title }}
                     </option>
                   {% endfor %}
@@ -61,7 +61,7 @@
             </span>
             <div class="selection-div">
              <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
-              <input type="hidden" value="blue">
+              <input type="hidden" value="Blue">
               {% if product.variants.size > 1 %}
                 <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
                   {% for variant in product.variants %}
