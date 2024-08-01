@@ -1851,6 +1851,7 @@
           },
           "testi_slide_w4ANXT": {
             "type": "testi_slide",
+            "disabled": true,
             "settings": {
               "custom_imag": "shopify:\/\/shop_images\/aiimg.png"
             }
