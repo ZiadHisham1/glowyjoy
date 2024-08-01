@@ -129,6 +129,12 @@
         }
       ],
       "default": "normal"
+    },
+    {
+      "type": "color",
+      "id": "normal_background",
+      "label": "normal Background color",
+      "default": "#000"
     }
   ],
   "blocks": [
@@ -208,7 +214,7 @@
   --testi-bgcolor2: ;
   --testi-padding-top: {{ section.settings.testi_padding_top }}px;
   --testi-padding-bottom: {{ section.settings.testi_padding_bottom }}px;
-
+  background-color: {{ section.settings.normal_background }};
 }
 
 #testimonial-{{ section.id }} .title-capture {
