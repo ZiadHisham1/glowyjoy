@@ -41,26 +41,7 @@
               #1
             </span>
             <div class="selection-div">
-               
-                <input type="hidden" value="{{ variant.id }}">
-                  {% if product.variants.size > 1 %}
-                    <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
-                      {% for variant in product.variants %}
-                        <option value="{{ variant.id }}">
-                          {{ variant.title }}
-                        </option>
-                      {% endfor %}
-                    </select>  
-                  {% endif %}            
-              
-            </div>
-          </div>
-            <div class="carry-hld">
-            <span class="disc-opt-mun">
-              #2
-            </span>
-            <div class="selection-div">
-              
+              <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
               <input type="hidden" value="{{ variant.id }}">
               {% if product.variants.size > 1 %}
                 <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
@@ -70,7 +51,27 @@
                     </option>
                   {% endfor %}
                 </select>  
-              {% endif %}            
+              {% endif %}
+             </form>
+            </div>
+          </div>
+            <div class="carry-hld">
+            <span class="disc-opt-mun">
+              #2
+            </span>
+            <div class="selection-div">
+             <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
+              <input type="hidden" value="{{ variant.id }}">
+              {% if product.variants.size > 1 %}
+                <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>  
+              {% endif %}
+             </form>
             </div>
           </div>  
           </div>
