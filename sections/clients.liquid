@@ -1,8 +1,8 @@
 <section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.bg_style == "normal" %}none{% elsif section.settings.bg_style == "animated-bg" %}animate-background{% elsif section.settings.bg_style == "background-img" %}background-imge{% endif %}">
   <div class="container">
     <div class="row">
-      <div class="col" style="{% if section.settings.vertical_alignment == "middle" %}display: unset;{% elsif section.settings.vertical_alignment == "left" %}display: flex; margin: 20px 0 0 0;{% endif %}">
-        <div class="title-capture" style="{% if section.settings.vertical_alignment == "middle" %}justify-content: center;{% elsif section.settings.vertical_alignment == "left" %}justify-content: left;{% endif %}">
+      <div class="col" style="{% if section.settings.vertical_alignment == "middle" %}display: unset;{% elsif section.settings.vertical_alignment == "left" %}display: flex; margin: 20px 0 0 0; flex-direction: row;{% endif %}">
+        <div class="title-capture" style="{% if section.settings.vertical_alignment == "middle" %}justify-content: center;{% elsif section.settings.vertical_alignment == "left" %}justify-content: left;{% endif %} {% if section.settings.anble-rtl %}orderr: 2;{% endif %}">
           <div class="section-title">
             {% if section.settings.section_title != '' %}
             <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
@@ -135,6 +135,12 @@
       "id": "normal_background",
       "label": "normal Background color",
       "default": "#000"
+    },
+    {
+      "type": "checkbox",
+      "id": "anble-rtl",
+      "label": "left to right",
+      "default": false
     }
   ],
   "blocks": [
