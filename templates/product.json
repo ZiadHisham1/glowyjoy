@@ -104,12 +104,47 @@
         "section_title_color": "#e68efd",
         "section_title_2": "",
         "section_title2_color": "#ffffff",
-        "section_desk_color": "#fff",
+        "section_desk_color": "#ffffff",
         "section_desc": "Avoid the cheap knockoffs and experience the difference with SpaceBuddy’s vibrant and high quality projection",
         "testi_bgcolor": "#673374",
         "testi_bgcolor2": "#000000",
         "bg_style": "normal",
-        "normal_background": "#000",
+        "normal_background": "#000000",
+        "anble-rtl": false,
+        "bg_link": ""
+      }
+    },
+    "moving_slide_C6jJEL": {
+      "type": "moving-slide",
+      "blocks": {
+        "testi_slide_9X7tdg": {
+          "type": "testi_slide",
+          "settings": {
+            "custom_imag": "shopify:\/\/shop_images\/aiimg.png"
+          }
+        },
+        "testi_slide_g8VmqH": {
+          "type": "testi_slide",
+          "settings": {
+            "custom_imag": "shopify:\/\/shop_images\/59d06cbea1344f64adbb914ec1588fdb.png"
+          }
+        }
+      },
+      "block_order": [
+        "testi_slide_9X7tdg",
+        "testi_slide_g8VmqH"
+      ],
+      "settings": {
+        "section_title": "Type here",
+        "section_title_color": "#fff",
+        "section_title_2": "Type here",
+        "section_title2_color": "#fff",
+        "section_desk_color": "#fff",
+        "section_desc": "Type here",
+        "testi_bgcolor": "#000",
+        "testi_bgcolor2": "#000",
+        "bg_style": "normal",
+        "normal_background": "#000000",
         "anble-rtl": false,
         "bg_link": ""
       }
@@ -267,6 +302,7 @@
   "order": [
     "product-template",
     "clients_4e7qkb",
+    "moving_slide_C6jJEL",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
