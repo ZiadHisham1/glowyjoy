@@ -99,7 +99,7 @@
         "testi_slide_T67HHr"
       ],
       "settings": {
-        "section_title": "type here",
+        "section_title": "there’s the knockoffs and there’s the original",
         "section_title_color": "#ffffff",
         "section_title_2": "type here",
         "section_title2_color": "#ffffff",
@@ -173,8 +173,8 @@
         "trans_url": "",
         "first_h1": "heading one",
         "description": "description",
-        "heading_color": "#000",
-        "desc_color": "#000",
+        "heading_color": "#000000",
+        "desc_color": "#000000",
         "transformation_button_text": "Explore",
         "transformation_button_url": "",
         "transformation_button_style": "btn-style1"
@@ -189,7 +189,7 @@
         "section_padding_bottom_lg": 60,
         "section_padding_top_xs": 40,
         "section_padding_bottom_xs": 40,
-        "section_bg_color": "#F9F9F9",
+        "section_bg_color": "#f9f9f9",
         "image_title": "180+",
         "image_sub_title": "Worldwide shipping",
         "content_title1": "Providing your personal data to others",
