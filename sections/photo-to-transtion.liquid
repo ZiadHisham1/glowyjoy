@@ -1,6 +1,28 @@
+<section id="photo-transition-{{ section.id }}" class="">
+  <div class="container">
+    <div class="row">
+    
+    </div>
+  </div>
+</section>
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
-  }
+  "name": "Testimonial",
+  "settings": [
+    {
+      "type": "header",
+      "content": "settings"
+    },
+    {
+      "type": "url",
+      "id": "bg_img",
+      "label": "choose image"
+    }
+  ],
+    "presets": [
+    {
+      "name": "photo to translate"
+    }
+  ]
+}
 {% endschema %}
