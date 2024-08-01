@@ -196,9 +196,11 @@
 
 #testimonial-{{ section.id }} .title-capture {
   display: flex;
-  align-items: center;
   justify-content: center;
   margin: 10px 0 10px 0;
+  {% if section.settings.vertical_alignment == "middle" %}
+  align-items: center;
+  {% endif %}
 }
 #testimonial-{{ section.id }} .title-capture .section-title {
   display: block;
