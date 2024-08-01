@@ -41,18 +41,15 @@
               #1
             </span>
             <div class="selection-div">
-              <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
-              <input type="hidden" value="{{ variant.id }}">
               {% if product.variants.size > 1 %}
-                <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
+                <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
                   {% for variant in product.variants %}
-                    <option value="Green">
+                    <option value="{{ variant.id }}">
                       {{ variant.title }}
                     </option>
                   {% endfor %}
                 </select>  
-              {% endif %}
-             </form>
+              {% endif %}            
             </div>
           </div>
             <div class="carry-hld">
@@ -60,8 +57,6 @@
               #2
             </span>
             <div class="selection-div">
-             <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">
-              <input type="hidden" value="Blue">
               {% if product.variants.size > 1 %}
                 <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
                   {% for variant in product.variants %}
@@ -70,14 +65,13 @@
                     </option>
                   {% endfor %}
                 </select>  
-              {% endif %}
-             </form>
+              {% endif %}            
             </div>
           </div>  
           </div>
         </div>
 
-        <div class="box-cont" id="box-cont-2" data-group="2">
+        <!-- <div class="box-cont" id="box-cont-2" data-group="2">
           <div class="carry-hld">
             <div class="hidden-option">
               <input type="radio" id="hidden-option-2" name="quantity" value="3" checked/>
@@ -159,9 +153,9 @@
             </div>
           </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="box-cont" id="box-cont-3" data-group="3">
+        <!-- <div class="box-cont" id="box-cont-3" data-group="3">
           <div class="carry-hld">
             <div class="hidden-option">
               <input type="radio" id="hidden-option-3" name="quantity" value="4" checked/>
@@ -259,7 +253,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <div class="btn-cont">
           {% render 'discount-instant-buy', product: product %}
