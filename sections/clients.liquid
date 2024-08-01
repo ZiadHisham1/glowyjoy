@@ -1,4 +1,4 @@
-<section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.enable_animation %}animate-background{% endif %}">
+<section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.bg_style == "normal" %}none{% elsif section.settings.bg_style == "animated-bg" %}animate-background{% elsif section.settings.bg_style == "background-img" %}background-img{% endif %}">
   <div class="container">
     <div class="row">
       <div class="col" style="{% if section.settings.vertical_alignment == "middle" %}display: unset;{% elsif section.settings.vertical_alignment == "left" %}display: flex; margin: 20px 0 0 0;{% endif %}">
@@ -57,8 +57,7 @@
         }
       ],
       "default": "middle"
-    }
-    ,
+    },
     {
       "type": "header",
       "content": "Testimonial settings"
@@ -112,10 +111,24 @@
       "default": "#000"
     },
     {
-      "type": "checkbox",
-      "id": "enable_animation",
-      "label": "Enable background animation",
-      "default": true
+      "type": "select",
+      "id": "bg_style",
+      "label": "background style",
+      "options": [
+        {
+          "value": "normal",
+          "label": "none"
+        },
+        {
+          "value": "animated-bg",
+          "label": "animated background"
+        },
+        {
+          "value": "background-img",
+          "label": "background-imge"
+        }
+      ],
+      "default": "normal"
     }
   ],
   "blocks": [
