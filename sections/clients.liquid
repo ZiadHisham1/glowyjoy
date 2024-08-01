@@ -21,8 +21,8 @@
               {%- if block.settings.custom_imag -%}
               {{ block.settings.custom_imag | image_url: width: 512 | image_tag:
               loading: 'lazy',
-              width: block.settings.custom_imag.width,
-              height: block.settings.custom_imag.height,
+              width: 1000,
+              height: 562,
               class: "img-fluid image-1",
               alt: block.settings.custom_imag.alt | escape }}
               {%- endif -%}
