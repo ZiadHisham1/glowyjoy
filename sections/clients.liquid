@@ -204,20 +204,14 @@
   background-size: 150%;
 }
 
-@keyframes moveAcross {
-  0% {
-    left: -100px; /* Start outside the container on the left */
-  }
-  50% {
-    left: calc(100% - 100px); /* End just inside the container on the right */
-  }
-  51% {
-    left: 100%; /* Move completely out of the container on the right */
-  }
-  100% {
-    left: -100px; /* Restart from outside the container on the left */
-  }
-}
+ @keyframes slide {
+      0% {
+        transform: translateX(-100%); /* Start off-screen to the left */
+      }
+      100% {
+        transform: translateX(100%); /* Move off-screen to the right */
+      }
+    }
 
 @keyframes moveBackground {
   0% {
