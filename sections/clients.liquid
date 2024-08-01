@@ -11,7 +11,7 @@
               <h2 class="{% if section.settings.vertical_alignment == "bottom" %}style1{% endif %}" style="color:{{ section.settings.section_title2_color }}">{{ section.settings.section_title_2 }}</h2>
             {% endif %}  
             <div class="desc">
-              <p style="color: #fff;">{{ section.settings.section_desc }}</p>
+              <p>{{ section.settings.section_desc }}</p>
             </div>
           </div>   
         </div>
@@ -85,6 +85,12 @@
       "type": "color",
       "id": "section_title2_color",
       "label": "Title two color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "section_desk_color",
+      "label": "describtion two color",
       "default": "#fff"
     },
     {
@@ -198,7 +204,7 @@
   margin: 15px;
 }
 #testimonial-{{ section.id }} .title-capture .section-title .desc p {
-  color: #fff;
+  color: {{ section.settings.section_desk_color }};
   font-weight: 500;
   position: unset;
   margin: 0;
