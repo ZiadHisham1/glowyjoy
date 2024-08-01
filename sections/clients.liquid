@@ -1,7 +1,7 @@
 <section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.enable_animation %}animate-background{% endif %}">
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col" style="{% if section.settings.vertical_alignment == "middle" %}display: unset;{% elsif section.settings.vertical_alignment == "left" %}display: flex;{% endif %}">
         <div class="title-capture" style="{% if section.settings.vertical_alignment == "middle" %}justify-content: center;{% elsif section.settings.vertical_alignment == "left" %}justify-content: left;{% endif %}">
           <div class="section-title">
             {% if section.settings.section_title != '' %}
