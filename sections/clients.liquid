@@ -179,16 +179,7 @@
 }
   
 .testimonial-clients-area {
-  position: relative;
-  padding-top: var(--testi-padding-top);
-  padding-bottom: var(--testi-padding-bottom);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-size: 150%;
-  {% if section.settings.bg_style == "normal" %}
-  background-color: {{ section.settings.normal_background }};
-  {% endif %}
+  
 }
 
 .animate-background {
@@ -213,10 +204,16 @@
 
 /* Example CSS Variables for Dynamic Styles */
 #testimonial-{{ section.id }} .none {
-  --testi-bgcolor: ;
-  --testi-bgcolor2: ;
-  --testi-padding-top: {{ section.settings.testi_padding_top }}px;
-  --testi-padding-bottom: {{ section.settings.testi_padding_bottom }}px;
+  position: relative;
+  padding-top: var(--testi-padding-top);
+  padding-bottom: var(--testi-padding-bottom);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-size: 150%;
+  {% if section.settings.bg_style == "normal" %}
+  background-color: {{ section.settings.normal_background }};
+  {% endif %}
 }
 
 #testimonial-{{ section.id }} .title-capture {
