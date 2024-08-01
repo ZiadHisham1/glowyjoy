@@ -14,12 +14,7 @@ Version: 2.3
     font-family: 'Holligate Signature Demo';
     src: url('Holligate Signature Demo.ttf')  format('truetype');
 }
-@font-face {
-  font-family: 'KGHAPPYShadow';
-  src: url('{{ 'KGHAPPYShadow.ttf' | asset_url }}') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 /*=====================================
 Tooltip css
