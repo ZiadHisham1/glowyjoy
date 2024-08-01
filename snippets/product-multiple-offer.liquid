@@ -41,18 +41,18 @@
               #1
             </span>
             <div class="selection-div">
-              <form> 
+               
                 <input type="hidden" value="{{ variant.id }}">
-              {% if product.variants.size > 1 %}
-                <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
-                  {% for variant in product.variants %}
-                    <option value="{{ variant.id }}">
-                      {{ variant.title }}
-                    </option>
-                  {% endfor %}
-                </select>  
-              {% endif %}            
-              </form>
+                  {% if product.variants.size > 1 %}
+                    <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
+                      {% for variant in product.variants %}
+                        <option value="{{ variant.id }}">
+                          {{ variant.title }}
+                        </option>
+                      {% endfor %}
+                    </select>  
+                  {% endif %}            
+              
             </div>
           </div>
             <div class="carry-hld">
@@ -60,6 +60,8 @@
               #2
             </span>
             <div class="selection-div">
+              
+              <input type="hidden" value="{{ variant.id }}">
               {% if product.variants.size > 1 %}
                 <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
                   {% for variant in product.variants %}
