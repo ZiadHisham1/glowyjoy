@@ -1,4 +1,4 @@
-<section id="testimonial-{{ section.id }}" class="testimonial-clients-area {% if section.settings.bg_style == "normal" %}none{% elsif section.settings.bg_style == "animated-bg" %}animate-background{% elsif section.settings.bg_style == "background-img" %}background-imge{% endif %}">
+<section id="testimonial-{% if section.settings.bg_style == "normal" %}none{% elsif section.settings.bg_style == "animated-bg" %}animate-background{% elsif section.settings.bg_style == "background-img" %}background-imge{% endif %}-{{ section.id }}" class="testimonial-clients-area">
   <div class="container">
     <div class="row">
       <div class="col" style="{% if section.settings.vertical_alignment == "middle" %}display: unset;{% elsif section.settings.vertical_alignment == "left" %}display: flex; margin: 20px 0 0 0;{% endif %}">
