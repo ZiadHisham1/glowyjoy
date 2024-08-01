@@ -1862,7 +1862,7 @@
           "testi_slide_w4ANXT"
         ],
         "settings": {
-          "vertical_alignment": "left",
+          "vertical_alignment": "middle",
           "section_title": "1,000,000+",
           "section_title_color": "#5396ff",
           "section_title_2": "over 1 MILLION happy sale",
@@ -1871,7 +1871,7 @@
           "section_desc": "With over 100k customers, it’s clear to see why this is the top rated product to gift yourself or your loved ones in 2023",
           "testi_bgcolor": "#231b53",
           "testi_bgcolor2": "#0b0720",
-          "bg_style": "background-img",
+          "bg_style": "animated-bg",
           "normal_background": "#2b0e32",
           "anble-rtl": false,
           "bg_link": "https:\/\/ucarecdn.com\/7c5e9a84-4170-4b63-a228-125f0231a18d\/-\/format\/auto\/-\/preview\/3000x3000\/-\/quality\/lighter\/image%201.png"
@@ -1917,19 +1917,6 @@
         ],
         "settings": {
         }
-      },
-      "photo_to_transtion_8QR8Lq": {
-        "type": "photo-to-transtion",
-        "settings": {
-          "bg_img": "https:\/\/ucarecdn.com\/64ba56e7-9f9e-4d33-8cb7-7dee4d981ed6\/-\/format\/auto\/-\/preview\/3000x3000\/-\/quality\/lighter\/Group%201000003782%20_1_.png",
-          "height_length": 80
-        }
-      },
-      "moving_slide_HcYiKH": {
-        "type": "moving-slide",
-        "settings": {
-          "slider_images": "shopify:\/\/shop_images\/Untitled_design_23.png"
-        }
       }
     },
     "content_for_index": [
@@ -1937,8 +1924,6 @@
       "9139de7f-66ee-4826-a858-1cd9a7531267",
       "af6db34d-a076-4955-8a2f-810f290f81f5",
       "clients_bU9mh9",
-      "photo_to_transtion_8QR8Lq",
-      "moving_slide_HcYiKH",
       "transformation_Hf4tPe",
       "clients_7k9K8Y",
       "transformation_rYJmTJ",
