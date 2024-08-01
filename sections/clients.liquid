@@ -5,10 +5,10 @@
         <div class="title-capture">
           <div class="section-title">
             {% if section.settings.section_title != '' %}
-            <h2 class="{% if section.settings.vertical_alignment == "bottom" %}style1{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
+            <h2 class="{% if section.settings.vertical_alignment == "middle" %}style1{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
             {% endif %}
             {% if section.settings.section_title_2 != '' %}
-              <h2 class="{% if section.settings.vertical_alignment == "bottom" %}style1{% endif %}" style="color:{{ section.settings.section_title2_color }}">{{ section.settings.section_title_2 }}</h2>
+              <h2 class="{% if section.settings.vertical_alignment == "middle" %}style1{% endif %}" style="color:{{ section.settings.section_title2_color }}">{{ section.settings.section_title_2 }}</h2>
             {% endif %}  
             <div class="desc">
               <p>{{ section.settings.section_desc }}</p>
