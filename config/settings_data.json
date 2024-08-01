@@ -1814,7 +1814,7 @@
           "section_title_color": "#5396ff",
           "section_title_2": "over 1 MILLION happy sale",
           "section_title2_color": "#c0b6fc",
-          "section_desk_color": "#fff",
+          "section_desk_color": "#ffffff",
           "section_desc": "With over 100k customers, it’s clear to see why this is the top rated product to gift yourself or your loved ones in 2023",
           "testi_bgcolor": "#291b60",
           "testi_bgcolor2": "#0b0720",
@@ -1859,7 +1859,7 @@
           "testi_slide_w4ANXT"
         ],
         "settings": {
-          "vertical_alignment": "middle",
+          "vertical_alignment": "left",
           "section_title": "1,000,000+",
           "section_title_color": "#5396ff",
           "section_title_2": "over 1 MILLION happy sale",
