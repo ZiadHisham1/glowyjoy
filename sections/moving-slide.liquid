@@ -243,12 +243,16 @@
     line-height: 1.2;
     text-align: center;
   }
+  #movingSlider-{{ section.id }} .imag-wraper{
+    flex-direction: row;
+  }
 }
 #movingSlider-{{ section.id }} .imag-wraper {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 0 10px 0;
+  overflow: hidden;
 }
 @media (max-width: 1200px) {
   #movingSlider-{{ section.id }} .imag-wraper {
