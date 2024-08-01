@@ -1819,7 +1819,7 @@
           "testi_bgcolor": "#291b60",
           "testi_bgcolor2": "#0b0720",
           "bg_style": "normal",
-          "normal_background": "#000"
+          "normal_background": "#000000"
         }
       },
       "transformation_Hf4tPe": {
@@ -1870,7 +1870,7 @@
           "testi_bgcolor": "#231b53",
           "testi_bgcolor2": "#0b0720",
           "bg_style": "normal",
-          "normal_background": "#211d1d"
+          "normal_background": "#333333"
         }
       },
       "transformation_rYJmTJ": {
