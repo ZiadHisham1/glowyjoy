@@ -1,4 +1,4 @@
-<section id="movingSlider-{{ section.id }}" class="testimonial-clients-area>
+<section id="movingSlider-{{ section.id }}" class="movingSlider->
   <div class="container">
     <div class="row">
       <div class="col" style="display: flex; margin: 20px 0 0 0; flex-direction: row;">
@@ -174,7 +174,7 @@
   text-align: left;
 }
   
-.testimonial-clients-area {
+.movingSlider {
   position: relative;
   padding-top: var(--testi-padding-top);
   padding-bottom: var(--testi-padding-bottom);
@@ -211,14 +211,6 @@
   --testi-bgcolor2: ;
   --testi-padding-top: {{ section.settings.testi_padding_top }}px;
   --testi-padding-bottom: {{ section.settings.testi_padding_bottom }}px;
-  {% if section.settings.bg_style == "normal" %}
-    background-color: {{ section.settings.normal_background }};
-  {% elsif section.settings.bg_style == "animated-bg" %}
-    background-image: radial-gradient(circle at center ,{{ section.settings.testi_bgcolor }} , {{ section.settings.testi_bgcolor2 }} );
-    animation: moveBackground 10s infinite alternate;
-  {% elsif section.settings.bg_style == "background-img" %}
-    background-image:url('{{ section.settings.bg_link }}');
-  {% endif %}
 }
 
 #movingSlider-{{ section.id }} .title-capture {
