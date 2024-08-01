@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col">
-        <div class="title-capture {% if section.settings.vertical_alignment == "middle" %}styleOne{% elsif section.settings.vertical_alignment == "left" %}styleTwo{% endif %}">
+        <div class="title-capture" style="{% if section.settings.vertical_alignment == "middle" %}justify-content: center;{% elsif section.settings.vertical_alignment == "left" %}justify-content: left;{% endif %}">
           <div class="section-title">
             {% if section.settings.section_title != '' %}
             <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
@@ -157,7 +157,6 @@
   color: #fff;
   font-weight: 700;
   text-align: left;
-  justify-content: left;
 }
   
   .testimonial-clients-area {
