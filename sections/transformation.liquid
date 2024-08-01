@@ -18,12 +18,12 @@
             <h1>{{ section.settings.first_h1 }}</h1>
             <p>{{ section.settings.description }}</p>
            <div class="btnHolder">
-             <a 
+             <button 
             id="" 
             href="{{ section.settings.transformation_button_url }}" 
             class="discount-buy-btn">
             {{ section.settings.transformation_button_text }}
-             </a>
+             </button>
            </div>
           </div>
         </div>
@@ -227,7 +227,7 @@
   
 }
 /* button styles */
- .transformation-main .title-capture .btnHolder a.discount-buy-btn{
+  a.discount-buy-btn{
     font-family: "poppins", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
     box-sizing: border-box;
     font-size: 15px;
@@ -259,7 +259,7 @@
     width: 100%;
     height: 50px;
   }
-.transformation-main .title-capture .btnHolder  .discount-buy-btn::before {
+  .discount-buy-btn::before {
     background-color: initial;
     background-image: linear-gradient(rgba(255, 255, 255, .07) 80%, rgba(255, 255, 255, .15));
     border-radius: 100px;
