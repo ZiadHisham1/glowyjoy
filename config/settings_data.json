@@ -1809,6 +1809,7 @@
           "testi_slide_6CKHyM"
         ],
         "settings": {
+          "vertical_alignment": "middle",
           "section_title": "",
           "section_title_color": "#5396ff",
           "section_title_2": "over 1 MILLION happy sale",
@@ -1857,6 +1858,7 @@
           "testi_slide_w4ANXT"
         ],
         "settings": {
+          "vertical_alignment": "bottom",
           "section_title": "1,000,000+",
           "section_title_color": "#5396ff",
           "section_title_2": "over 1 MILLION happy sale",
