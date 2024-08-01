@@ -1,17 +1,14 @@
 <div style="width: 100%;" class="">
   <div class="">
     {% if product.available %}
-      <form action="/cart/add" method="post" enctype="multipart/form-data" id="add-item-form1">
-  <!-- First variant selector -->
+     <!-- Form for adding the first variant -->
+<form id="variant-form-1" class="variant-form">
   <div class="variant-selection">
     <label for="productSelect1">Choose Variant 1:</label>
     <select name="id" id="productSelect1" class="product-single__variants">
       {% for variant in product.variants %}
         <option
           data-stocks="{{ variant.inventory_quantity }}"
-          {% if variant == current_variant %}
-          selected="selected"
-          {% endif %}
           data-sku="{{ variant.sku }}"
           value="{{ variant.id }}">{{ variant.title }}</option>
       {% endfor %}
@@ -19,20 +16,17 @@
     <label for="quantity1">Quantity:</label>
     <input type="number" name="quantity" id="quantity1" value="1" min="1">
   </div>
-  <button type="submit">Add Variant 1 to Cart</button>
+  <button type="button" onclick="addToCart('variant-form-1')">Add Variant 1 to Cart</button>
 </form>
 
-<form action="/cart/add" method="post" enctype="multipart/form-data" id="add-item-form2">
-  <!-- Second variant selector -->
+<!-- Form for adding the second variant -->
+<form id="variant-form-2" class="variant-form">
   <div class="variant-selection">
     <label for="productSelect2">Choose Variant 2:</label>
     <select name="id" id="productSelect2" class="product-single__variants">
       {% for variant in product.variants %}
         <option
           data-stocks="{{ variant.inventory_quantity }}"
-          {% if variant == current_variant %}
-          selected="selected"
-          {% endif %}
           data-sku="{{ variant.sku }}"
           value="{{ variant.id }}">{{ variant.title }}</option>
       {% endfor %}
@@ -40,7 +34,7 @@
     <label for="quantity2">Quantity:</label>
     <input type="number" name="quantity" id="quantity2" value="1" min="1">
   </div>
-  <button type="submit">Add Variant 2 to Cart</button>
+  <button type="button" onclick="addToCart('variant-form-2')">Add Variant 2 to Cart</button>
 </form>
 
     {% else %}
@@ -48,6 +42,35 @@
     {% endif %}
   </div>
 </div>
+
+<script type="text/javascript">
+  function addToCart(formId) {
+    var form = document.getElementById(formId);
+    var formData = new FormData(form);
+    var payload = {
+      id: formData.get('id'),
+      quantity: formData.get('quantity')
+    };
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Item added:', data);
+      // Optionally redirect or show a success message
+      alert('Item added to cart successfully!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+</script>
 
 <script>
   function updateTotalPrice() {
@@ -123,65 +146,7 @@
     }
   });
 </script>
-<script type="text/javascript">
-  document.getElementById('add-item-form1').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
 
-    // Serialize form data
-    var formData = new FormData(this);
-    var payload = {
-      id: formData.get('id'),
-      quantity: formData.get('quantity')
-    };
-
-    // Add first variant to cart
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Variant 1 added:', data);
-      // Optionally redirect or show a success message
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-  });
-
-  document.getElementById('add-item-form2').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    // Serialize form data
-    var formData = new FormData(this);
-    var payload = {
-      id: formData.get('id'),
-      quantity: formData.get('quantity')
-    };
-
-    // Add second variant to cart
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Variant 2 added:', data);
-      // Optionally redirect or show a success message
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-  });
-</script>
 
 <style>
   .box-cont {
