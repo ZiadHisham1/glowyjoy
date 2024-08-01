@@ -239,13 +239,12 @@
               </div>
             </div>
               </div>
-            </form>
             <form action="/cart/add" method="post" class="cart-{{ product.id }}" enctype="multipart/form-data" id="add-item-form">    
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
               <div class="product-quantity-action">
                 {% render 'product-multiple-offer', product: product %}
               </div>
             </form>    
+            </form>
           </div>
           {%- when 'product_sku' -%}
           <div class="pro-skss">
