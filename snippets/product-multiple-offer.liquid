@@ -225,7 +225,15 @@
                 #3
               </span>
               <div class="selection-div">
-               {% render 'product-swatch-variant' product: product, block: block %}
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-3" name="id-3-3">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
               </div>
             </div>
             <div class="carry-hld">
@@ -233,7 +241,15 @@
                 #4
               </span>
               <div class="selection-div">
-                {% render 'product-swatch-variant' product: product, block: block %}
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-4" name="id-1">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
               </div>
             </div>
           </div>
