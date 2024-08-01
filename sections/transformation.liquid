@@ -17,7 +17,7 @@
           <div class="title-capture">
             <h1>{{ section.settings.first_h1 }}</h1>
             <p>{{ section.settings.description }}</p>
-           <div>
+           <div class="btnHolder">
              <a 
             id="" 
             href="{{ section.settings.transformation_button_url }}" 
@@ -184,7 +184,7 @@
   }
 }
 
-  .transformation-main .title-capture{
+  .transformation-main .title-capture {
     width: 50%;
     margin: 20px 0 20px 40px;
   }
@@ -227,7 +227,7 @@
   
 }
 /* button styles */
-  a.discount-buy-btn{
+ .transformation-main .title-capture .btnHolder a.discount-buy-btn{
     font-family: "poppins", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
     box-sizing: border-box;
     font-size: 15px;
@@ -259,7 +259,7 @@
     width: 100%;
     height: 50px;
   }
-  .discount-buy-btn::before {
+.transformation-main .title-capture .btnHolder  .discount-buy-btn::before {
     background-color: initial;
     background-image: linear-gradient(rgba(255, 255, 255, .07) 80%, rgba(255, 255, 255, .15));
     border-radius: 100px;
