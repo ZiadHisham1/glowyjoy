@@ -102,6 +102,23 @@
         "enable_animation": true
       }
     },
+    "home_store_hMByiV": {
+      "type": "home-store",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_ipad": 60,
+        "section_padding_bottom_ipad": 60,
+        "section_padding_top_xs": 40,
+        "section_padding_bottom_xs": 40,
+        "section_bg_color": "rgba(0,0,0,0)",
+        "section_des": "Happy clients",
+        "section_title": "Happy clients"
+      }
+    },
     "single-product-tab": {
       "type": "single-product-tab",
       "blocks": {
@@ -162,6 +179,7 @@
   "order": [
     "product-template",
     "clients_4e7qkb",
+    "home_store_hMByiV",
     "single-product-tab",
     "related-product"
   ]
