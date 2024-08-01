@@ -16,8 +16,7 @@ Version: 2.3
 }
 @font-face {
   font-family: 'kg';
-  src: url('{{ 'KGHAPPYShadows.ttf' }}') format('ttf'),
-       url('{{ 'KGHAPPYShadows.ttf' }}') format('ttf');
+  src: url('{{ 'KGHAPPYShadows.ttf' }}') format('ttf');
   font-weight: normal;
   font-style: normal;
 }
