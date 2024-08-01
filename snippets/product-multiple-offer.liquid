@@ -1,76 +1,269 @@
 <div style="width: 100%;" class="">
   <div class="">
     {% if product.available %}
-     <!-- Form for adding the first variant -->
-<form id="variant-form-1" class="variant-form">
-  <div class="variant-selection">
-    <label for="productSelect1">Choose Variant 1:</label>
-    <select name="id" id="productSelect1" class="product-single__variants">
-      {% for variant in product.variants %}
-        <option
-          data-stocks="{{ variant.inventory_quantity }}"
-          data-sku="{{ variant.sku }}"
-          value="{{ variant.id }}">{{ variant.title }}</option>
-      {% endfor %}
-    </select>
-    <label for="quantity1">Quantity:</label>
-    <input type="number" name="quantity" id="quantity1" value="1" min="1">
-  </div>
-  <button type="button" onclick="addToCart('variant-form-1')">Add Variant 1 to Cart</button>
-</form>
+      <div class="box">
+        <div class="box-cont" id="box-cont-1" data-group="1">
+          <div class="carry-hld">  
+            <div class="hidden-option">
+              <input type="radio" id="hidden-option-1" name="quantity" value="2" checked/>
+            </div>
+            <div class="box-cont-holder">
+              <div>
+                <input type="radio" id="quantity-option-1" name="quantity-option"/>
+              </div>
+              <div>               
+                <span>Most Popular</span>
+                <p>Buy two and save 15%</p>
+              </div>
+            </div>
+            <div class="moneyHolder">
+              <p>Save 15%</p>
+              <span class="individual-price">
+                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+              </span>
+              <span class="discount-price">
+                {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+                {% assign product_price = product.selected_or_first_available_variant.price %}
+                {% assign quantity = 2 %}
+                {% assign total_compare_price = compare_price | times: quantity %}
+                {% assign total_product_price = product_price | times: quantity %}
+                <div class="new-price">Total</div>
+                <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+                <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+              </span>
+            </div>
+          </div>
+          
+          <div id="selectorDiv-1" class="">
+            <div class="carry-hld">
+             <span class="disc-opt-mun">
+              #1
+            </span>
+            <div class="selection-div">
+              {% if product.variants.size > 1 %}
+                <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>  
+              {% endif %}            
+            </div>
+          </div>
+            <div class="carry-hld">
+            <span class="disc-opt-mun">
+              #2
+            </span>
+            <div class="selection-div">
+              {% if product.variants.size > 1 %}
+                <select class="disc-opt-selection" id="product-select-1-2" name="id-1-2">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>  
+              {% endif %}            
+            </div>
+          </div>  
+          </div>
+        </div>
 
-<!-- Form for adding the second variant -->
-<form id="variant-form-2" class="variant-form">
-  <div class="variant-selection">
-    <label for="productSelect2">Choose Variant 2:</label>
-    <select name="id" id="productSelect2" class="product-single__variants">
-      {% for variant in product.variants %}
-        <option
-          data-stocks="{{ variant.inventory_quantity }}"
-          data-sku="{{ variant.sku }}"
-          value="{{ variant.id }}">{{ variant.title }}</option>
-      {% endfor %}
-    </select>
-    <label for="quantity2">Quantity:</label>
-    <input type="number" name="quantity" id="quantity2" value="1" min="1">
-  </div>
-  <button type="button" onclick="addToCart('variant-form-2')">Add Variant 2 to Cart</button>
-</form>
+        <div class="box-cont" id="box-cont-2" data-group="2">
+          <div class="carry-hld">
+            <div class="hidden-option">
+              <input type="radio" id="hidden-option-2" name="quantity" value="3" checked/>
+            </div>
+            <div class="box-cont-holder">
+              <div>
+                <input type="radio" id="quantity-option-2" name="quantity-option"/>
+              </div>
+              <div>               
+                <p>Buy three and save 20%</p>
+              </div>
+            </div>
+            <div class="moneyHolder">
+              <p>Save 20%</p>
+              <span class="individual-price">
+                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+              </span>
+              <span class="discount-price">
+                {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+                {% assign product_price = product.selected_or_first_available_variant.price %}
+                {% assign quantity = 3 %}
+                {% assign total_compare_price = compare_price | times: quantity %}
+                {% assign total_product_price = product_price | times: quantity %}
+                <div class="new-price">Total</div>
+                <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+                <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+              </span>
+            </div>
+          </div>
+          <!-- varient options -->
+          <div id="selectorDiv-2" class="hidden" >
+            <div class="carry-hld">
+               <span class="disc-opt-mun">
+                #1
+              </span>
+              <div class="selection-div">
+                {% if product.variants.size > 1 %}
+                <select class="disc-opt-selection" id="product-select-2-1" name="id-2-1">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                 </select>  
+                {% endif %}
+              </div>
+            </div>
+            <div class="carry-hld">
+              <span class="disc-opt-mun">
+                #2
+              </span>
+              <div class="selection-div">
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-2-2" name="id-2-2">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
+              </div>
+            </div>
+            <div class="carry-hld">
+            <span class="disc-opt-mun">
+              #3
+            </span>
+            <div class="selection-div">
+             {% if product.variants.size > 1 %}
+                <select class="disc-opt-selection" id="product-select-2-3" name="id-2-3">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}">
+                      {{ variant.title }}
+                    </option>
+                  {% endfor %}
+                </select>  
+              {% endif %}
+            </div>
+          </div>
+          </div>
+        </div>
 
+        <div class="box-cont" id="box-cont-3" data-group="3">
+          <div class="carry-hld">
+            <div class="hidden-option">
+              <input type="radio" id="hidden-option-3" name="quantity" value="4" checked/>
+            </div>
+            <div class="box-cont-holder">
+              <div>
+                <input type="radio" id="quantity-option-3" name="quantity-option"/>
+              </div>
+              <div>               
+                <p>Buy four and save 25%</p>
+              </div>
+            </div>
+            <div class="moneyHolder">
+              <p>Save 25%</p>
+              <span class="individual-price">
+                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+              </span>
+              <span class="discount-price">
+                {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+                {% assign product_price = product.selected_or_first_available_variant.price %}
+                {% assign quantity = 4 %}
+                {% assign total_compare_price = compare_price | times: quantity %}
+                {% assign total_product_price = product_price | times: quantity %}
+                <div class="new-price">Total</div>
+                <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+                <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+              </span>
+            </div>
+          </div>
+         <!-- select option -->
+          <div id="selectorDiv-3" class="hidden">
+            <div class="carry-hld">
+               <span class="disc-opt-mun">
+                #1
+              </span>
+              <div class="selection-div">
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-1" name="id-3-1">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
+              </div>
+            </div>
+            <div class="carry-hld">
+              <span class="disc-opt-mun">
+                #2
+              </span>
+              <div class="selection-div">
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-2" name="id-3-2">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
+              </div>
+            </div>
+            <div class="carry-hld">
+               <span class="disc-opt-mun">
+                #3
+              </span>
+              <div class="selection-div">
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-3" name="id-3-3">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
+              </div>
+            </div>
+            <div class="carry-hld">
+              <span class="disc-opt-mun">
+                #4
+              </span>
+              <div class="selection-div">
+                {% if product.variants.size > 1 %}
+                  <select class="disc-opt-selection" id="product-select-3-4" name="id-1">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }}
+                      </option>
+                    {% endfor %}
+                  </select>  
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btn-cont">
+          {% render 'discount-instant-buy', product: product %}
+        </div>
+      </div> 
     {% else %}
       <div>Out of stock</div>
     {% endif %}
   </div>
 </div>
-
-<script type="text/javascript">
-  function addToCart(formId) {
-    var form = document.getElementById(formId);
-    var formData = new FormData(form);
-    var payload = {
-      id: formData.get('id'),
-      quantity: formData.get('quantity')
-    };
-
-    fetch('/cart/add.js', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Item added:', data);
-      // Optionally redirect or show a success message
-      alert('Item added to cart successfully!');
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-  }
-</script>
 
 <script>
   function updateTotalPrice() {
