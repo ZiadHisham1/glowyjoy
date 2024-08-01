@@ -1851,7 +1851,6 @@
           },
           "testi_slide_w4ANXT": {
             "type": "testi_slide",
-            "disabled": true,
             "settings": {
               "custom_imag": "shopify:\/\/shop_images\/aiimg.png"
             }
@@ -1872,8 +1871,8 @@
           "testi_bgcolor": "#231b53",
           "testi_bgcolor2": "#0b0720",
           "bg_style": "normal",
-          "normal_background": "#333333",
-          "anble-rtl": true
+          "normal_background": "#2b0e32",
+          "anble-rtl": false
         }
       },
       "transformation_rYJmTJ": {
