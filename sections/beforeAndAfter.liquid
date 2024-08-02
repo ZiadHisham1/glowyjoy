@@ -2,23 +2,24 @@
   <div class="before-after-slider">
   <div class="slider-container">
    
-    {%- if section.settings.trans_imag -%}
-    {{ section.settings.trans_imag  | image_url: width: 512 | image_tag:
-    loading: 'lazy',
-    width: section.settings.trans_imag.width,
-    height: section.settings.trans_imag.height,
-    class: "img-fluid image-1",
-    alt: section.settings.trans_imag.alt | escape }}
-    {%- endif -%}
-
     {%- if section.settings.before_image -%}
     {{ section.settings.before_image | image_url: width: 512 | image_tag: 
     laoding: 'lazy',
     width: section.settings.before_image.width,
     height: section.settings.before_image.height,
     alt: section.settings.before_image.alt,
-    class: "" | escape}}
+    class: "slider-image before-image" | escape}}
     {%- endif -%}
+    
+    {%- if section.settings.after_image -%}
+    {{ section.settings.after_image | image_url: width: 512 | image_tag: 
+    laoding: 'lazy',
+    width: section.settings.after_image.width,
+    height: section.settings.after_image.height,
+    alt: section.settings.after_image.alt,
+    class: "slider-image after-image" | escape}}
+    {%- endif -%}
+    
     <div class="slider-handle"></div>
   </div>
 </div>
