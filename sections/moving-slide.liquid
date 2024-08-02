@@ -257,7 +257,12 @@
   text-align: left;
 }
 /* mobile view */
-@media (max-width: 460px) {  
+@media (max-width: 460px) { 
+  #movingSlider-{{ section.id }} .title-capture .section-title {
+    display: flex;
+    padding:0;
+    justify-content: center;
+  }
   #movingSlider-{{ section.id }} .title-capture .section-title h2{
     width:fit-content;
     text-align: center;
