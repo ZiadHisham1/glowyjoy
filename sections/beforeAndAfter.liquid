@@ -3,7 +3,7 @@
     <section class="beforeAndAfter-section">
       <div class="before-after-slider">
         <div class="slider-container">
-          <div>
+          <div class="imag-holder">
             {%- if section.settings.before_image -%}
             <img src="{{ section.settings.before_image | image_url: width: 512 }}" 
              loading="lazy" 
@@ -14,7 +14,7 @@
             {%- endif -%}
           </div>
           
-          <div>
+          <div class="imag-holder">
             {%- if section.settings.after_image -%}
             <img src="{{ section.settings.after_image | image_url: width: 512 }}" 
              loading="lazy" 
