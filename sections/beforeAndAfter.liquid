@@ -1,33 +1,31 @@
 <section>
   <div class="before-after-slider">
-  <div class="slider-container">
+    <div class="slider-container">
    
-    {%- if section.settings.before_image -%}
-    {{ section.settings.before_image | image_url: width: 512 | image_tag: 
-    laoding: 'lazy',
-    width: section.settings.before_image.width,
-    height: section.settings.before_image.height,
-    alt: section.settings.before_image.alt,
-    class: "slider-image before-image" | escape}}
-    {%- endif -%}
+      {%- if section.settings.before_image -%}
+        <img src="{{ section.settings.before_image | image_url: width: 512 }}" 
+             loading="lazy" 
+             width="{{ section.settings.before_image.width }}" 
+             height="{{ section.settings.before_image.height }}" 
+             alt="{{ section.settings.before_image.alt }}" 
+             class="slider-image before-image" />
+      {%- endif -%}
     
-    {%- if section.settings.after_image -%}
-    {{ section.settings.after_image | image_url: width: 512 | image_tag: 
-    laoding: 'lazy',
-    width: section.settings.after_image.width,
-    height: section.settings.after_image.height,
-    alt: section.settings.after_image.alt,
-    class: "slider-image after-image" | escape}}
-    {%- endif -%}
+      {%- if section.settings.after_image -%}
+        <img src="{{ section.settings.after_image | image_url: width: 512 }}" 
+             loading="lazy" 
+             width="{{ section.settings.after_image.width }}" 
+             height="{{ section.settings.after_image.height }}" 
+             alt="{{ section.settings.after_image.alt }}" 
+             class="slider-image after-image" />
+      {%- endif -%}
     
-    <div class="slider-handle"></div>
+      <div class="slider-handle"></div>
+    </div>
   </div>
-</div>
-
 </section>
 
 <script>
-  <script>
 document.addEventListener("DOMContentLoaded", function() {
   const beforeAfterSlider = document.querySelector('.before-after-slider');
   const sliderHandle = beforeAfterSlider.querySelector('.slider-handle');
@@ -70,36 +68,35 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-</script>
-
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": [
-      {
-        "type": "header",
-        "content": "bafore & after settings"
-      },
-      {
-        "type": "image_picker",
-        "id": "before_image",
-        "label": "before image",
-      },
-      {
-        "type": "image_picker",
-        "id": "after_image",
-        "label": "after image",
-      }
-    ],"presets": [
-      {
-        "name": "before and after"
-      }
-    ]
-  }
+{
+  "name": "Section name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Before & After Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before and After"
+    }
+  ]
+}
 {% endschema %}
 
 <style>
-  .before-after-slider {
+.before-after-slider {
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -136,5 +133,4 @@ document.addEventListener("DOMContentLoaded", function() {
   transform: translate(-50%, -50%);
   z-index: 10;
 }
-
 </style>
