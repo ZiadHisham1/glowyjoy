@@ -3,18 +3,28 @@
   <div class="slider-container">
    
     {%- if section.settings.trans_imag -%}
-              {{ section.settings.trans_imag | image_url: width: 512 | image_tag:
-              loading: 'lazy',
-              width: section.settings.trans_imag.width,
-              height: section.settings.trans_imag.height,
-              class: "img-fluid image-1",
-              alt: section.settings.trans_imag.alt | escape }}
-              {%- endif -%}
+    {{ section.settings.trans_imag  | image_url: width: 512 | image_tag:
+    loading: 'lazy',
+    width: section.settings.trans_imag.width,
+    height: section.settings.trans_imag.height,
+    class: "img-fluid image-1",
+    alt: section.settings.trans_imag.alt | escape }}
+    {%- endif -%}
+
+    {%- if section.settings.before_image -%}
+    {{ section.settings.before_image | image_url: width: 512 | image_tag: 
+    laoding: 'lazy',
+    width: section.settings.before_image.width,
+    height: section.settings.before_image.height,
+    alt: section.settings.before_image.alt,
+    class: "" | escape}}
+    {%- endif -%}
     <div class="slider-handle"></div>
   </div>
 </div>
 
 </section>
+      
 {% schema %}
   {
     "name": "Section name",
