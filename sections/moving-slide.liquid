@@ -30,7 +30,12 @@
           {% endfor %}  
         </div>
         <div class="btnHolder">
-          {% render 'buy-now-button' %}
+          <a 
+          id="explore_button" 
+          href="{{ section.settings.button_link }}" 
+          class=" discount-buy-btn">
+          {{ section.settings.slide_button_text }}
+          </a>
           <div>
             
           </div>
