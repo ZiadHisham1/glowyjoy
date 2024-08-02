@@ -47,3 +47,44 @@
     ]
   }
 {% endschema %}
+
+<style>
+  .before-after-slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.after-image {
+  clip: rect(0, 0, auto, 0);
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: #000;
+  cursor: ew-resize;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+</style>
