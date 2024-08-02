@@ -1,6 +1,38 @@
+<section>
+  <div class="before-after-slider">
+  <div class="slider-container">
+   
+    {%- if section.settings.trans_imag -%}
+              {{ section.settings.trans_imag | image_url: width: 512 | image_tag:
+              loading: 'lazy',
+              width: section.settings.trans_imag.width,
+              height: section.settings.trans_imag.height,
+              class: "img-fluid image-1",
+              alt: section.settings.trans_imag.alt | escape }}
+              {%- endif -%}
+    <div class="slider-handle"></div>
+  </div>
+</div>
+
+</section>
 {% schema %}
   {
     "name": "Section name",
-    "settings": []
+    "settings": [
+      {
+        "type": "header",
+        "content": "bafore & after settings"
+      },
+      {
+        "type": "image_picker",
+        "id": "before_image",
+        "label": "before image",
+      },
+      {
+        "type": "image_picker",
+        "id": "after_image",
+        "label": "after image",
+      }
+    ]
   }
 {% endschema %}
