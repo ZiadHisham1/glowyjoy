@@ -25,7 +25,53 @@
 </div>
 
 </section>
-      
+
+<script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const beforeAfterSlider = document.querySelector('.before-after-slider');
+  const sliderHandle = beforeAfterSlider.querySelector('.slider-handle');
+  const afterImage = beforeAfterSlider.querySelector('.after-image');
+
+  function updateSlider(xPosition) {
+    const containerWidth = beforeAfterSlider.clientWidth;
+    const offset = Math.max(0, Math.min(xPosition, containerWidth));
+    afterImage.style.clip = `rect(0, ${offset}px, auto, 0)`;
+    sliderHandle.style.left = `${offset}px`;
+  }
+
+  sliderHandle.addEventListener('mousedown', function(e) {
+    function onMouseMove(e) {
+      const rect = beforeAfterSlider.getBoundingClientRect();
+      const offsetX = e.clientX - rect.left;
+      updateSlider(offsetX);
+    }
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', function() {
+      document.removeEventListener('mousemove', onMouseMove);
+    }, { once: true });
+  });
+
+  beforeAfterSlider.addEventListener('touchstart', function(e) {
+    const touch = e.touches[0];
+    function onTouchMove(e) {
+      const touch = e.touches[0];
+      const rect = beforeAfterSlider.getBoundingClientRect();
+      const offsetX = touch.clientX - rect.left;
+      updateSlider(offsetX);
+    }
+
+    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchend', function() {
+      document.removeEventListener('touchmove', onTouchMove);
+    }, { once: true });
+  });
+});
+</script>
+
+</script>
+
 {% schema %}
   {
     "name": "Section name",
