@@ -122,6 +122,13 @@
         "button_link": ""
       }
     },
+    "before_and_after_TKyLqf": {
+      "type": "beforeAndAfter",
+      "settings": {
+        "before_image": "shopify:\/\/shop_images\/aiimg.png",
+        "after_image": "shopify:\/\/shop_images\/59d06cbea1344f64adbb914ec1588fdb.png"
+      }
+    },
     "home_store_hMByiV": {
       "type": "home-store",
       "custom_css": [
@@ -276,6 +283,7 @@
     "product-template",
     "photo_to_transtion_chdzMQ",
     "moving_slide_C6jJEL",
+    "before_and_after_TKyLqf",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
