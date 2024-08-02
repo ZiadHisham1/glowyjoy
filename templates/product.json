@@ -78,6 +78,13 @@
         "out_of_stock_title": "Out of stock"
       }
     },
+    "photo_to_transtion_chdzMQ": {
+      "type": "photo-to-transtion",
+      "settings": {
+        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_38.png?v=1722621411",
+        "height_length": 80
+      }
+    },
     "moving_slide_C6jJEL": {
       "type": "moving-slide",
       "blocks": {
@@ -267,6 +274,7 @@
   },
   "order": [
     "product-template",
+    "photo_to_transtion_chdzMQ",
     "moving_slide_C6jJEL",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
