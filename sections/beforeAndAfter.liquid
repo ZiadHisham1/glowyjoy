@@ -3,25 +3,28 @@
     <section class="beforeAndAfter-section">
       <div class="before-after-slider">
         <div class="slider-container">
-       
-          {%- if section.settings.before_image -%}
+          <div>
+            {%- if section.settings.before_image -%}
             <img src="{{ section.settings.before_image | image_url: width: 512 }}" 
-                 loading="lazy" 
-                 width="{{ section.settings.before_image.width }}" 
-                 height="{{ section.settings.before_image.height }}" 
-                 alt="{{ section.settings.before_image.alt }}" 
-                 class="slider-image before-image" />
-          {%- endif -%}
-        
-          {%- if section.settings.after_image -%}
+             loading="lazy" 
+             width="{{ section.settings.before_image.width }}" 
+             height="{{ section.settings.before_image.height }}" 
+             alt="{{ section.settings.before_image.alt }}" 
+             class="slider-image before-image" />
+            {%- endif -%}
+          </div>
+          
+          <div>
+            {%- if section.settings.after_image -%}
             <img src="{{ section.settings.after_image | image_url: width: 512 }}" 
-                 loading="lazy" 
-                 width="{{ section.settings.after_image.width }}" 
-                 height="{{ section.settings.after_image.height }}" 
-                 alt="{{ section.settings.after_image.alt }}" 
-                 class="slider-image after-image" />
-          {%- endif -%}
-        
+             loading="lazy" 
+             width="{{ section.settings.after_image.width }}" 
+             height="{{ section.settings.after_image.height }}" 
+             alt="{{ section.settings.after_image.alt }}" 
+             class="slider-image after-image" />
+            {%- endif -%}
+          </div>
+          
           <div class="slider-handle"></div>
         </div>
       </div>
