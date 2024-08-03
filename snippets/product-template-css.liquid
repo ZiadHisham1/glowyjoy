@@ -1,9 +1,4 @@
 {% style %}
-@font-face {
-    font-family: 'spaceBoard';
-    src: url("spaceBoard.woff2") format("woff2"),
-    url("spaceBoard.woff") format("woff");
-}
 {% if section.settings.product_style_handle == 'style_1' %}
 .product_details.product_details_gallery{
   {% if settings.enable_rtl %}padding-left: 70px;{% else %}padding-right: 70px;{% endif %}
@@ -277,7 +272,12 @@
 .product_details_info{
   display: block;
 }
-  
+
+@font-face {
+    font-family: 'spaceBoard';
+    src: url("spaceBoard.woff2") format("woff2"),
+    url("spaceBoard.woff") format("woff");
+}
 .product_details_info .product-title h2{
   font-size: 40px !important;
   line-height: 1.2em !important;
