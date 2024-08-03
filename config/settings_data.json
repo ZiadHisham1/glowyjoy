@@ -1936,7 +1936,7 @@
               "apply_h6": false,
               "apply_span": false,
               "apply_p": false,
-              "apply_custom": ".typoCnt > h2\n.product-title > h2"
+              "apply_custom": ".typoCnt > h2,\n.product-title > h2"
             }
           }
         },
