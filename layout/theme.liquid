@@ -250,6 +250,7 @@
 </head>
 
 <body  id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name | handle }}">
+  {% section 'space-board-font' %}
  <!-- visitor counter html -->
   <div id="floating-info" class="center-text center-vertical">
    <div class="num_holder"> <div>Live Visitors: </div><span id="visitors-count">0</span></div>
