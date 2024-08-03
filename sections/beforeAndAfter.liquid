@@ -1,7 +1,7 @@
 <div class="row">
   <div class="column">
     <section class="beforeAndAfter-section">
-      <div>
+      <div class="framerBigHold">
         <div>
           <h2>
             hello
@@ -43,6 +43,11 @@
 </div>
 
 <style>
+.framerBigHold{
+  display: flex;
+  align-content: center;
+  
+}
 .beforeAndAfter-section{
   width: 100%;
   height: calc({{ section.settings.before_image.width }}px - 100px) ;
