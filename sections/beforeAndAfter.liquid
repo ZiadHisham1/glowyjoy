@@ -80,7 +80,15 @@
 }
 </style>
 
+<script>
+  const container = document.querySelector('.slider-container');
+  const imageBefore = document.querySelector('.before-image');
+  const line = document.querySelector('.slider-line');
 
+  container.addEventListener('mousemove', e => {
+    console.log(e.layerX);
+  })
+</script>
 
 {% schema %}
 {
