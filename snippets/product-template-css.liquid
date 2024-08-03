@@ -1,7 +1,6 @@
 @font-face {
     font-family: 'spaceBoard';
-    src: url('{{ "spaceBoard.woff2" | asset_url }}') format('woff2'),
-         url('{{ "spaceBoard.woff2" | asset_url }}') format('woff');
+    src: url('{{ "spaceBoard.woff2" | asset_url }}') format('woff2');
 }
 {% style %}
 {% if section.settings.product_style_handle == 'style_1' %}
@@ -285,6 +284,7 @@
   text-transform: uppercase !important;
   font-weight: 400 !important;
   color: #040939  !important;
+  font-family: 'spaceBoard';
 }
 @media (max-width: 1199px){
   .product_details_info .product-title h6{
