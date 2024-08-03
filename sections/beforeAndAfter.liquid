@@ -86,7 +86,8 @@
   const line = document.querySelector('.slider-line');
 
   container.addEventListener('mousemove', e => {
-    console.log(e.layerX);
+    imageBefore.style.width = `${e.layerX}px`;
+    line.style.left = `${e.layerX}px`;
   })
 </script>
 
