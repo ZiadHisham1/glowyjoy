@@ -3,7 +3,7 @@
     <section class="beforeAndAfter-section">
       <div class="before-after-slider">
         <div class="slider-container">
-          <div class="imag-holder before-image">
+          <div class="imag-frame before-image">
             {%- if section.settings.before_image -%}
             <img src="{{ section.settings.before_image | image_url: width: 512 }}" 
              loading="lazy" 
@@ -14,7 +14,7 @@
             {%- endif -%}
           </div>
           
-          <div class="imag-holder after-image">
+          <div class="imag-frame after-image">
             {%- if section.settings.after_image -%}
             <img src="{{ section.settings.after_image | image_url: width: 512 }}" 
              loading="lazy" 
@@ -58,13 +58,13 @@
   margin: 39px;
   border: solid 2px #240073;
 } 
-.imag-holder img{
+.imag-frame img{
   width: 500px;
   height: 600px;
   object-fit: cover;
 }
 .before-image{
-  width: 500px;
+  width: auto;
   height: 100%;
   position: absolute;
   left: 0;
