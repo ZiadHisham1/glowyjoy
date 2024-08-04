@@ -142,6 +142,13 @@
         "button_link": ""
       }
     },
+    "photo_to_transtion_DqanHn": {
+      "type": "photo-to-transtion",
+      "settings": {
+        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_49.png?v=1722784065",
+        "height_length": 80
+      }
+    },
     "home_store_hMByiV": {
       "type": "home-store",
       "custom_css": [
@@ -298,6 +305,7 @@
     "before_and_after_TKyLqf",
     "photo_to_transtion_cVnfHN",
     "moving_slide_C6jJEL",
+    "photo_to_transtion_DqanHn",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
