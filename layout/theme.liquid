@@ -239,6 +239,12 @@
       --sti-border-radius: {{ settings.tag_border_radius }}px;
     
       --box-body-bgcolor: {{ settings.box_body_bgcolor }};
+      @font-face {
+          font-family: 'spaceBoard';
+          src: url("spaceBoard.woff2") format("woff2"),
+          url("spaceBoard.woff") format("woff");
+          font-weight: normal;
+      }
     }
   </style>
   {{ content_for_header }}
