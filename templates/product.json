@@ -149,6 +149,17 @@
         "height_length": 80
       }
     },
+    "how_it_feels_MDQpX8": {
+      "type": "how-it-feels",
+      "settings": {
+        "select_bg_style": "backColor",
+        "backGcolor": "#200130",
+        "backImageUrl": "",
+        "section_heading": "so, what all of this hype about",
+        "section_desc": "",
+        "heading_color": ""
+      }
+    },
     "home_store_hMByiV": {
       "type": "home-store",
       "custom_css": [
@@ -306,6 +317,7 @@
     "photo_to_transtion_cVnfHN",
     "moving_slide_C6jJEL",
     "photo_to_transtion_DqanHn",
+    "how_it_feels_MDQpX8",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
