@@ -126,7 +126,10 @@
       "type": "beforeAndAfter",
       "settings": {
         "before_image": "shopify:\/\/shop_images\/aiimg.png",
-        "after_image": "shopify:\/\/shop_images\/59d06cbea1344f64adbb914ec1588fdb.png"
+        "after_image": "shopify:\/\/shop_images\/59d06cbea1344f64adbb914ec1588fdb.png",
+        "section_heading": "there’s the knockoffs and there’s the original",
+        "section_desc": "Avoid the cheap knockoffs and experience the difference with SpaceBuddy’s vibrant and high quality projection",
+        "heading_color": "#adb5fc"
       }
     },
     "home_store_hMByiV": {
