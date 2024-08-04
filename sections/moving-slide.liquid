@@ -5,7 +5,7 @@
         <div class="title-capture" style="justify-content: center;justify-content: left;{% if section.settings.anble-rtl %}order: 2;{% endif %}">
           <div class="section-title">
             {% if section.settings.section_title != '' %}
-            <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}<span class="span">hello</span></h2>
+            <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title_color }}">{{ section.settings.section_title }}</h2>
             {% endif %}
             {% if section.settings.section_title_2 != '' %}
               <h2 class="{% if section.settings.vertical_alignment == "middle" %}styleOne{% endif %}" style="color:{{ section.settings.section_title2_color }}">{{ section.settings.section_title_2 }}</h2>
@@ -238,16 +238,6 @@
   padding:0;
 }
 #movingSlider-{{ section.id }} .title-capture .section-title h2{
-  padding:10px 0 10px 0;
-  font-size: 28px !important;
-  line-height: 1.2em !important;
-  letter-spacing: -1px !important;
-  text-transform: uppercase !important;
-  font-family: spaceBoard;
-  font-weight: 400 !important;
-  color: #adb5fc !important;
-}
-#movingSlider-{{ section.id }} .title-capture .section-title .span{
   padding:10px 0 10px 0;
   font-size: 28px !important;
   line-height: 1.2em !important;
