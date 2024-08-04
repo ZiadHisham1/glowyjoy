@@ -71,6 +71,12 @@
 
     <!-- CSS -->
     <style>
+    @font-face {
+          font-family: 'spaceBoard';
+          src: url(https://cdn.shopify.com/s/files/1/0593/1450/3745/files/Spaceboardsdemo-8MyRB.woff2?v=1722760998) format("woff2"),
+          url(https://cdn.shopify.com/s/files/1/0593/1450/3745/files/Spaceboardsdemo-8MyRB.woff2?v=1722760998) format("woff");
+          font-weight: normal;
+      }
     {% if settings.header_custom_font_handle_enable %}
     @import url('https://fonts.googleapis.com/css2?family={{ settings.header_custom_font_handle }}:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     {% else %}
@@ -239,12 +245,6 @@
       --sti-border-radius: {{ settings.tag_border_radius }}px;
     
       --box-body-bgcolor: {{ settings.box_body_bgcolor }};
-      @font-face {
-          font-family: 'spaceBoard';
-          src: url(https://cdn.shopify.com/s/files/1/0593/1450/3745/files/Spaceboardsdemo-8MyRB.woff2?v=1722760998) format("woff2"),
-          url(https://cdn.shopify.com/s/files/1/0593/1450/3745/files/Spaceboardsdemo-8MyRB.woff2?v=1722760998) format("woff");
-          font-weight: normal;
-      }
     }
   </style>
   {{ content_for_header }}
