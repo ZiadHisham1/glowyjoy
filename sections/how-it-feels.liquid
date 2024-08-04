@@ -14,11 +14,11 @@
           <div class="gfHolder">
             {%- if section.settings.feelingGfImage -%}
             <img src="{{ section.settings.feelingGfImage | image_url: width: 600 }}" 
-             loading="lazy" 
-             width="{{ section.settings.feelingGfImage.width }}" 
-             height="{{ section.settings.feelingGfImage.height }}" 
-             alt="{{ section.settings.feelingGfImage.alt }}" 
-             class="fellingGf" />
+                 loading="lazy" 
+                 width="{{ section.settings.feelingGfImage.width }}" 
+                 height="{{ section.settings.feelingGfImage.height }}" 
+                 alt="{{ section.settings.feelingGfImage.alt }}" 
+                 class="fellingGf" />
             {%- endif -%}
           </div>
         </div>
@@ -26,13 +26,14 @@
           {% for block in section.blocks %}
             <div class="feelContainer">
               <div class="item">
-                <p>{{ block.settings.heading_P }}</p>
+                <p>{{ block.settings.heading_p }}</p>
               </div>
               <div class="item">
-                <img width:27 height:27 src="https://ucarecdn.com/ad197904-943e-4001-af68-100b7f420b8f/-/format/auto/-/preview/3000x3000/-/quality/lighter/Icon.png" />
+                <img src="https://ucarecdn.com/ad197904-943e-4001-af68-100b7f420b8f/-/format/auto/-/preview/3000x3000/-/quality/lighter/Icon.png" 
+                     width="27" height="27" />
               </div>
               <div class="item">
-                <p>{{ block.settings.desc_P }}</p>
+                <p>{{ block.settings.desc_p }}</p>
               </div>
             </div>
           {% endfor %}
@@ -75,7 +76,7 @@
   text-align: inherit;
 }
 .typoCnt p{
-  color: {{section.settings.desc_color}}!important;
+  color: {{ section.settings.desc_color }}!important;
   text-align: inherit;
   padding: 0 0 20px 0;
   line-height: 1.2;
@@ -148,6 +149,7 @@
 </style>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
   const container = document.querySelector('.slider-container');
   const imageBefore = document.querySelector('.before-image');
   const line = document.querySelector('.slider-line');
@@ -155,7 +157,8 @@
   container.addEventListener('mousemove', e => {
     imageBefore.style.width = `${e.layerX}px`;
     line.style.left = `${e.layerX}px`;
-  })
+  });
+});
 </script>
 
 {% schema %}
@@ -164,80 +167,80 @@
   "settings": [
     {
       "type": "header",
-      "content": "how it feels Settings"
+      "content": "How it Feels Settings"
     },
     {
       "type": "select",
       "id": "select_bg_style",
-      "label": "bachground style",
+      "label": "Background style",
       "options": [
         {
           "value": "backColor", 
-          "label": "background color"
+          "label": "Background color"
         },
         {
           "value": "backImage", 
-          "label": "background image"
+          "label": "Background image"
         }
       ]
     },
     {
       "type": "color",
       "id": "backGcolor",
-      "label": "background color"
+      "label": "Background color"
     },
     {
       "type": "url",
       "id": "backImageUrl",
-      "label": "background image url"
+      "label": "Background image URL"
     },
     {
       "type": "image_picker",
       "id": "feelingGfImage",
-      "label": "Before Image"
+      "label": "Feeling Image"
     },
     {
       "type": "text",
       "id": "section_heading",
-      "label": "heading text"
+      "label": "Heading text"
     },
     {
       "type": "text",
       "id": "section_desc",
-      "label": "heading text"
+      "label": "Description text"
     },
     {
       "type": "color",
       "id": "heading_color",
-      "label": "heading color"
+      "label": "Heading color"
     },
     {
       "type": "color",
       "id": "desc_color",
-      "label": "description color"
+      "label": "Description color"
     }
   ],
   "blocks": [
     {
       "type": "feel_container",
-      "name": "feel container",
+      "name": "Feel Container",
       "settings": [
         {
           "type": "text",
           "id": "heading_p",
-          "label": "heading"
+          "label": "Heading"
         },
         {
           "type": "text",
           "id": "desc_p",
-          "label": "description"
+          "label": "Description"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "how it feels"
+      "name": "How it Feels"
     }
   ]
 }
