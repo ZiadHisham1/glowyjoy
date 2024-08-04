@@ -43,6 +43,15 @@
 </div>
 
 <style>
+.beforeAndAfter-section{
+  width: 100%;
+  display: block;
+  {% if section.settings.select_bg_style == "backColor" %}
+    background: #000;
+  {% elsif section.settings.select_bg_style == "backImage" %}
+    background-image: url('{{ section.settings.backImageUrl }}');
+  {% endif %}
+}
 .framerBigHold{
   width: 80%;
   max-width: 1140px;
@@ -70,11 +79,6 @@
   padding: 0 0 20px 0;
   line-height: 1.2;
   line-break: initial;
-}
-.beforeAndAfter-section{
-  width: 100%;
-  display: block;
-  background: #000;
 }
 .cl-gd-fr-slCnt{
   width: 300px;
@@ -157,6 +161,26 @@
     {
       "type": "header",
       "content": "Before & After Settings"
+    },
+    {
+      "type": "select",
+      "id": "select_bg_style",
+      "label": "bachground style",
+      "options": [
+        {
+          "value": "backColor", 
+          "label": "background color"
+        },
+        {
+          "value": "backImage", 
+          "label": "background image"
+        }
+      ]
+    },
+    {
+      "type": "url",
+      "id": "backImageUrl",
+      "label": "background image url"
     },
     {
       "type": "image_picker",
