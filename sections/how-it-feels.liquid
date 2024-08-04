@@ -3,6 +3,14 @@
     <section class="howItFeels-section">
       <div class="framerBigHold">
         <div class="itemWraper">
+          <div class="typoCnt">
+            <h2>
+              {{ section.settings.section_heading }}
+            </h2>
+            <p>
+              {{ section.settings.section_desc }}
+            </p>
+          </div>
           <div class="gfHolder">
             {%- if section.settings.feelingGfImage -%}
             <img src="{{ section.settings.feelingGfImage | image_url: width: 600 }}" 
@@ -13,14 +21,6 @@
              class="fellingGf" />
             {%- endif -%}
           </div>
-          <div class="typoCnt">
-            <h2>
-              {{ section.settings.section_heading }}
-            </h2>
-            <p>
-              {{ section.settings.section_desc }}
-            </p>
-        </div>
         </div>
         
         <div class="cl-img-hld">
