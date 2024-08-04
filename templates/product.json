@@ -85,6 +85,19 @@
         "height_length": 80
       }
     },
+    "before_and_after_TKyLqf": {
+      "type": "beforeAndAfter",
+      "settings": {
+        "select_bg_style": "backColor",
+        "backGcolor": "#210132",
+        "backImageUrl": "",
+        "before_image": "shopify:\/\/shop_images\/aiimg.png",
+        "after_image": "shopify:\/\/shop_images\/59d06cbea1344f64adbb914ec1588fdb.png",
+        "section_heading": "there’s the knockoffs and there’s the original",
+        "section_desc": "Avoid the cheap knockoffs and experience the difference with SpaceBuddy’s vibrant and high quality projection",
+        "heading_color": "#adb5fc"
+      }
+    },
     "moving_slide_C6jJEL": {
       "type": "moving-slide",
       "blocks": {
@@ -120,16 +133,6 @@
         "bg_link": "",
         "slide_button_text": "buy now",
         "button_link": ""
-      }
-    },
-    "before_and_after_TKyLqf": {
-      "type": "beforeAndAfter",
-      "settings": {
-        "before_image": "shopify:\/\/shop_images\/aiimg.png",
-        "after_image": "shopify:\/\/shop_images\/59d06cbea1344f64adbb914ec1588fdb.png",
-        "section_heading": "there’s the knockoffs and there’s the original",
-        "section_desc": "Avoid the cheap knockoffs and experience the difference with SpaceBuddy’s vibrant and high quality projection",
-        "heading_color": "#adb5fc"
       }
     },
     "home_store_hMByiV": {
@@ -285,8 +288,8 @@
   "order": [
     "product-template",
     "photo_to_transtion_chdzMQ",
-    "moving_slide_C6jJEL",
     "before_and_after_TKyLqf",
+    "moving_slide_C6jJEL",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
