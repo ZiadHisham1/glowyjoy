@@ -148,7 +148,7 @@
   const imageBefore = document.querySelector('.before-image');
   const line = document.querySelector('.slider-line');
 
-  container.addEventListener('mousemove', e => {
+  container.addEventListener('mouseclick', e => {
     imageBefore.style.width = `${e.layerX}px`;
     line.style.left = `${e.layerX}px`;
   })
