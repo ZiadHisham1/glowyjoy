@@ -158,10 +158,26 @@
             "heading_p": "What You Will Witness:",
             "desc_p": "Enjoy a breathtaking celestial spectacle as star and galaxy effects transform your room into a cosmic wonderland."
           }
+        },
+        "feel_container_kPaBiw": {
+          "type": "feel_container",
+          "settings": {
+            "heading_p": "What You Will Witness:",
+            "desc_p": "Enjoy a breathtaking celestial spectacle as star and galaxy effects transform your room into a cosmic wonderland."
+          }
+        },
+        "feel_container_qXrxHa": {
+          "type": "feel_container",
+          "settings": {
+            "heading_p": "What You Will Witness:",
+            "desc_p": "Enjoy a breathtaking celestial spectacle as star and galaxy effects transform your room into a cosmic wonderland."
+          }
         }
       },
       "block_order": [
-        "feel_container_CYVJ6p"
+        "feel_container_CYVJ6p",
+        "feel_container_kPaBiw",
+        "feel_container_qXrxHa"
       ],
       "settings": {
         "select_bg_style": "backColor",
