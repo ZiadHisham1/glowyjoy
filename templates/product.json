@@ -89,7 +89,7 @@
       "type": "beforeAndAfter",
       "settings": {
         "select_bg_style": "backColor",
-        "backGcolor": "#210132",
+        "backGcolor": "#200130",
         "backImageUrl": "",
         "before_image": "shopify:\/\/shop_images\/aiimg.png",
         "after_image": "shopify:\/\/shop_images\/59d06cbea1344f64adbb914ec1588fdb.png",
