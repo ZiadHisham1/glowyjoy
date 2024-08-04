@@ -181,7 +181,26 @@
 }
 {% endschema %}
 
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var backToTopBtn = document.querySelector('#explore_button');
 
+    // Show or hide the button based on scroll position
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 200) {
+        backToTopBtn.style.display = 'block';
+      }
+    });
+
+    // Scroll to the top when the button is clicked
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 
 <style>
 .movingSlider {
