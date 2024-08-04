@@ -2,14 +2,27 @@
   <div class="column">
     <section class="howItFeels-section">
       <div class="framerBigHold">
-        <div class="typoCnt">
-          <h2>
-            {{ section.settings.section_heading }}
-          </h2>
-          <p>
-            {{ section.settings.section_desc }}
-          </p>
+        <div>
+          <div>
+            {%- if section.settings.feelingGfImage -%}
+            <img src="{{ section.settings.feelingGfImage | image_url: width: 600 }}" 
+             loading="lazy" 
+             width="{{ section.settings.feelingGfImage.width }}" 
+             height="{{ section.settings.feelingGfImage.height }}" 
+             alt="{{ section.settings.feelingGfImage.alt }}" 
+             class="fellingGf" />
+            {%- endif -%}
+          </div>
+          <div class="typoCnt">
+            <h2>
+              {{ section.settings.section_heading }}
+            </h2>
+            <p>
+              {{ section.settings.section_desc }}
+            </p>
         </div>
+        </div>
+        
         <div class="cl-img-hld">
          
         </div>
@@ -129,13 +142,8 @@
     },
     {
       "type": "image_picker",
-      "id": "before_image",
+      "id": "feelingGfImage",
       "label": "Before Image"
-    },
-    {
-      "type": "image_picker",
-      "id": "after_image",
-      "label": "After Image"
     },
     {
       "type": "text",
