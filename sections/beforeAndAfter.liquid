@@ -47,7 +47,7 @@
   width: 100%;
   display: block;
   {% if section.settings.select_bg_style == "backColor" %}
-    background: #000;
+    background: {{ section.settings.backGcolor }};
   {% elsif section.settings.select_bg_style == "backImage" %}
     background-image: url('{{ section.settings.backImageUrl }}');
   {% endif %}
@@ -176,6 +176,11 @@
           "label": "background image"
         }
       ]
+    },
+    {
+      "type": "color",
+      "id": "backGcolor",
+      "label": "background color"
     },
     {
       "type": "url",
