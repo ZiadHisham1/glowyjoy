@@ -151,6 +151,18 @@
     },
     "how_it_feels_MDQpX8": {
       "type": "how-it-feels",
+      "blocks": {
+        "feel_container_CYVJ6p": {
+          "type": "feel_container",
+          "settings": {
+            "heading_p": "What You Will Witness:",
+            "desc_p": "Enjoy a breathtaking celestial spectacle as star and galaxy effects transform your room into a cosmic wonderland."
+          }
+        }
+      },
+      "block_order": [
+        "feel_container_CYVJ6p"
+      ],
       "settings": {
         "select_bg_style": "backColor",
         "backGcolor": "#200130",
