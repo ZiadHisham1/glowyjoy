@@ -5,7 +5,7 @@
         <div class="itemWraper">
           {% for block in section.blocks %}
             <div class="tikVideoContainer">
-              <video class="tik-video" loop autoplay preload="none" muted playsinline
+              <video class="tik-video" loop autoplay="autoplay" preload="none" muted playsinline
               poster="https://cdn.shopify.com/s/files/1/0624/5643/0819/files/Screenshot_2023-10-04_at_12.50_2.png?v=1696688588">
                 <source src="https://cdn.shopify.com/videos/c/o/v/f54e4cd1040a47d1b4441675fb74d040.mp4" type="video/mp4">
               </video>
@@ -18,7 +18,7 @@
 </div>
 
 <style>
-#seeItInAction-{{ section.id }}{
+#seeItInAction-{{ section.id }} {
   width: 100%;
   display: block;
   {% if section.settings.select_bg_style == "backColor" %}
@@ -27,24 +27,24 @@
     background-image: url('{{ section.settings.backImageUrl }}');
   {% endif %}
 }
-#seeItInAction-{{ section.id }} .framerBigHold{
+#seeItInAction-{{ section.id }} .framerBigHold {
   width: 80%;
   height: 100%;
   max-width: 1140px;
   margin: auto;
   display: flex;
-  align-items:0 unset;
+  align-items: unset;
   justify-content: space-between;
   padding-bottom: 50px;
 }
 
-#seeItInAction-{{ section.id }} .itemWraper{
+#seeItInAction-{{ section.id }} .itemWraper {
   height: 100%;
   padding-left: 50px;
   align-content: last baseline;
 }
 
-.tikVideoContainer{
+.tikVideoContainer {
   width: 250px;
   height: 500px;
   overflow: hidden;
@@ -52,21 +52,18 @@
   background: #fff;
   margin: 50px;
 }
-.tik-video{
+.tik-video {
   width: 100%;
   height: 100%;
 }
-@media(max-width: 950px){
-  #seeItInAction-{{ section.id }} .framerBigHold{
+@media(max-width: 950px) {
+  #seeItInAction-{{ section.id }} .framerBigHold {
     display: block;
-    padding:10px 0 10px 0;
+    padding: 10px 0 10px 0;
   }
-  #seeItInAction-{{ section.id }} .itemWraper{
-    padding-left: 0px!important;
+  #seeItInAction-{{ section.id }} .itemWraper {
+    padding-left: 0px !important;
   }
-}
-@media(max-width: 450px){
-
 }
 </style>
 
@@ -84,11 +81,11 @@
       "label": "Background style",
       "options": [
         {
-          "value": "backColor", 
+          "value": "backColor",
           "label": "Background color"
         },
         {
-          "value": "backImage", 
+          "value": "backImage",
           "label": "Background image"
         }
       ]
@@ -109,7 +106,11 @@
       "type": "seeIt-inAction",
       "name": "see it in action",
       "settings": [
-        
+        {
+          "type": "text",
+          "id": "block_text",
+          "label": "Block Text"
+        }
       ]
     }
   ],
