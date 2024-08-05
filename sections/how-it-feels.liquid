@@ -1,6 +1,6 @@
 <div class="row">
   <div class="column">
-    <section class="howItFeels-section">
+    <section id="howItFeels-{{ section.id }}">
       <div class="framerBigHold">
         <div class="itemWraper">
           <div class="typoCnt">
@@ -53,12 +53,12 @@
     background-image: url('{{ section.settings.backImageUrl }}');
   {% endif %}
 }
-.framerBigHold{
+#howItFeels-{{ section.id }} .framerBigHold{
   width: 80%;
   max-width: 1140px;
   margin: auto;
   display: flex;
-  align-items: center;
+  align-items: unset;
   justify-content: space-between;
 }
 .typoCnt{
