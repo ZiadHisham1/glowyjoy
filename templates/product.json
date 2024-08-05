@@ -192,6 +192,17 @@
     },
     "see_it_in_action_NXNUMB": {
       "type": "see-it-in-action",
+      "blocks": {
+        "see_it_in_action_TN3iDN": {
+          "type": "seeIt-inAction",
+          "settings": {
+            "video_file": "shopify:\/\/files\/videos\/istock-685446148_preview.mp4"
+          }
+        }
+      },
+      "block_order": [
+        "see_it_in_action_TN3iDN"
+      ],
       "settings": {
         "select_bg_style": "backColor",
         "backGcolor": "#131a38",
