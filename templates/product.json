@@ -193,6 +193,9 @@
     "see_it_in_action_NXNUMB": {
       "type": "see-it-in-action",
       "settings": {
+        "select_bg_style": "backColor",
+        "backGcolor": "#131a38",
+        "backImageUrl": ""
       }
     },
     "home_store_hMByiV": {
