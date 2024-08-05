@@ -5,10 +5,17 @@
         <div class="itemWraper">
           {% for block in section.blocks %}
             <div class="tikVideoContainer">
-              <video class="tik-video" loop autoplay preload="none" muted playsinline
-              poster="https:{{ block.settings.video_image | img_url: 'master' }}">
-                <source src="{{ block.settings.video_link }}" type="video/mp4">
-              </video>
+              {%- if block.settings.video_image -%}
+                {{ block.settings.video_image | image_url: width: 1024 | image_tag:
+                  loading: 'lazy',
+                  width: block.settings.video_image.width,
+                  height: block.settings.video_image.height,
+                  class: "img-fluid",
+                  alt: block.settings.video_image.alt | escape }}
+                {%- else -%}
+                {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
+                {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
             </div>
           {% endfor %}
         </div>
