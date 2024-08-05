@@ -18,7 +18,6 @@
 <style>
 #seeItInAction-{{ section.id }}{
   width: 100%;
-  height: 300px;
   display: block;
   {% if section.settings.select_bg_style == "backColor" %}
     background: {{ section.settings.backGcolor }};
@@ -38,18 +37,19 @@
 }
 
 #seeItInAction-{{ section.id }} .itemWraper{
+  height: 100%;
   padding-left: 50px;
   align-content: last baseline;
 }
 
 .tikVideoContainer{
-  width: 100px;
-  height: 600px;
+  width: 250px;
+  height: 300px;
   overflow: hidden;
 }
 .tik-video{
-  width: 100px;
-  height: 600px;
+  width: 100%;
+  height: auto;
 }
 @media(max-width: 950px){
   #seeItInAction-{{ section.id }} .framerBigHold{
