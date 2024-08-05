@@ -1,6 +1,116 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<div class="row">
+  <div class="column">
+    <section id="seeItInAction-{{ section.id }}">
+      <div class="framerBigHold">
+        <div class="itemWraper">
+        
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<style>
+#seeItInAction-{{ section.id }}{
+  width: 100%;
+  display: block;
+  {% if section.settings.select_bg_style == "backColor" %}
+    background: {{ section.settings.backGcolor }};
+  {% elsif section.settings.select_bg_style == "backImage" %}
+    background-image: url('{{ section.settings.backImageUrl }}');
+  {% endif %}
+}
+#seeItInAction-{{ section.id }} .framerBigHold{
+  width: 80%;
+  max-width: 1140px;
+  margin: auto;
+  display: flex;
+  align-items:0 unset;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+.typoCnt{
+  max-width: 550px;
+}
+.typoCnt h2{
+  color: {{ section.settings.heading_color }}!important;
+  font-size: 40px !important;
+  line-height: 1.2em !important;
+  letter-spacing: -3px !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  font-family: spaceBoard!important;
+  padding: 20px 0 20px 0;
+  text-align: inherit;
+}
+.typoCnt p{
+  color: {{ section.settings.desc_color }}!important;
+  text-align: inherit;
+  padding: 0 0 20px 0;
+  line-height: 1.2;
+  line-break: initial;
+}
+.cl-img-hld{
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.gfHolder{
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin: 20px 0 20px 0;
+  box-shadow: 0 0 15px 4px #b07bfe99 !important;
+}
+.gfHolder img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+.itemWraper{
+  padding-left: 50px;
+  align-content: last baseline;
+}
+
+@media(max-width: 950px){
+  #seeItInAction-{{ section.id }} .framerBigHold{
+    display: block;
+    padding:10px 0 10px 0;
   }
+  .itemWraper{
+    padding-left: 0px!important;
+  }
+}
+@media(max-width: 450px){
+
+}
+</style>
+
+{% schema %}
+{
+  "name": "how it feels",
+  "settings": [
+    
+  ],
+  "blocks": [
+    {
+      "type": "seeIt-inAction",
+      "name": "see it in action",
+      "settings": [
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "see it in action"
+    }
+  ]
+}
 {% endschema %}
