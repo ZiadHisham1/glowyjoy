@@ -5,8 +5,9 @@
         <div class="itemWraper">
           {% for block in section.blocks %}
             <div class="tikVideoContainer">
-             <video class="shopify-video" controls preload="metadata" poster="{{ block.settings.video_image | img_url: 'master' }}">
-              <source src="{{ block.settings.video_file | video_url }}" type="video/mp4">
+             <video class="tik-video" loop autoplay preload="none" playsinline 
+              poster="https:{{ block.settings.video_image | img_url: 'master' }}">
+              <source src="{{ block.settings.video_link | video_url }}" type="video/mp4">
              </video>
             </div>
           {% endfor %}
