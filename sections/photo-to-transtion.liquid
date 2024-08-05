@@ -1,6 +1,6 @@
 <section id="photo-transition-{{ section.id }}" class="">
-  <div class="column">
-    <div class="row">
+  <div class="column" style="border:none;">
+    <div class="row" style="border:none;">
      <div id="the-holder-{{ section.id }}"></div>
     </div>
   </div>
@@ -35,6 +35,7 @@
 
 <style>
 #photo-transition-{{ section.id }}{
+  border:none;
   background-size: cover;
   background-repeat: space;
   background-position: center center;
@@ -44,5 +45,6 @@
   width: 100%;
   height: {{ section.settings.height_length }}px;
   position: ;
+  border:none;
 }
 </style>
