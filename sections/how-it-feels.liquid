@@ -164,19 +164,6 @@
 }
 </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const container = document.querySelector('.slider-container');
-  const imageBefore = document.querySelector('.before-image');
-  const line = document.querySelector('.slider-line');
-
-  container.addEventListener('mousemove', e => {
-    imageBefore.style.width = `${e.layerX}px`;
-    line.style.left = `${e.layerX}px`;
-  });
-});
-</script>
-
 {% schema %}
 {
   "name": "how it feels",
