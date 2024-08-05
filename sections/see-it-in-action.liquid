@@ -4,7 +4,7 @@
       <div class="framerBigHold">
         <div class="itemWraper">
           <div class="tikVideoContainer">
-            <video class="video-js" loop autoplay preload="none" muted playsinline
+            <video class="tik-video" loop autoplay preload="none" muted playsinline
             poster="https:{{ block.settings.video_image | img_url: 'master' }}">
               <source src="{{ block.settings.video_link }}" type="video/mp4">
             </video>
@@ -41,6 +41,10 @@
   align-content: last baseline;
 }
 
+.tikVideoContainer{
+  width: 100px;
+  height: 600px;
+}
 @media(max-width: 950px){
   #seeItInAction-{{ section.id }} .framerBigHold{
     display: block;
