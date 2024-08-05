@@ -196,7 +196,8 @@
         "see_it_in_action_TN3iDN": {
           "type": "seeIt-inAction",
           "settings": {
-            "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f6d4b5525f334a11b05ddd6b45e2abc8.mp4"
+            "video_link": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/f6d4b5525f334a11b05ddd6b45e2abc8.mp4",
+            "video_poster": "shopify:\/\/shop_images\/b95626c7-f713-4c03-b927-bb82a5610cbd_trans.jpg"
           }
         }
       },
