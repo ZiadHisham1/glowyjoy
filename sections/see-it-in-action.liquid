@@ -3,7 +3,12 @@
     <section id="seeItInAction-{{ section.id }}">
       <div class="framerBigHold">
         <div class="itemWraper">
-        
+          <div class="tikVideoContainer">
+            <video class="video-js" loop autoplay preload="none" muted playsinline
+            poster="https:{{ block.settings.video_image | img_url: 'master' }}">
+              <source src="{{ block.settings.video_link }}" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
     </section>
