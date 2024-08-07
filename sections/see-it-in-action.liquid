@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 <div class="row">
   <div class="column">
     <section id="seeItInAction-{{ section.id }}">
@@ -9,18 +6,21 @@
           <h2>see it <span style="color: #6c7dff; padding-left: 10px;"> in action</span></h2>
         </div>
         <div class="itemWraper swiper">
-          <div class="swiper-wrapper">
-            {% for block in section.blocks %}
-              <div class="tikVideoContainer swiper-slide">
-                <video class="tik-video" controls preload="metadata" poster="{{ block.settings.poster_link | img_url: 'master' }}">
-                  <source src="{{ block.settings.video_link | video_url }}" type="video/mp4">
-                </video>
-              </div>
-            {% endfor %}
-          </div>
+          {% for block in section.blocks %}
+            <div class="tikVideoContainer swiper-wrapper">
+             <video class="tik-video" controls preload="metadata" 
+              poster="{{ block.settings.poster_link | img_url: 'master' }}">
+              <source src="{{ block.settings.video_link | video_url }}" type="video/mp4">
+             </video>
+            </div>
+          {% endfor %}
           <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
+        
+          <!-- If we need scrollbar -->
           <div class="swiper-scrollbar"></div>
         </div>
       </div>
@@ -29,22 +29,7 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.swiper', {
-      direction: 'vertical',
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-    });
-  });
+  
 </script>
 
 <style>
@@ -63,14 +48,14 @@
   max-width: 1140px;
   margin: auto;
   display: block;
-  align-items: unset;
+  align-items:0 unset;
   justify-content: space-between;
   padding-bottom: 50px;
 }
 #seeItInAction-{{ section.id }} .itemWraper{
   display: flex;
   height: 100%;
-  align-content: baseline;
+  align-content: last baseline;
   justify-content: center;
 }
 #seeItInAction-{{ section.id }} .itemWraper h2{
@@ -81,8 +66,8 @@
   letter-spacing: -3px !important;
   text-transform: uppercase !important;
   font-weight: 400 !important;
-  font-family: spaceBoard !important;
-  text-align: center;
+  font-family: spaceBoard!important;
+  text-align:center
 }
 .tikVideoContainer{
   width: 250px;
@@ -90,7 +75,7 @@
   overflow: hidden;
   border-radius: 15px;
   background: #fff;
-  margin: 50px 20px;
+  margin: 50px 20px 50px 20px;
   min-width: 250px;
 }
 .tik-video{
@@ -100,11 +85,14 @@
 @media(max-width: 950px){
   #seeItInAction-{{ section.id }} .framerBigHold{
     display: block;
-    padding: 10px 0;
+    padding:10px 0 10px 0;
   }
   #seeItInAction-{{ section.id }} .itemWraper{
-    padding-left: 0 !important;
+    padding-left: 0px!important;
   }
+}
+@media(max-width: 450px){
+
 }
 </style>
 
