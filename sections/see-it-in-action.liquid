@@ -5,15 +5,23 @@
         <div class="itemWraper">
           <h2>see it <span style="color: #6c7dff; padding-left: 10px;"> in action</span></h2>
         </div>
-        <div class="itemWraper">
+        <div class="itemWraper swiper">
           {% for block in section.blocks %}
-            <div class="tikVideoContainer">
+            <div class="tikVideoContainer swiper-wrapper">
              <video class="tik-video" controls preload="metadata" 
               poster="{{ block.settings.poster_link | img_url: 'master' }}">
               <source src="{{ block.settings.video_link | video_url }}" type="video/mp4">
              </video>
             </div>
           {% endfor %}
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        
+          <!-- If we need scrollbar -->
+          <div class="swiper-scrollbar"></div>
         </div>
       </div>
     </section>
