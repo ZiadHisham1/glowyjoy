@@ -1,7 +1,3 @@
-{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
-
-
 <div class="row">
   <div class="column">
     <section id="seeItInAction-{{ section.id }}">
@@ -9,8 +5,7 @@
         <div class="itemWraper">
           <h2>see it <span style="color: #6c7dff; padding-left: 10px;"> in action</span></h2>
         </div>
-        <div class="itemWraper swiper">
-          <div class="swiper-wrapper">
+        <div class="itemWraper">
             {% for block in section.blocks %}
               <div class="tikVideoContainer swiper-slide">
                 <video class="tik-video" controls preload="metadata" poster="{{ block.settings.poster_link | img_url: 'master' }}">
@@ -18,32 +13,11 @@
                 </video>
               </div>
             {% endfor %}
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const swiper = new Swiper('.swiper', {
-      direction: 'horizontal',
-      loop: true,
-       pagination: {
-        el: '.swiper-pagination',
-        clickable: true, 
-       }, 
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  });
-</script>
 
 <style>
 #seeItInAction-{{ section.id }}{
