@@ -144,8 +144,11 @@
     },
     "photo_to_transtion_DqanHn": {
       "type": "photo-to-transtion",
+      "custom_css": [
+        "#photo-transition-template--16127112511553__photo_to_transtion_DqanHn {transform: rotate(180deg);}"
+      ],
       "settings": {
-        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_50_1.png?v=1722784533",
+        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_1.png?v=1723098918",
         "height_length": 80
       }
     },
