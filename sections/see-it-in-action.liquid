@@ -1,6 +1,7 @@
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
 
+
 <div class="row">
   <div class="column">
     <section id="seeItInAction-{{ section.id }}">
@@ -32,11 +33,11 @@
     const swiper = new Swiper('.swiper', {
       direction: 'horizontal',
       loop: true,
-      pagination: {
+       pagination: {
         el: '.swiper-pagination',
         clickable: true, 
-      }, 
-      navigation: {
+       }, 
+        navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
@@ -45,7 +46,7 @@
 </script>
 
 <style>
-#seeItInAction-{{ section.id }} {
+#seeItInAction-{{ section.id }}{
   width: 100%;
   display: block;
   {% if section.settings.select_bg_style == "backColor" %}
@@ -54,8 +55,7 @@
     background-image: url('{{ section.settings.backImageUrl }}');
   {% endif %}
 }
-
-#seeItInAction-{{ section.id }} .framerBigHold {
+#seeItInAction-{{ section.id }} .framerBigHold{
   width: 80%;
   height: 100%;
   max-width: 1140px;
@@ -65,15 +65,13 @@
   justify-content: space-between;
   padding-bottom: 50px;
 }
-
-#seeItInAction-{{ section.id }} .itemWraper {
+#seeItInAction-{{ section.id }} .itemWraper{
   display: flex;
   height: 100%;
   align-content: baseline;
   justify-content: center;
 }
-
-#seeItInAction-{{ section.id }} .itemWraper h2 {
+#seeItInAction-{{ section.id }} .itemWraper h2{
   color: #b4b9ff;
   padding-top: 30px;
   font-size: 40px !important;
@@ -84,9 +82,8 @@
   font-family: spaceBoard !important;
   text-align: center;
 }
-
-.tikVideoContainer {
-  width: 250px !important;
+.tikVideoContainer{
+  width: 250px!important;
   height: 500px;
   overflow: hidden;
   border-radius: 15px;
@@ -94,43 +91,16 @@
   margin: 50px 20px;
   min-width: 250px;
 }
-
-.tik-video {
+.tik-video{
   width: 100%;
   height: 100%;
 }
-
-.swiper-pagination {
-  position: absolute;
-  bottom: 10px; /* Adjust position as needed */
-  text-align: center;
-  width: 100%;
-  height: 20px; /* Ensure pagination container has a height */
-  z-index: 10; /* Ensure it's above other elements */
-}
-
-.swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: #007aff;
-  opacity: 0.5;
-  display: inline-block;
-  border-radius: 50%;
-  margin: 0 4px;
-}
-
-.swiper-pagination-bullet-active {
-  background-color: #007aff; /* Active bullet color */
-  opacity: 1;
-}
-
-@media(max-width: 950px) {
-  #seeItInAction-{{ section.id }} .framerBigHold {
+@media(max-width: 950px){
+  #seeItInAction-{{ section.id }} .framerBigHold{
     display: block;
     padding: 10px 0;
   }
-
-  #seeItInAction-{{ section.id }} .itemWraper {
+  #seeItInAction-{{ section.id }} .itemWraper{
     padding-left: 0 !important;
   }
 }
@@ -175,7 +145,7 @@
       "type": "seeIt-inAction",
       "name": "see it in action",
       "settings": [
-        {
+         {
           "type": "header",
           "content": "Video Settings"
         },
