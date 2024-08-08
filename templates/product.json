@@ -193,6 +193,13 @@
         "desc_color": "#e798fc"
       }
     },
+    "photo_to_transtion_fT6TWx": {
+      "type": "photo-to-transtion",
+      "settings": {
+        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_3_1.png?v=1723104708",
+        "height_length": 80
+      }
+    },
     "see_it_in_action_NXNUMB": {
       "type": "see-it-in-action",
       "blocks": {
@@ -395,6 +402,7 @@
     "moving_slide_C6jJEL",
     "photo_to_transtion_DqanHn",
     "how_it_feels_MDQpX8",
+    "photo_to_transtion_fT6TWx",
     "see_it_in_action_NXNUMB",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
