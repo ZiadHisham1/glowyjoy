@@ -20,6 +20,9 @@
             {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-scrollbar"></div>
         </div>
       </div>
     </section>
@@ -32,17 +35,13 @@
       direction: 'horizontal',
       loop: true,
        pagination: {
-      el: '.swiper-pagination',
-      clickable: true,      
-       },
-      navigation: {
+        el: '.swiper-pagination',
+        clickable: true, 
+       }, 
+        navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-      scrollbar: {
-        el: '.swiper-scrollbar',
-      },
-       allowTouchMove: true,
     });
   });
 </script>
