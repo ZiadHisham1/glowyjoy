@@ -193,13 +193,6 @@
         "desc_color": "#e798fc"
       }
     },
-    "photo_to_transtion_fT6TWx": {
-      "type": "photo-to-transtion",
-      "settings": {
-        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/033c88e6-d5ea-4c43-b976-494adb05fe80.png?v=1723104965",
-        "height_length": 80
-      }
-    },
     "see_it_in_action_NXNUMB": {
       "type": "see-it-in-action",
       "blocks": {
@@ -240,7 +233,7 @@
       ],
       "settings": {
         "select_bg_style": "backColor",
-        "backGcolor": "#2c3d83",
+        "backGcolor": "#131a38",
         "backImageUrl": ""
       }
     },
@@ -402,7 +395,6 @@
     "moving_slide_C6jJEL",
     "photo_to_transtion_DqanHn",
     "how_it_feels_MDQpX8",
-    "photo_to_transtion_fT6TWx",
     "see_it_in_action_NXNUMB",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
