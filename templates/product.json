@@ -244,6 +244,16 @@
         "backImageUrl": ""
       }
     },
+    "photo_to_transtion_kbrrdR": {
+      "type": "photo-to-transtion",
+      "custom_css": [
+        "#photo-transition-template--16127112511553__photo_to_transtion_DqanHn {transform: rotate(180deg);}"
+      ],
+      "settings": {
+        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/033c88e6-d5ea-4c43-b976-494adb05fe80.png?v=1723104965",
+        "height_length": 80
+      }
+    },
     "home_store_hMByiV": {
       "type": "home-store",
       "custom_css": [
@@ -404,6 +414,7 @@
     "how_it_feels_MDQpX8",
     "photo_to_transtion_fT6TWx",
     "see_it_in_action_NXNUMB",
+    "photo_to_transtion_kbrrdR",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
