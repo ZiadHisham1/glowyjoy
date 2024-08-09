@@ -32,7 +32,8 @@
                 </div>
           </div>
           <div class="item">
-           {% if section.settings.imgForProductProps %}
+           <div style="width: 300px;">
+             {% if section.settings.imgForProductProps %}
               {{ section.settings.imgForProductProps | image_url: width: 512 | image_tag:
               loading: 'lazy',
               width: section.settings.imgForProductProps.width,
@@ -40,6 +41,7 @@
               class: "img-fluid image-1",
               alt: section.settings.imgForProductProps.alt | escape }}
            {%- endif -%}
+           </div>
           </div>
         </div>
         <div class="itemWraper">
