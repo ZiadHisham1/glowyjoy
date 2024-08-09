@@ -32,7 +32,7 @@
                 </div>
           </div>
           <div class="item">
-           <div style="width: 300px;">
+           <div class="pro-image">
              {% if section.settings.imgForProductProps %}
               {{ section.settings.imgForProductProps | image_url: width: 512 | image_tag:
               loading: 'lazy',
@@ -120,6 +120,14 @@
   opacity: 0.8;
   letter-spacing: 0.2px;
   align-items: center;
+}
+.pro-image{
+  width: 300px;
+}
+.pro-image img{
+  width: 100%;  /* Makes the image take up the full width of its parent div */
+  height: auto; /* Maintains the aspect ratio of the image */
+  display: block;
 }
 @media(max-width: 950px){
   #seeItInAction-{{ section.id }} .framerBigHold{
