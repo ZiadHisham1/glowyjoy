@@ -45,10 +45,10 @@
           </div>
         </div>
         <div class="itemWraper">
-            <div>
+            <div class="propList">
               {% for block in section.blocks %}
-                <div>
-                  <div>
+                <div class="prop-card">
+                  <div class="prop-image">
                     {{ block.settings.propImage | image_url: width: 512 | image_tag:
                       loading: 'lazy',
                       width: block.settings.propImage.width,
