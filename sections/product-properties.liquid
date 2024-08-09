@@ -50,11 +50,11 @@
                 <div>
                   <div>
                     {{ block.settings.propImage | image_url: width: 512 | image_tag:
-                    loading: 'lazy',
-                    width: block.settings.propImage.width,
-                    height: block.settings.propImage.height,
-                    class: "img-fluid image-1",
-                    alt: block.settings.propImage.alt | escape  }}
+                      loading: 'lazy',
+                      width: block.settings.propImage.width,
+                      height: block.settings.propImage.height,
+                      class: "img-fluid image-1",
+                      alt: block.settings.propImage.alt | escape  }}
                   </div>
                   <p>{{ block.settings.propHead }}</p>
                   <p>{{ block.settings.propDesk }}</p>
