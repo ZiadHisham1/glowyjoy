@@ -251,7 +251,7 @@
       "type": "product-properties",
       "settings": {
         "select_bg_style": "backColor",
-        "backGcolor": "",
+        "backGcolor": "#221a51",
         "backImageUrl": ""
       }
     },
