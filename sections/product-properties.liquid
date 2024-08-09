@@ -5,7 +5,11 @@
         <div class="itemWraper">
           <div class="item">
             <h2>see it <span style="color: #6c7dff; padding-left: 10px;"> in action</span></h2>
-            <button class="discount-buy-btn"> buy now</button>
+            <a 
+            id="explore_button"  
+            class=" discount-buy-btn">
+            {{ section.settings.slide_button_text }}
+            </a>
           </div>
           <div class="item">
            {% if section.settings.imgForProductProps %}
