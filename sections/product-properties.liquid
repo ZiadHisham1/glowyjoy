@@ -1,0 +1,225 @@
+<div class="row">
+  <div class="column">
+    <section class="beforeAndAfter-section">
+      <div class="framerBigHold">
+        <div class="typoCnt">
+          <h2>
+            {{ section.settings.section_heading }}
+          </h2>
+          <p>
+            {{ section.settings.section_desc }}
+          </p>
+        </div>
+        <div class="cl-gd-fr-slCnt">
+          <div class="slider-container">
+          <div class="imag-frame before-image">
+            {%- if section.settings.before_image -%}
+            <img src="{{ section.settings.before_image | image_url: width: 512 }}" 
+             loading="lazy" 
+             width="{{ section.settings.before_image.width }}" 
+             height="{{ section.settings.before_image.height }}" 
+             alt="{{ section.settings.before_image.alt }}" 
+             class="slider-image" />
+            {%- endif -%}
+          </div>
+          
+          <div class="imag-frame after-image">
+            {%- if section.settings.after_image -%}
+            <img src="{{ section.settings.after_image | image_url: width: 512 }}" 
+             loading="lazy" 
+             width="{{ section.settings.after_image.width }}" 
+             height="{{ section.settings.after_image.height }}" 
+             alt="{{ section.settings.after_image.alt }}" 
+             class="slider-image" />
+            {%- endif -%}
+          </div>
+          
+          <div class="slider-line"></div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<style>
+.beforeAndAfter-section{
+  width: 100%;
+  display: block;
+  {% if section.settings.select_bg_style == "backColor" %}
+    background: {{ section.settings.backGcolor }};
+  {% elsif section.settings.select_bg_style == "backImage" %}
+    background-image: url('{{ section.settings.backImageUrl }}');
+  {% endif %}
+}
+.framerBigHold{
+  width: 80%;
+  max-width: 1140px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.typoCnt{
+  max-width: 550px;
+}
+.typoCnt h2{
+  color: {{ section.settings.heading_color }}!important;
+  font-size: 40px !important;
+  line-height: 1.2em !important;
+  letter-spacing: -3px !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  font-family: spaceBoard!important;
+  padding: 20px 0 20px 0;
+  text-align: inherit;
+}
+.typoCnt p{
+  text-align: inherit;
+  padding: 0 0 20px 0;
+  line-height: 1.2;
+  line-break: initial;
+}
+.cl-gd-fr-slCnt{
+  width: 300px;
+  height: 450px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.slider-container{
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  cursor: pointer;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #7b9cfd;
+  border: solid 3px #240073;
+} 
+.imag-frame img{
+  width: 500px;
+  height: 600px;
+  object-fit: cover;
+}
+.before-image{
+  width: auto;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top:0;
+  z-index:2;
+  overflow: hidden;
+}
+.after-image{
+  filter: brightness(30%);
+}
+.slider-line{
+  width: 3px;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+@media(max-width: 950px){
+  .framerBigHold{
+    display: block;
+    padding:10px 0 10px 0;
+  }
+  .typoCnt{
+    margin: auto;
+  }
+  .typoCnt h2{
+    font-size: 28px!important;
+    letter-spacing: 1px!important;
+    text-align: center!important;
+  }
+  .typoCnt p{
+    text-align: center;
+  }
+}
+</style>
+
+<script>
+  const container = document.querySelector('.slider-container');
+  const imageBefore = document.querySelector('.before-image');
+  const line = document.querySelector('.slider-line');
+
+  container.addEventListener('mousemove', e => {
+    imageBefore.style.width = `${e.layerX}px`;
+    line.style.left = `${e.layerX}px`;
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Section name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Before & After Settings"
+    },
+    {
+      "type": "select",
+      "id": "select_bg_style",
+      "label": "bachground style",
+      "options": [
+        {
+          "value": "backColor", 
+          "label": "background color"
+        },
+        {
+          "value": "backImage", 
+          "label": "background image"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "backGcolor",
+      "label": "background color"
+    },
+    {
+      "type": "url",
+      "id": "backImageUrl",
+      "label": "background image url"
+    },
+    {
+      "type": "image_picker",
+      "id": "before_image",
+      "label": "Before Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "after_image",
+      "label": "After Image"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "heading text"
+    },
+    {
+      "type": "text",
+      "id": "section_desc",
+      "label": "heading text"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "heading color"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before and After"
+    }
+  ]
+}
+{% endschema %}
