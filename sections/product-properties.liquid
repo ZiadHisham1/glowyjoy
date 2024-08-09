@@ -7,7 +7,14 @@
               <h2>see it <span style="color: #6c7dff; padding-left: 10px;"> in action</span></h2>
           </div>
           <div class="item">
-            
+           {% if section.settings.imgForProductProps %}
+              {{ section.settings.imgForProductProps | image_url: width: 512 | image_tag:
+              loading: 'lazy',
+              width: section.settings.imgForProductProps.width,
+              height: section.settings.imgForProductProps.height,
+              class: "img-fluid image-1",
+              alt: section.settings.imgForProductProps.alt | escape }}
+           {%- endif -%}
           </div>
         </div>
         <div class="itemWraper">
