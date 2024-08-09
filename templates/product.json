@@ -252,7 +252,9 @@
       "settings": {
         "select_bg_style": "backColor",
         "backGcolor": "#221a51",
-        "backImageUrl": ""
+        "backImageUrl": "",
+        "imgForProductProps": "shopify:\/\/shop_images\/Untitled_design_30.png",
+        "button_text": ""
       }
     },
     "home_store_hMByiV": {
