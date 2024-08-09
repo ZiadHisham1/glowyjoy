@@ -249,6 +249,19 @@
     },
     "product_properties_8YjwnG": {
       "type": "product-properties",
+      "blocks": {
+        "prop_block_yXGyc3": {
+          "type": "prop_block",
+          "settings": {
+            "propImage": "shopify:\/\/shop_images\/Untitled_design_1_8c00841a-9513-41fa-8a25-a835b16197ea.png",
+            "propHead": "hello",
+            "propDesk": "hello"
+          }
+        }
+      },
+      "block_order": [
+        "prop_block_yXGyc3"
+      ],
       "settings": {
         "select_bg_style": "backColor",
         "backGcolor": "#221a51",
