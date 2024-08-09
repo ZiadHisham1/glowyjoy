@@ -247,6 +247,14 @@
         "backImageUrl": ""
       }
     },
+    "product_properties_8YjwnG": {
+      "type": "product-properties",
+      "settings": {
+        "select_bg_style": "backColor",
+        "backGcolor": "",
+        "backImageUrl": ""
+      }
+    },
     "home_store_hMByiV": {
       "type": "home-store",
       "custom_css": [
@@ -407,6 +415,7 @@
     "how_it_feels_MDQpX8",
     "photo_to_transtion_y8GyJH",
     "see_it_in_action_NXNUMB",
+    "product_properties_8YjwnG",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
