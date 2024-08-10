@@ -297,6 +297,14 @@
         "button_text": "BUY NOW"
       }
     },
+    "users_slide_hGVLpx": {
+      "type": "users-slide",
+      "settings": {
+        "select_bg_style": "backColor",
+        "backGcolor": "#211d1d",
+        "backImageUrl": ""
+      }
+    },
     "home_store_hMByiV": {
       "type": "home-store",
       "custom_css": [
@@ -458,6 +466,7 @@
     "photo_to_transtion_y8GyJH",
     "see_it_in_action_NXNUMB",
     "product_properties_8YjwnG",
+    "users_slide_hGVLpx",
     "home_store_hMByiV",
     "prmo_heading_Ri3Uhw",
     "testimonial_bmfmy6",
