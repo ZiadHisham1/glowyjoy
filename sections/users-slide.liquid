@@ -1,6 +1,189 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<div class="row">
+  <div class="column">
+    <section id="seeItInAction-{{ section.id }}">
+      <div class="framerBigHold">
+        <div class="itemWraper">
+          <div>
+            <div class="slider-nav">
+              <div class="slick-slide">hello</div>
+              <div class="slick-slide">hello</div>
+              <div class="slick-slide">hello</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<style>
+#seeItInAction-{{ section.id }}{
+  width: 100%;
+  display: block;
+  {% if section.settings.select_bg_style == "backColor" %}
+    background: {{ section.settings.backGcolor }};
+  {% elsif section.settings.select_bg_style == "backImage" %}
+    background-image: url('{{ section.settings.backImageUrl }}');
+  {% endif %}
+}
+#seeItInAction-{{ section.id }} .framerBigHold{
+  width: 80%;
+  height: 100%;
+  max-width: 1140px;
+  margin: auto;
+  display: block;
+  align-items: unset;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+#seeItInAction-{{ section.id }} .itemWraper{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 10px 0;
+}
+#seeItInAction-{{ section.id }} .itemWraper .item{
+  display: block;
+  height: 100%;
+  align-content: baseline;
+  margin: auto;
+}
+#seeItInAction-{{ section.id }} .itemWraper h2{
+  color: #b4b9ff;
+  padding-top: 30px;
+  font-size: 40px !important;
+  line-height: 1.2em !important;
+  letter-spacing: -3px !important;
+  text-transform: uppercase !important;
+  font-weight: 400 !important;
+  font-family: spaceBoard !important;
+  text-align: center;
+}
+.additional{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.additional .additional-container{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.additional .additional-container img{
+  max-width: 35px;
+  width:100px;
+}
+.additional .additional-container span{
+  display: flex;
+  width: min-content;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 501;
+  line-height: 11px;
+  font-family: poppins;
+  opacity: 0.8;
+  letter-spacing: 0.2px;
+  align-items: center;
+}
+.pro-image{
+  width: 300px;
+  border-radius: 15px;
+  overflow: hidden;
+  border: solid 3px #90a2ff;
+}
+.pro-image img{
+  width: 100%;  /* Makes the image take up the full width of its parent div */
+  height: auto; /* Maintains the aspect ratio of the image */
+  display: block;
+}
+.propList{
+  display: flex;
+}
+.prop-card{
+  padding: 0 20px 0 10px;
+}
+.prop-image{
+  width: 150px;
+  margin: auto;
+}
+.propHeading, 
+.propDesc{
+  text-align: center; 
+  margin:auto;
+}
+.propHeading{
+  font-size: 25px;
+  font-weight: 600;
+  color: #ad97ff;
+} 
+.propDesc{
+  color: #dde2ff;
+  font-size: 15px;
+  line-height: 1.2;
+  max-width: 250px;
+  padding-top: 10px;
+  text-align: center;
+  letter-spacing: 0px;
+}
+@media(max-width: 950px){
+  #seeItInAction-{{ section.id }} .framerBigHold{
+    display: block;
+    padding: 10px 0;
   }
+  #seeItInAction-{{ section.id }} .itemWraper{
+    padding-left: 0 !important;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "user slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": " Settings"
+    },
+    {
+      "type": "select",
+      "id": "select_bg_style",
+      "label": "Background style",
+      "options": [
+        {
+          "value": "backColor", 
+          "label": "Background color"
+        },
+        {
+          "value": "backImage", 
+          "label": "Background image"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "backGcolor",
+      "label": "Background color"
+    },
+    {
+      "type": "url",
+      "id": "backImageUrl",
+      "label": "Background image URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "user_slider",
+      "name": "user_slider",
+      "settings": [
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "user slider"
+    }
+  ]
+}
 {% endschema %}
