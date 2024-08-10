@@ -258,6 +258,14 @@
             "propDesk": "Imagine a display so vivid, so breathtakingly sharp, that reality itself feels like it’s been upgraded. With 8K Ultra HD, you’re not just watching; you’re experiencing."
           }
         },
+        "prop_block_bGDCik": {
+          "type": "prop_block",
+          "settings": {
+            "propImage": "shopify:\/\/shop_images\/Untitled_design_6.png",
+            "propHead": "Smart Technology",
+            "propDesk": "Whether you're binge-watching the latest series on Netflix, exploring endless videos on YouTube, or searching the web for the latest trends, our Smart Technology integrates it all effortlessly."
+          }
+        },
         "prop_block_3UtQPt": {
           "type": "prop_block",
           "settings": {
@@ -266,27 +274,19 @@
             "propDesk": "Experience the next level of projection technology with Auto Keystone Correction. Imagine setting up your projector in any room, at any angle, With this intelligent feature."
           }
         },
-        "prop_block_bGDCik": {
-          "type": "prop_block",
-          "settings": {
-            "propImage": "shopify:\/\/shop_images\/Untitled_design_6.png",
-            "propHead": "hello",
-            "propDesk": "hello"
-          }
-        },
         "prop_block_BGzNnA": {
           "type": "prop_block",
           "settings": {
             "propImage": "shopify:\/\/shop_images\/Untitled_design_7.png",
-            "propHead": "hello",
-            "propDesk": "hello"
+            "propHead": "180Rotatable",
+            "propDesk": "Discover the freedom to position your projector exactly how you need it with our innovative 180-Degree Rotatable feature. This cutting-edge technology empowers you to adjust the projector’s orientation effortlessly"
           }
         }
       },
       "block_order": [
         "prop_block_yXGyc3",
-        "prop_block_3UtQPt",
         "prop_block_bGDCik",
+        "prop_block_3UtQPt",
         "prop_block_BGzNnA"
       ],
       "settings": {
