@@ -305,99 +305,6 @@
         "backImageUrl": ""
       }
     },
-    "home_store_hMByiV": {
-      "type": "home-store",
-      "custom_css": [
-        ".home-store {}"
-      ],
-      "settings": {
-        "section_padding_top": 100,
-        "section_padding_bottom": 100,
-        "section_padding_top_ipad": 60,
-        "section_padding_bottom_ipad": 60,
-        "section_padding_top_xs": 40,
-        "section_padding_bottom_xs": 40,
-        "section_bg_color": "#0f3b81",
-        "section_des": "Happy clients",
-        "section_title": "Happy clients"
-      }
-    },
-    "prmo_heading_Ri3Uhw": {
-      "type": "prmo-heading",
-      "settings": {
-        "section_padding_top": 100,
-        "section_padding_bottom": 100,
-        "section_padding_top_ipad": 60,
-        "section_padding_bottom_ipad": 60,
-        "section_padding_top_xs": 40,
-        "section_padding_bottom_xs": 40,
-        "promo_icon": "",
-        "promo_img": "shopify:\/\/shop_images\/Untitled_design_30.png",
-        "promo_text": "Lets Ride it now!",
-        "promo_url": "",
-        "promo_button": "Get started",
-        "promo_button_style": "btn-style1"
-      }
-    },
-    "testimonial_bmfmy6": {
-      "type": "testimonial",
-      "settings": {
-        "testi_padding_top": 100,
-        "testi_padding_bottom": 100,
-        "testi_padding_top_ip": 80,
-        "testi_padding_bottom_ip": 80,
-        "testi_padding_top_xs": 60,
-        "testi_padding_bottom_xs": 60,
-        "testi_bgimg_enable": false,
-        "testi_bgcolor": "#0f3b81",
-        "testi_bgcolor_enable": true,
-        "section_title": "Happy client love",
-        "section_desc": "1200+ Positive customer reviews",
-        "testimonial_slider_limit": "3",
-        "testimonial_button_text": "View review",
-        "testimonial_button_url": "",
-        "testimonial_button_style": "btn-style1",
-        "testimonial_button_enable": true
-      }
-    },
-    "transformation_VVrADw": {
-      "type": "transformation",
-      "settings": {
-        "background_style": "bg-style1",
-        "bg_color1_radial": "#0f3b81",
-        "bg_color2_radial": "#0f3b81",
-        "trans_url": "",
-        "first_h1": "heading one",
-        "description": "description",
-        "heading_color": "#000000",
-        "desc_color": "#000000",
-        "transformation_button_text": "Explore",
-        "transformation_button_url": "",
-        "transformation_button_style": "btn-style1"
-      }
-    },
-    "privacy_policy3_t3Ldwp": {
-      "type": "privacy-policy3",
-      "settings": {
-        "section_padding_top": 100,
-        "section_padding_bottom": 100,
-        "section_padding_top_lg": 60,
-        "section_padding_bottom_lg": 60,
-        "section_padding_top_xs": 40,
-        "section_padding_bottom_xs": 40,
-        "section_bg_color": "#f9f9f9",
-        "image_title": "180+",
-        "image_sub_title": "Worldwide shipping",
-        "content_title1": "Providing your personal data to others",
-        "content_description1": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "content_button_url1": "",
-        "content_button1": "Read more",
-        "content_title2": "Providing your personal data to others",
-        "content_description2": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-        "content_button_url2": "",
-        "content_button2": "Read more"
-      }
-    },
     "single-product-tab": {
       "type": "single-product-tab",
       "blocks": {
@@ -418,6 +325,7 @@
         "69f041ed-e935-4b3f-9d74-23f751e3e6eb",
         "080850ed-c09e-4bae-80dd-c6930c35a9da"
       ],
+      "disabled": true,
       "settings": {
         "section_padding_top": 100,
         "section_padding_bottom": 100,
@@ -467,11 +375,6 @@
     "see_it_in_action_NXNUMB",
     "product_properties_8YjwnG",
     "users_slide_hGVLpx",
-    "home_store_hMByiV",
-    "prmo_heading_Ri3Uhw",
-    "testimonial_bmfmy6",
-    "transformation_VVrADw",
-    "privacy_policy3_t3Ldwp",
     "single-product-tab",
     "related-product"
   ]
