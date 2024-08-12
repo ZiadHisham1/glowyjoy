@@ -8,7 +8,24 @@
         <div class="itemWraper">
           <div class="slide-container swiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">Slide 1</div>
+              {% for block in section.blocks %}
+                <div class="card swiper-slide">
+                  <div>
+                    <P>name</P>
+                  </div>
+                  <div>
+                    {%- if block.settings.rates_img -%}
+                    {{ block.settings.rates_img | image_url: width: 512 | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.rates_img.width,
+                    height: block.settings.rates_img.height,
+                    class: "img-fluid image-1",
+                    alt: block.settings.rates_img.alt | escape }}
+                    {%- endif -%}
+                  </div>
+                  <div></div>
+                </div>
+              {% endfor %}
               <div class="swiper-slide">Slide 2</div>
               <div class="swiper-slide">Slide 3</div>
               <div class="swiper-slide">Slide 4</div>
