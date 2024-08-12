@@ -425,7 +425,7 @@
       "settings": {
         "background_style": "bg-style1",
         "bg_color1_radial": "#fff",
-        "bg_color2_radial": "#000",
+        "bg_color2_radial": "#001f70",
         "trans_url": "",
         "trans_imag": "shopify:\/\/shop_images\/5471985.jpg",
         "first_h1": "heading one",
