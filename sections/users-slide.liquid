@@ -10,10 +10,10 @@
             <div class="swiper-wrapper">
               {% for block in section.blocks %}
                 <div class="card swiper-slide">
-                  <div>
+                  <div class="item">
                     <P>name</P>
                   </div>
-                  <div>
+                  <div class="item">
                     {%- if block.settings.rates_img -%}
                     {{ block.settings.rates_img | image_url: width: 512 | image_tag:
                     loading: 'lazy',
@@ -23,7 +23,7 @@
                     alt: block.settings.rates_img.alt | escape }}
                     {%- endif -%}
                   </div>
-                  <div>
+                  <div class="item">
                     <p></p>
                   </div>
                 </div>
