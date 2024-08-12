@@ -303,16 +303,22 @@
         "user_slider_CzNp7H": {
           "type": "user_slider",
           "settings": {
+            "Name_p": "ziad",
+            "review_p": "this is fuckin good"
           }
         },
         "user_slider_jk8dbg": {
           "type": "user_slider",
           "settings": {
+            "Name_p": "",
+            "review_p": ""
           }
         },
         "user_slider_tnxbPk": {
           "type": "user_slider",
           "settings": {
+            "Name_p": "",
+            "review_p": ""
           }
         }
       },
