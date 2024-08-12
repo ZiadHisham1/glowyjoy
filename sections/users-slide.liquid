@@ -14,7 +14,8 @@
                     <P class="propDesc">name</P>
                   </div>
                   <div class="item">
-                    {%- if block.settings.rates_img -%}
+                    <div class="pro-image">
+                      {%- if block.settings.rates_img -%}
                     {{ block.settings.rates_img | image_url: width: 512 | image_tag:
                     loading: 'lazy',
                     width: block.settings.rates_img.width,
@@ -22,6 +23,7 @@
                     class: "img-fluid image-1",
                     alt: block.settings.rates_img.alt | escape }}
                     {%- endif -%}
+                    </div> 
                   </div>
                   <div class="item">
                     <p class="propDesc">{{ block.settings.review_p }}</p>
@@ -105,7 +107,7 @@
   text-align: center;
 }
 .pro-image{
-  width: 300px;
+  width: 100px;
   border-radius: 15px;
   overflow: hidden;
   border: solid 3px #90a2ff;
