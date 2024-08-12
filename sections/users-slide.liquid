@@ -74,6 +74,9 @@
     background: {{ section.settings.backGcolor }};
   {% elsif section.settings.select_bg_style == "backImage" %}
     background-image: url('{{ section.settings.backImageUrl }}');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
   {% endif %}
 }
 #seeItInAction-{{ section.id }} .framerBigHold{
