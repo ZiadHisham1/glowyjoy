@@ -422,6 +422,9 @@
     },
     "transformation_GzzxYB": {
       "type": "transformation",
+      "custom_css": [
+        ".image{order:2;}"
+      ],
       "settings": {
         "background_style": "bg-style2",
         "bg_color1_radial": "#5e86c9",
