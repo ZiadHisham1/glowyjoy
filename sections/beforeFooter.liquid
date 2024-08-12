@@ -1,6 +1,114 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+<section id="seeItInAction-{{ section.id }}">
+<div class="photo-stransition-top">
+  
+</div>
+<div class="row">
+  <div class="column">
+      <div class="framerBigHold">
+        <div class="itemWraper">
+          
+        </div>
+      </div>
+  </div>
+</div>
+</section>
+
+<style>
+#seeItInAction-{{ section.id }}{
+  width: 100%;
+  display: block;
+  {% if section.settings.select_bg_style == "backColor" %}
+    background: {{ section.settings.backGcolor }};
+  {% elsif section.settings.select_bg_style == "backImage" %}
+    background-image: url('{{ section.settings.backImageUrl }}');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  {% endif %}
+}
+#seeItInAction-{{ section.id }} .framerBigHold{
+  width: 80%;
+  height: 100%;
+  max-width: 1140px;
+  margin: auto;
+  display: block;
+  align-items: unset;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+#seeItInAction-{{ section.id }} .itemWraper{
+  display: block;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0 10px 0;
+}
+#seeItInAction-{{ section.id }} .itemWraper .item{
+  display: block;
+  align-content: baseline;
+  margin: auto;
+}
+
+@media(max-width: 950px){
+  #seeItInAction-{{ section.id }} .framerBigHold{
+    display: block;
+    padding: 10px 0;
   }
+  #seeItInAction-{{ section.id }} .itemWraper{
+    padding-left: 0 !important;
+  }
+  .photo-stransition{
+  height: 100px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "before the footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "before the footer Settings"
+    },
+    {
+      "type": "select",
+      "id": "select_bg_style",
+      "label": "Background style",
+      "options": [
+        {
+          "value": "backColor", 
+          "label": "Background color"
+        },
+        {
+          "value": "backImage", 
+          "label": "Background image"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "backGcolor",
+      "label": "Background color"
+    },
+    {
+      "type": "url",
+      "id": "backImageUrl",
+      "label": "Background image URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "before_the_footer",
+      "name": "before the footer",
+      "settings": [
+        
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "before the footer"
+    }
+  ]
+}
 {% endschema %}
