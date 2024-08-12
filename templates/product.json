@@ -410,6 +410,16 @@
         "desc_color": ""
       }
     },
+    "photo_to_transtion_dxjnmP": {
+      "type": "photo-to-transtion",
+      "custom_css": [
+        "section{background:#00; transform: rotate(180deg);}"
+      ],
+      "settings": {
+        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_12.png?v=1723479457",
+        "height_length": 80
+      }
+    },
     "single-product-tab": {
       "type": "single-product-tab",
       "blocks": {
@@ -481,6 +491,7 @@
     "product_properties_8YjwnG",
     "users_slide_hGVLpx",
     "how_it_feels_VEzqTJ",
+    "photo_to_transtion_dxjnmP",
     "single-product-tab",
     "related-product"
   ]
