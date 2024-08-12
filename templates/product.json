@@ -297,13 +297,6 @@
         "button_text": "BUY NOW"
       }
     },
-    "photo_to_transtion_kG4wYa": {
-      "type": "photo-to-transtion",
-      "settings": {
-        "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_9.png?v=1723477034",
-        "height_length": 155
-      }
-    },
     "users_slide_hGVLpx": {
       "type": "users-slide",
       "blocks": {
@@ -441,7 +434,6 @@
     "photo_to_transtion_y8GyJH",
     "see_it_in_action_NXNUMB",
     "product_properties_8YjwnG",
-    "photo_to_transtion_kG4wYa",
     "users_slide_hGVLpx",
     "single-product-tab",
     "related-product"
