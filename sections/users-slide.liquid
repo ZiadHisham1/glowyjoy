@@ -11,7 +11,7 @@
               {% for block in section.blocks %}
                 <div class="card swiper-slide">
                   <div class="item">
-                    <P class="propDesc">name</P>
+                    <P class="reviewName">name</P>
                   </div>
                   <div class="item">
                     <div class="pro-image">
@@ -26,7 +26,7 @@
                     </div> 
                   </div>
                   <div class="item">
-                    <p class="propDesc">{{ block.settings.review_p }}</p>
+                    <p class="reviewDesc">{{ block.settings.review_p }}</p>
                   </div>
                 </div>
               {% endfor %}
@@ -129,7 +129,10 @@
   width: 150px;
   margin: auto;
 }
-.propDesc{
+.reviewName{
+  
+}
+.reviewDesc{
   color: #fff;
   font-size: 15px;
   line-height: 1.2;
