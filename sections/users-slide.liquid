@@ -6,6 +6,11 @@
   <div class="column">
       <div class="framerBigHold">
         <div class="itemWraper">
+          <div class="caption">
+            <h2>{{ section.settings.Heading }}</h2>
+          </div>
+        </div>
+        <div class="itemWraper">
           <div class="slide-container swiper">
             <div class="swiper-wrapper">
               {% for block in section.blocks %}
@@ -196,6 +201,11 @@
       "type": "url",
       "id": "backImageUrl",
       "label": "Background image URL"
+    },
+    {
+      "type": "text",
+      "id": "Heading",
+      "label": "heading"
     }
   ],
   "blocks": [
