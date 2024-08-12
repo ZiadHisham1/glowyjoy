@@ -358,9 +358,9 @@
         "user_slider_NYpyDG"
       ],
       "settings": {
-        "select_bg_style": "backColor",
+        "select_bg_style": "backImage",
         "backGcolor": "#211d1d",
-        "backImageUrl": ""
+        "backImageUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/5471985.jpg?v=1723469532"
       }
     },
     "single-product-tab": {
