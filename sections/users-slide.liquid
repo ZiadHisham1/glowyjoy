@@ -1,7 +1,10 @@
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
 
-    <section id="seeItInAction-{{ section.id }}">
+<section id="seeItInAction-{{ section.id }}">
+<div class="photo-stransition">
+  
+</div>
 <div class="row">
   <div class="column">
       <div class="framerBigHold">
@@ -157,6 +160,13 @@
 .btn-navigator{
   position: inherit!important;
 }
+.photo-stransition{
+  border: none;
+  background-size: cover;
+  background-repeat: space;
+  background-position: center center;
+  background-image: url('{{ section.settings.topImgBackground }}');
+}
 @media(max-width: 950px){
   #seeItInAction-{{ section.id }} .framerBigHold{
     display: block;
@@ -175,6 +185,11 @@
     {
       "type": "header",
       "content": " Settings"
+    },
+    {
+      "type": "url",
+      "id": "topImgBackground",
+      "label": "top image background"
     },
     {
       "type": "select",
