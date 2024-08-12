@@ -366,6 +366,19 @@
         "Heading": "look how love apears"
       }
     },
+    "how_it_feels_VEzqTJ": {
+      "type": "how-it-feels",
+      "settings": {
+        "select_bg_style": "backColor",
+        "backGcolor": "#2a0d40",
+        "backImageUrl": "",
+        "feelingGfImage": "shopify:\/\/shop_images\/Untitled_design_30.png",
+        "section_heading": "",
+        "section_desc": "",
+        "heading_color": "",
+        "desc_color": ""
+      }
+    },
     "single-product-tab": {
       "type": "single-product-tab",
       "blocks": {
@@ -436,6 +449,7 @@
     "see_it_in_action_NXNUMB",
     "product_properties_8YjwnG",
     "users_slide_hGVLpx",
+    "how_it_feels_VEzqTJ",
     "single-product-tab",
     "related-product"
   ]
