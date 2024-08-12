@@ -299,6 +299,28 @@
     },
     "users_slide_hGVLpx": {
       "type": "users-slide",
+      "blocks": {
+        "user_slider_CzNp7H": {
+          "type": "user_slider",
+          "settings": {
+          }
+        },
+        "user_slider_jk8dbg": {
+          "type": "user_slider",
+          "settings": {
+          }
+        },
+        "user_slider_tnxbPk": {
+          "type": "user_slider",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "user_slider_CzNp7H",
+        "user_slider_jk8dbg",
+        "user_slider_tnxbPk"
+      ],
       "settings": {
         "select_bg_style": "backColor",
         "backGcolor": "#211d1d",
