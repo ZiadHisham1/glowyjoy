@@ -423,7 +423,8 @@
     "transformation_GzzxYB": {
       "type": "transformation",
       "custom_css": [
-        ".image {order: 2;}"
+        ".image {order: 2;}",
+        ".title-capture h1 {font-family: spaceBoard; text-transform: uppercase;}"
       ],
       "settings": {
         "background_style": "bg-style2",
