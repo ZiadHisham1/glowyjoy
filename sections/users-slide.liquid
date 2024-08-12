@@ -23,22 +23,22 @@
   </div>
 </div>
 
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".slide-container", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".slide-container", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 
 <style>
 .slide-container{
@@ -67,7 +67,7 @@
   padding-bottom: 50px;
 }
 #seeItInAction-{{ section.id }} .itemWraper{
-  display: flex;
+  display: block;
   height: 100%;
   align-items: center;
   justify-content: center;
