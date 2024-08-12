@@ -423,12 +423,12 @@
     "transformation_GzzxYB": {
       "type": "transformation",
       "custom_css": [
-        ".image{order:2;}"
+        ".image {order: 2;}"
       ],
       "settings": {
         "background_style": "bg-style2",
-        "bg_color1_radial": "#5e86c9",
-        "bg_color2_radial": "#001f70",
+        "bg_color1_radial": "#2c0c44",
+        "bg_color2_radial": "#010002",
         "trans_url": "",
         "trans_imag": "shopify:\/\/shop_images\/5471985.jpg",
         "first_h1": "heading one",
