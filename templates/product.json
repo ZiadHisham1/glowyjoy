@@ -423,7 +423,7 @@
     "transformation_GzzxYB": {
       "type": "transformation",
       "settings": {
-        "background_style": "bg-style1",
+        "background_style": "bg-style2",
         "bg_color1_radial": "#5e86c9",
         "bg_color2_radial": "#001f70",
         "trans_url": "",
