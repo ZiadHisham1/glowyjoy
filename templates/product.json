@@ -435,7 +435,7 @@
         "first_h1": "heading one",
         "description": "description",
         "heading_color": "#5e86c9",
-        "desc_color": "#000",
+        "desc_color": "#ffffff",
         "transformation_button_text": "Explore",
         "transformation_button_url": "",
         "transformation_button_style": "btn-style1"
