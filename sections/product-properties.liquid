@@ -3,7 +3,7 @@
     <section id="seeItInAction-{{ section.id }}">
       <div class="framerBigHold">
         <div class="itemWraper">
-          <div class="item">
+          <div class="item order-2-Mobile">
             <h2>see it <span style="color: #6c7dff; padding-left: 10px;"> in action</span></h2>
             <a 
             id="explore_button"  
@@ -31,7 +31,7 @@
                   </div>
                 </div>
           </div>
-          <div class="item">
+          <div class="item order-1-Mobile">
            <div class="pro-image">
              {% if section.settings.imgForProductProps %}
               {{ section.settings.imgForProductProps | image_url: width: 512 | image_tag:
@@ -191,6 +191,12 @@
     display: flex;
     flex-direction: column;
     padding-left: 0 !important;
+  }
+  .order-1-Mobile{
+    order:1;
+  }
+  .order-2-Mobile{
+    order: 2;
   }
 }
 </style>
