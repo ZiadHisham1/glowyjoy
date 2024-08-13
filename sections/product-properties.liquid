@@ -56,8 +56,10 @@
                       class: "img-fluid image-1",
                       alt: block.settings.propImage.alt | escape  }}
                   </div>
-                  <p class="propHeading">{{ block.settings.propHead }}</p>
-                  <p class="propDesc">{{ block.settings.propDesk }}</p>
+                  <div>
+                    <p class="propHeading">{{ block.settings.propHead }}</p>
+                    <p class="propDesc">{{ block.settings.propDesk }}</p>                    
+                  </div>
                 </div>
               {% endfor %}
             </div>
