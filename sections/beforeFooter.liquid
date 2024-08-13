@@ -1,9 +1,7 @@
 <section id="seeItInAction-{{ section.id }}">
-<div class="photo-stransition-top-{{ section.id }}">
-  
-</div>
-<div class="row">
-  <div class="column">
+  <div class="photo-stransition-top-{{ section.id }}"></div>
+  <div class="row">
+    <div class="column">
       <div class="framerBigHold">
         <div class="itemWraper">
           <h2>FAQ</h2>
@@ -19,31 +17,49 @@
                   {{ block.settings.question }}
                 </p>
                 <button id="svg-dropdown-btn-{{ block.id }}">
-                  <svg style="width: 25px; height: 25px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 10L12 15L17 10" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                  <svg style="width: 25px; height: 25px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path d="M7 10L12 15L17 10" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                  </svg>
                 </button>
               </div>
-              <div id="answare-1" class="answare">
+              <div id="answare-{{ block.id }}" class="answare">
                 <p style="padding-left: 30px;">{{ block.settings.answare }}</p>
               </div>
             </div>
           {% endfor %}
         </div>
       </div>
+    </div>
   </div>
-</div>
 </section>
 
 <script>
-document.getElementById('svg-dropdown-btn').addEventListener('click', function() {
-  var content = document.getElementById('question-card-1');
-  var Answare = document.getElementById('answare-1');
-  content.classList.toggle('expanded');
-  Answare.classList.toggle('answare')
+document.querySelectorAll('.question-card').forEach(function(card) {
+  var button = card.querySelector('button');
+  var answare = card.querySelector('.answare');
+  
+  button.addEventListener('click', function() {
+    // Collapse all other cards
+    document.querySelectorAll('.question-card').forEach(function(otherCard) {
+      if (otherCard !== card) {
+        otherCard.classList.remove('expanded');
+        otherCard.querySelector('.answare').classList.remove('show');
+      }
+    });
+    
+    // Toggle the clicked card
+    card.classList.toggle('expanded');
+    answare.classList.toggle('show');
+  });
 });
 </script>
 
 <style>
-#seeItInAction-{{ section.id }}{
+#seeItInAction-{{ section.id }} {
   width: 100%;
   display: block;
   {% if section.settings.select_bg_style == "backColor" %}
@@ -55,7 +71,7 @@ document.getElementById('svg-dropdown-btn').addEventListener('click', function()
     background-position: center;
   {% endif %}
 }
-#seeItInAction-{{ section.id }} .framerBigHold{
+#seeItInAction-{{ section.id }} .framerBigHold {
   width: 80%;
   height: 100%;
   max-width: 1140px;
@@ -65,24 +81,24 @@ document.getElementById('svg-dropdown-btn').addEventListener('click', function()
   justify-content: space-between;
   padding-bottom: 50px;
 }
-#seeItInAction-{{ section.id }} .itemWraper{
+#seeItInAction-{{ section.id }} .itemWraper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 30px 0 10px 0;
 }
-#seeItInAction-{{ section.id }} .itemWraper h2{
+#seeItInAction-{{ section.id }} .itemWraper h2 {
   color: #fff;
   font-family: spaceBoard;
   text-transform: uppercase;
 }
-#seeItInAction-{{ section.id }} .itemWraper .item{
+#seeItInAction-{{ section.id }} .itemWraper .item {
   display: block;
   align-content: baseline;
   margin: auto;
 }
-.question-card{
+.question-card {
   display: flex;
   width: 50%;
   margin: auto;
@@ -93,91 +109,29 @@ document.getElementById('svg-dropdown-btn').addEventListener('click', function()
   background: #090c2f;
   border: 4px solid #a3abe8;
 }
-.question{
+.question {
   display: flex;
   justify-content: space-between;
 }
-.expanded {
-    transition: max-height 2s ease, padding 0.5s ease;
-    height: fit-content; /* Adjust this value according to your content */
-    padding: 15px;
+.expanded .answare {
+  display: block;
 }
-.answare{
+.answare {
   display: none;
 }
-@media(max-width: 950px){
-  #seeItInAction-{{ section.id }} .framerBigHold{
+@media (max-width: 950px) {
+  #seeItInAction-{{ section.id }} .framerBigHold {
     display: block;
     padding: 10px 0;
   }
-  #seeItInAction-{{ section.id }} .itemWraper{
+  #seeItInAction-{{ section.id }} .itemWraper {
     padding-left: 0 !important;
   }
- .photo-stransition-{{ section.id }}{
+  .photo-stransition-{{ section.id }} {
     height: 100px;
   }
-  .question-card{
-    width:100%;
+  .question-card {
+    width: 100%;
   }
 }
 </style>
-
-{% schema %}
-{
-  "name": "before the footer",
-  "settings": [
-    {
-      "type": "header",
-      "content": "before the footer Settings"
-    },
-    {
-      "type": "select",
-      "id": "select_bg_style",
-      "label": "Background style",
-      "options": [
-        {
-          "value": "backColor", 
-          "label": "Background color"
-        },
-        {
-          "value": "backImage", 
-          "label": "Background image"
-        }
-      ]
-    },
-    {
-      "type": "color",
-      "id": "backGcolor",
-      "label": "Background color"
-    },
-    {
-      "type": "url",
-      "id": "backImageUrl",
-      "label": "Background image URL"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "before_the_footer",
-      "name": "before the footer",
-      "settings": [
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question"
-        },
-        {
-          "type": "text",
-          "id": "answare",
-          "label": "Answare"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "before the footer"
-    }
-  ]
-}
-{% endschema %}
