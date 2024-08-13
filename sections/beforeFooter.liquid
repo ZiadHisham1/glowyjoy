@@ -10,7 +10,7 @@
         </div>
         <div class="itemWraper">
           {% for block in section.blocks %}
-            <div id="question-card-1" class="question-card">
+            <div id="question-card-{{ block.id }}" class="question-card">
               <div class="question">
                 <p>
                   <span>
@@ -18,7 +18,7 @@
                   </span>
                   {{ block.settings.question }}
                 </p>
-                <button id="svg-dropdown-btn">
+                <button id="svg-dropdown-btn-{{ block.id }}">
                   <svg style="width: 25px; height: 25px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 10L12 15L17 10" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                 </button>
               </div>
