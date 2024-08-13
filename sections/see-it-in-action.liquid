@@ -28,17 +28,13 @@
 
 <script>
   var swiper = new Swiper(".slide-container", {
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     spaceBetween: 20,
-    loop: false,
+    loop: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
     },
-      autoplay: {
-    delay: 2500, // Time in ms between slide transitions (2.5 seconds in this example)
-    disableOnInteraction: false, // Keeps autoplay running even after user interactions
-  },
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
