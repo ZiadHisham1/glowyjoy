@@ -247,6 +247,13 @@
         "backImageUrl": ""
       }
     },
+    "photo_to_transtion_Ud7zQB": {
+      "type": "photo-to-transtion",
+      "settings": {
+        "bg_img": "",
+        "height_length": 80
+      }
+    },
     "product_properties_8YjwnG": {
       "type": "product-properties",
       "blocks": {
@@ -570,6 +577,7 @@
     "how_it_feels_MDQpX8",
     "photo_to_transtion_y8GyJH",
     "see_it_in_action_NXNUMB",
+    "photo_to_transtion_Ud7zQB",
     "product_properties_8YjwnG",
     "users_slide_hGVLpx",
     "how_it_feels_VEzqTJ",
