@@ -1,3 +1,6 @@
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.js' | asset_url | script_tag }}
+
 <div class="row">
   <div class="column">
     <section id="seeItInAction-{{ section.id }}">
@@ -22,6 +25,26 @@
     </section>
   </div>
 </div>
+
+<script>
+  var swiper = new Swiper(".slide-container", {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    loop: false,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+      autoplay: {
+    delay: 2500, // Time in ms between slide transitions (2.5 seconds in this example)
+    disableOnInteraction: false, // Keeps autoplay running even after user interactions
+  },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 
 <style>
 .swiper-holder{
