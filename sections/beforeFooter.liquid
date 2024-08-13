@@ -31,7 +31,7 @@ document.getElementById('svg-dropdown-btn').addEventListener('click', function()
   var content = document.getElementById('question-card-1');
   var Answare = document.getElementById('answare-1');
   content.classList.toggle('expanded');
-  Answare.style.display= "none";
+  Answare.classList.toggle('answare')
 });
 </script>
 
@@ -95,7 +95,7 @@ document.getElementById('svg-dropdown-btn').addEventListener('click', function()
     padding: 15px;
 }
 .answare{
-  
+  display: none;
 }
 @media(max-width: 950px){
   #seeItInAction-{{ section.id }} .framerBigHold{
