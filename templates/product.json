@@ -498,7 +498,8 @@
       "settings": {
         "select_bg_style": "backImage",
         "backGcolor": "",
-        "backImageUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_17.png?v=1723538120"
+        "backImageUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_17.png?v=1723538120",
+        "topImgBackground": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_19.png?v=1723538633"
       }
     },
     "single-product-tab": {
