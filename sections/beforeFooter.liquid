@@ -34,11 +34,23 @@
 </section>
 
 <script>
-document.getElementById('svg-dropdown-btn).addEventListener('click', function() {
-  var content = document.getElementById('question-card-1');
-  var Answare = document.getElementById('answare-1');
-  content.classList.toggle('expanded');
-  Answare.classList.toggle('answare')
+document.querySelectorAll('.question-card').forEach(function(card) {
+  var button = card.querySelector('button');
+  var answare = card.querySelector('.answare');
+  
+  button.addEventListener('click', function() {
+    // Collapse all other cards
+    document.querySelectorAll('.question-card').forEach(function(otherCard) {
+      if (otherCard !== card) {
+        otherCard.classList.remove('expanded');
+        otherCard.querySelector('.answare').classList.remove('show');
+      }
+    });
+    
+    // Toggle the clicked card
+    card.classList.toggle('expanded');
+    answare.classList.toggle('show');
+  });
 });
 </script>
 
