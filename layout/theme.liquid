@@ -256,6 +256,16 @@
 </head>
 
 <body  id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ template.name | handle }}">
+  <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all elements with `cursor: pointer` and apply custom cursor
+    document.querySelectorAll('*').forEach(function(element) {
+        if (getComputedStyle(element).cursor === 'pointer') {
+            element.style.cursor = 'url("path/to/your-custom-pointer.png"), pointer';
+        }
+    });
+});
+</script>
  <!-- visitor counter html -->
   <div id="floating-info" class="center-text center-vertical">
    <div class="num_holder"> <div>Live Visitors: </div><span id="visitors-count">0</span></div>
