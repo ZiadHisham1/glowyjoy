@@ -55,6 +55,14 @@ document.querySelectorAll('.question-card').forEach(function(card) {
 </script>
 
 <style>
+.photo-stransition-top-{{ section.id }}{
+  height: 120px;
+  border: none;
+  background-size: cover;
+  background-repeat: space;
+  background-position: center center;
+  background-image: url('{{ section.settings.topImgBackground }}');
+}
 #seeItInAction-{{ section.id }}{
   width: 100%;
   display: block;
@@ -177,6 +185,11 @@ document.querySelectorAll('.question-card').forEach(function(card) {
       "type": "url",
       "id": "backImageUrl",
       "label": "Background image URL"
+    },
+    {
+      "type": "url",
+      "id": "topImgBackground",
+      "label": "top image background"
     }
   ],
   "blocks": [
