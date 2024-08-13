@@ -16,7 +16,7 @@
                 <svg style="width: 25px; height: 25px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 10L12 15L17 10" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
               </button>
             </div>
-            <div class="answare">
+            <div id="answare-1" class="answare">
               <p>yes, we can</p>
             </div>
           </div>
@@ -29,7 +29,9 @@
 <script>
 document.getElementById('svg-dropdown-btn').addEventListener('click', function() {
   var content = document.getElementById('question-card-1');
+  var Answare = document.getElementById('answare-1');
   content.classList.toggle('expanded');
+  content.style.display= "none";
 });
 </script>
 
