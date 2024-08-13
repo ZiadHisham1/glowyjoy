@@ -444,9 +444,9 @@
     "before_footer_fqwEt4": {
       "type": "beforeFooter",
       "settings": {
-        "select_bg_style": "backColor",
+        "select_bg_style": "backImage",
         "backGcolor": "",
-        "backImageUrl": ""
+        "backImageUrl": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/3d-cartoon-night-sky.jpg?v=1723530647"
       }
     },
     "single-product-tab": {
