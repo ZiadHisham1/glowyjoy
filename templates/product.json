@@ -145,7 +145,7 @@
     "photo_to_transtion_DqanHn": {
       "type": "photo-to-transtion",
       "custom_css": [
-
+        "#photo-transition-template--16127112511553__photo_to_transtion_DqanHn {transform: rotate(180deg);}"
       ],
       "settings": {
         "bg_img": "https:\/\/cdn.shopify.com\/s\/files\/1\/0593\/1450\/3745\/files\/Untitled_design_23_6a0aceb1-b1bd-4637-beca-24dac7200d00.png?v=1723539669",
