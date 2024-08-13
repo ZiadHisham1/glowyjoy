@@ -441,6 +441,14 @@
         "transformation_button_style": "btn-style1"
       }
     },
+    "before_footer_fqwEt4": {
+      "type": "beforeFooter",
+      "settings": {
+        "select_bg_style": "backColor",
+        "backGcolor": "",
+        "backImageUrl": ""
+      }
+    },
     "single-product-tab": {
       "type": "single-product-tab",
       "blocks": {
@@ -514,6 +522,7 @@
     "how_it_feels_VEzqTJ",
     "photo_to_transtion_dxjnmP",
     "transformation_GzzxYB",
+    "before_footer_fqwEt4",
     "single-product-tab",
     "related-product"
   ]
