@@ -6,7 +6,7 @@ Author: pirate of careppian
 Author URI: https://glowyjoy.store
 Version: 2.3
 -----------------------------------------------------------------------------------*/
-*{
+root:{
   overflow-x: hidden;
   cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23A16FFF;stop-opacity:1" /><stop offset="100%" style="stop-color:%233916FF;stop-opacity:1" /></linearGradient></defs><path fill="url(%23grad1)" stroke="%233916FF" stroke-width="2" d="M5.5 3.21V20.8c0 .45.54.67.85.35l4.86-4.86a.5.5 0 0 1 .35-.15h6.87a.5.5 0 0 0 .35-.85L6.35 2.85a.5.5 0 0 0-.85.35Z"></path></svg>'), auto!important;
 }
