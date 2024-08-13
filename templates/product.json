@@ -443,6 +443,58 @@
     },
     "before_footer_fqwEt4": {
       "type": "beforeFooter",
+      "blocks": {
+        "before_the_footer_JUXnqm": {
+          "type": "before_the_footer",
+          "settings": {
+            "question": "can we make 1,000,000",
+            "answare": "yes we can"
+          }
+        },
+        "before_the_footer_irDbiL": {
+          "type": "before_the_footer",
+          "settings": {
+            "question": "can we make 1,000,000",
+            "answare": "yes we can"
+          }
+        },
+        "before_the_footer_w3y6gc": {
+          "type": "before_the_footer",
+          "settings": {
+            "question": "can we make 1,000,000",
+            "answare": "yes we can"
+          }
+        },
+        "before_the_footer_ieibJN": {
+          "type": "before_the_footer",
+          "settings": {
+            "question": "can we make 1,000,000",
+            "answare": "yes we can"
+          }
+        },
+        "before_the_footer_iFnqYp": {
+          "type": "before_the_footer",
+          "settings": {
+            "question": "can we make 1,000,000",
+            "answare": "yes we can"
+          }
+        },
+        "before_the_footer_LG9M4F": {
+          "type": "before_the_footer",
+          "settings": {
+            "question": "can we make 1,000,000",
+            "answare": "yes we can"
+          }
+        }
+      },
+      "block_order": [
+        "before_the_footer_JUXnqm",
+        "before_the_footer_irDbiL",
+        "before_the_footer_w3y6gc",
+        "before_the_footer_ieibJN",
+        "before_the_footer_iFnqYp",
+        "before_the_footer_LG9M4F"
+      ],
       "settings": {
         "select_bg_style": "backImage",
         "backGcolor": "",
