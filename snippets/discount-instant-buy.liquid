@@ -4,7 +4,7 @@
 </a>
 {% endif %}
 <script type="text/javascript">
-  function instantBuy{{ product.id }}(){
+  function instantMultiBuying{{ product.id }}(){
     jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
      always(function(data){
      window.location.href ='/checkout';
