@@ -42,13 +42,20 @@
             </span>
             <div class="selection-div">
               {% if product.variants.size > 1 %}
-                <select class="disc-opt-selection" id="product-select-1-1" name="id-1-1">
+                <select
+                  name="id"
+                  id="productSelect"
+                  class="product-single__variants">
                   {% for variant in product.variants %}
-                    <option value="{{ variant.id }}">
-                      {{ variant.title }}
-                    </option>
+                    <option
+                      data-stocks="{{ variant.inventory_quantity }}"
+                      {% if variant == current_variant %}
+                      selected="selected"
+                      {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      value="{{ variant.id }}">{{ variant.title }}</option>
                   {% endfor %}
-                </select>  
+                </select>
               {% endif %}            
             </div>
           </div>
