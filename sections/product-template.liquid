@@ -240,7 +240,11 @@
             </div>
               </div>
             </form>
-            
+            <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options" enctype="multipart/form-data" id="add-item-form-2">    
+              <div class="product-quantity-action">
+                {% render 'product-multiple-offer', product: product %}
+              </div>
+            </form>    
           </div>
           
           {%- endcase -%}
