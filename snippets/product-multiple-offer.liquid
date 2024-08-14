@@ -94,7 +94,7 @@
     {% endif %}
   </div>
 </div>
-<!-- 
+
 <script>
   function updateTotalPrice() {
     const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }};
@@ -109,7 +109,7 @@
   }
 
   function toggleVisibility(selectedGroup) {
-    const allSelectorDivs = document.querySelectorAll('[id^="selectorDiv-"]');
+    const allSelectorDivs = document.querySelectorAll('[id="selectorDiv-"]');
     allSelectorDivs.forEach(div => {
       if (div.id === `selectorDiv-${selectedGroup}`) {
         div.classList.remove('hidden');
@@ -168,7 +168,7 @@
       }
     }
   });
-</script> -->
+</script>
 <script type="text/javascript">
       addEventListener('DOMContentLoaded', (event) => {
       jQuery(function() {
