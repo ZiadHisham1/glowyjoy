@@ -42,6 +42,7 @@
               #1
             </span>
             <div class="selection-div">
+              <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options" enctype="multipart/form-data" id="add-item-form-2">
               {% if product.variants.size > 1 %}
                 <select
                   name="id"
@@ -57,7 +58,8 @@
                       value="{{ variant.id }}">{{ variant.title }}</option>
                   {% endfor %}
                 </select>
-              {% endif %}            
+              {% endif %}       
+              </form>
             </div>
           </div>
             <div class="carry-hld">
@@ -65,8 +67,9 @@
               #2
             </span>
             <div class="selection-div">
+              <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options" enctype="multipart/form-data" id="add-item-form-2">
               {% if product.variants.size > 1 %}
-               <!-- <select
+                <select
                   name="id"
                   id="productSelect-2"
                   class="product-single__variants">
@@ -79,8 +82,9 @@
                       data-sku="{{ variant.sku }}"
                       value="{{ variant.id }}">{{ variant.title }}</option>
                   {% endfor %}
-                </select> -->
-              {% endif %}            
+                </select>
+              {% endif %}       
+              </form>         
             </div>
           </div>  
           </div>
