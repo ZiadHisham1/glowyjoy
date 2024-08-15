@@ -1,14 +1,14 @@
 {% if product.available %}
-<a href="javascript:void(0)" class="discount-buy-btn pointer-cursor" id="buyNow25" onClick="instantMultiBuying{{ product.first_available_variant.id }}()">
+<a href="javascript:void(0)" class="discount-buy-btn pointer-cursor" id="buyNow25" onClick="instantMultiBuying{{ product.id }}()">
   {{ 'products.product.buy_now' | t }}
 </a>
 {% endif %}
 <script type="text/javascript">
   function instantMultiBuying{{ product.id }}(){
-    jQuery.post('/cart/add', $(".cart-{{ product.first_available_variant.id }}-multi-options").serialize()).
+    jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
      always(function(data){
      window.location.href ='/checkout';
-    console.log($(".cart-{{ product.first_available_variant.id }}-multi-options").serialize());
+    console.log($(".cart-{{ product.id }}-multi-options").serialize());
   });
   }
 </script>
