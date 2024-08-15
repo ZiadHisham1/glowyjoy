@@ -42,7 +42,7 @@
               #1
             </span>
             <div class="selection-div">
-              <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options" enctype="multipart/form-data" id="add-item-form-2">
+              <form action="/cart/add" method="post" class="cart-{{ product.first_available_variant.id }}-multi-options" enctype="multipart/form-data" id="add-item-form-2">
               {% if product.variants.size > 1 %}
                 <select
                   name="id"
