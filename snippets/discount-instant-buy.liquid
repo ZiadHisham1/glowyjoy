@@ -8,7 +8,7 @@
     jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
      always(function(data){
      window.location.href ='/checkout';
-    jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options-2").serialize());
+    jQuery.post('/cart/add', $("#productSelect").serialize());
     console.log($("#productSelect").serialize());
   });
   }
