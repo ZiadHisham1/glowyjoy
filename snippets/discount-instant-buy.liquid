@@ -4,44 +4,14 @@
 </a>
 {% endif %}
 <script type="text/javascript">
-  // function instantMultiBuying{{ product.id }}(){
-  //   jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options-2").serialize());
-  //   jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
-  //    always(function(data){
-  //    window.location.href ='/checkout';
-  //   console.log($(".cart-{{ product.id }}-multi-options").serialize());
-  // });
-  // }
-
-  function instantMultiBuying{{ product.id }}() {
-    var formData = $(".cart-{{ product.id }}-multi-options").serializeArray();
-    var productData = [];
-
-    // Assuming each form input corresponds to a variant
-    formData.forEach(function(input) {
-        if (input.name.startsWith("id")) {
-            var variantId = input.value;
-            productData.push({ id: variantId, quantity: 1 });
-        }
-    });
-
-    var data = { items: productData };
-
-    $.ajax({
-        url: '/cart/add.js',
-        method: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json',
-        success: function(response) {
-            // Handle success (e.g., redirect to checkout)
-            window.location.href = '/checkout';
-        },
-        error: function(err) {
-            console.error('Error adding products to cart:', err);
-        }
-    });
-}
-
+  function instantMultiBuying{{ product.id }}(){
+    jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options-2").serialize());
+    jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
+     always(function(data){
+     window.location.href ='/checkout';
+    console.log($(".cart-{{ product.id }}-multi-options").serialize());
+  });
+  }
 </script>
 <style>
   a.discount-buy-btn{
