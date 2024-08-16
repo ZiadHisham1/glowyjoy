@@ -5,14 +5,11 @@
 {% endif %}
 <script type="text/javascript">
   function instantMultiBuying{{ product.id }}(){
-    let offer = $("#offerOne");
-    if(offer.hasClass("offer-one")){
     jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
      always(function(data){
      window.location.href ='/checkout';
     jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options-2").serialize());
     console.log($(".cart-{{ product.id }}-multi-options").serialize());
-  }}
   });
   }
 </script>
