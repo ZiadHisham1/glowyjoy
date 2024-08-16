@@ -4,8 +4,8 @@
 </a>
 {% endif %}
 <script type="text/javascript">
-  let offerOne = document.getElementById("offerOne")
   function instantMultiBuying{{ product.id }}(){
+  let offerOne = document.getElementById("offerOne")
     if(offerOne == "offerOne"){
        jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
        always(function(data){
