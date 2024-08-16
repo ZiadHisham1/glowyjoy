@@ -4,12 +4,15 @@
 </a>
 {% endif %}
 <script type="text/javascript">
+  let offerOne = document.getElementById("offerOne")
   function instantMultiBuying{{ product.id }}(){
-    jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
-     always(function(data){
-     window.location.href ='/checkout';
-    jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options-2").serialize());
-    console.log($(".cart-{{ product.id }}-multi-options").serialize());
+    if(offerOne){
+       jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
+       always(function(data){
+       window.location.href ='/checkout';
+      jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options-2").serialize());
+      console.log($(".cart-{{ product.id }}-multi-options").serialize());
+    }
   });
   }
 </script>
