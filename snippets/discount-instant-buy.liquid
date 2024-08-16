@@ -6,7 +6,7 @@
 <script type="text/javascript">
   let offerOne = document.getElementById("offerOne")
   function instantMultiBuying{{ product.id }}(){
-    if(offerOne){
+    if(offerOne == "offerOne"){
        jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options").serialize()).
        always(function(data){
        window.location.href ='/checkout';
