@@ -6,9 +6,25 @@
 {% endif %}
 <script type="text/javascript">
 function instantMultiBuying{{ product.id }}() {
+    const button = $('#buy-button');
+    const spinner = button.find('.spinner');
+    const buttonText = button.find('.button-text');
+
     // Helper function to add a delay
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // Show loading spinner and disable button
+    function showLoading() {
+        spinner.show();
+        button.prop('disabled', true);
+    }
+
+    // Hide loading spinner and enable button
+    function hideLoading() {
+        spinner.hide();
+        button.prop('disabled', false);
     }
 
     // Find all checked option divs within the context
@@ -22,6 +38,7 @@ function instantMultiBuying{{ product.id }}() {
 
     // Function to handle AJAX requests with delay
     async function processFormsSequentially(forms) {
+        showLoading(); // Show spinner and disable button
         for (let i = 0; i < forms.length; i++) {
             let serializedData = forms[i];
             try {
@@ -29,18 +46,27 @@ function instantMultiBuying{{ product.id }}() {
                 console.log("Item added to cart:", serializedData);
             } catch (error) {
                 console.error("Error adding item to cart:", error.responseText);
+                // Handle error (e.g., show a message to the user)
+                showConfirmationMessage("There was an issue adding some items to your cart.");
             }
             // Delay before the next request
-            await delay(500); // Adjust delay as needed (1000ms = 1 second)
+            await delay(1000); // Adjust delay as needed (1000ms = 1 second)
         }
         
-        // Redirect to checkout after all requests are processed
-        window.location.href = '/checkout';
+        // Hide spinner and show confirmation message
+        hideLoading();
+        showConfirmationMessage("All items have been added to your cart. Redirecting to checkout...");
+        
+        // Redirect to checkout after a short delay
+        setTimeout(function() {
+            window.location.href = '/checkout'; // Redirect after delay
+        }, 2000); // Adjust the delay (2000ms = 2 seconds) as needed
     }
 
     // Start processing forms
     processFormsSequentially(forms);
 }
+
 </script>
 <!-- <script type="text/javascript">
   function instantMultiBuying{{ product.id }}(){
