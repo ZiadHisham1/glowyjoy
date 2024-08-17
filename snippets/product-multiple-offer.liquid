@@ -266,6 +266,28 @@
   const radioInput = document.querySelector(".checked-option .radio");
   selectedDiv.style.display = 'block';
   radioInput.checked = true;
+
+  document.addEventListener('DOMContentLoaded', (event) => {
+    // Select all divs with the class 'option'
+    const options = document.querySelectorAll('.option');
+
+    // Function to update classes based on selection
+    function updateClasses(selectedDiv) {
+        options.forEach(option => {
+            if (option === selectedDiv) {
+                option.classList.add('checked-option');
+            } else {
+                option.classList.remove('checked-option');
+            }
+        });
+    }
+
+    // Add a click event listener to each div
+    options.forEach(option => {
+        option.addEventListener('click', function() {
+            updateClasses(this);
+        });
+    });
   
   function updateTotalPrice() {
     const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }};
