@@ -18,7 +18,7 @@ function instantMultiBuying{{ product.id }}() {
     // Show loading spinner and disable button
     function showLoading() {
         spinner.show();
-        button.prop('disabled', true);
+        button.css('background', "#000");
     }
 
     // Hide loading spinner and enable button
