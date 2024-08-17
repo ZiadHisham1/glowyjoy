@@ -27,12 +27,12 @@ function instantMultiBuying{{ product.id }}() {
         });
     });
 
-    // // Wait until all POST requests are done, then redirect
-    // jQuery.when.apply(jQuery, postRequests).done(function() {
-    //     window.location.href = '/checkout'; // Redirect after all requests complete
-    // }).fail(function() {
-    //     console.log("One or more POST requests failed.");
-    // });
+    // Wait until all POST requests are done, then redirect
+    jQuery.when.apply(jQuery, postRequests).done(function() {
+        window.location.href = '/checkout'; // Redirect after all requests complete
+    }).fail(function() {
+        console.log("One or more POST requests failed.");
+    });
 }
 
 </script>
