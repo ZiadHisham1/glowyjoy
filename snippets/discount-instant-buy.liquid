@@ -10,6 +10,7 @@
      window.location.href ='/checkout';
     jQuery.post('/cart/add', $(".cart-{{ product.id }}-multi-options-2").serialize());
     console.log($(".cart-{{ product.id }}-multi-options").serialize());
+       console.log($(".checked-option"));
   });
   }
 </script>
