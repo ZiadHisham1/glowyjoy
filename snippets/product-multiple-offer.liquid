@@ -290,18 +290,23 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     const offers = document.querySelectorAll('.box-cont');
-    const radios = document.querySelectorAll('.box-cont input[type="radio"]');
 
-    // Add event listener to each radio button
-    radios.forEach(radio => {
-        radio.addEventListener('change', function () {
+    // Add event listener to each offer div
+    offers.forEach(offer => {
+        offer.addEventListener('click', function () {
             // Remove the checked-option class from all offers
             offers.forEach(offer => {
                 offer.classList.remove('checked-option');
             });
 
-            // Add the checked-option class to the parent offer of the selected radio button
-            this.closest('.box-cont').classList.add('checked-option');
+            // Add the checked-option class to the clicked offer div
+            this.classList.add('checked-option');
+
+            // Set the corresponding radio button as checked
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio) {
+                radio.checked = true;
+            }
         });
     });
 });
