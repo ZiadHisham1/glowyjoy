@@ -20,6 +20,7 @@ function instantMultiBuying{{ product.id }}() {
             if (serializedData) {
                 let postRequest = jQuery.post('/cart/add', serializedData);
                 postRequests.push(postRequest); // Store each POST request promise
+                console.log("Done");
             } else {
                 console.log("No data to post for form #", formIndex);
             }
