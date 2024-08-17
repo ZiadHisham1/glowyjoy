@@ -4,10 +4,6 @@
       <div class="box">
         <div class="box-cont offer-one" id="offerOne" data-group="1">
           <div class="carry-hld">  
-            <div class="hidden-option">
-              <!-- <input type="hidden" id="hidden-option-1" name="quantity" value="2" checked/> -->
-              
-            </div>
             <div class="box-cont-holder">
               <div>
                 <input type="radio" id="quantity-option-1" name="quantity-option"/>
@@ -89,7 +85,172 @@
           </div>  
           </div>
         </div>
-
+         <div class="box-cont offer-one" id="offerOne" data-group="1">
+          <div class="carry-hld">  
+            <div class="box-cont-holder">
+              <div>
+                <input type="radio" id="quantity-option-1" name="quantity-option"/>
+              </div>
+              <div>               
+                <span>Most Popular</span>
+                <p>Buy two and save 15%</p>
+              </div>
+            </div>
+            <div class="moneyHolder">
+              <p>Save 15%</p>
+              <span class="individual-price">
+                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+              </span>
+              <span class="discount-price">
+                {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+                {% assign product_price = product.selected_or_first_available_variant.price %}
+                {% assign quantity = 2 %}
+                {% assign total_compare_price = compare_price | times: quantity %}
+                {% assign total_product_price = product_price | times: quantity %}
+                <div class="new-price">Total</div>
+                <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+                <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+              </span>
+            </div>
+          </div>
+          
+          <div id="selectorDiv-1" class="">
+            <div class="carry-hld">
+             <span class="disc-opt-mun">
+              #1
+            </span>
+            <div class="selection-div">
+              <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options" enctype="multipart/form-data" id="add-item-form-2">
+              {% if product.variants.size > 1 %}
+                <select
+                  name="id"
+                  id="productSelect"
+                  class="product-single__variants">
+                  {% for variant in product.variants %}
+                    <option
+                      data-stocks="{{ variant.inventory_quantity }}"
+                      {% if variant == current_variant %}
+                      selected="selected"
+                      {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      value="{{ variant.id }}">{{ variant.title }}</option>
+                  {% endfor %}
+                </select>
+              {% endif %}       
+              </form>
+            </div>
+          </div>
+            <div class="carry-hld">
+            <span class="disc-opt-mun">
+              #2
+            </span>
+            <div class="selection-div">
+              <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options-2" enctype="multipart/form-data" id="add-item-form-3">
+              {% if product.variants.size > 1 %}
+                <select
+                  name="id"
+                  id="productSelect-2"
+                  class="product-single__variants">
+                  {% for variant in product.variants %}
+                    <option
+                      data-stocks="{{ variant.inventory_quantity }}"
+                      {% if variant == current_variant %}
+                      selected="selected"
+                      {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      value="{{ variant.id }}">{{ variant.title }}</option>
+                  {% endfor %}
+                </select>
+              {% endif %}       
+              </form>         
+            </div>
+          </div>  
+          </div>
+        </div>
+         <div class="box-cont offer-one" id="offerOne" data-group="1">
+          <div class="carry-hld">  
+            <div class="box-cont-holder">
+              <div>
+                <input type="radio" id="quantity-option-1" name="quantity-option"/>
+              </div>
+              <div>               
+                <span>Most Popular</span>
+                <p>Buy two and save 15%</p>
+              </div>
+            </div>
+            <div class="moneyHolder">
+              <p>Save 15%</p>
+              <span class="individual-price">
+                <div class="old-price" id="ComparePrice">{{ product.selected_or_first_available_variant.compare_at_price | money }}</div>
+                <div class="new-price" id="ProductPrice">{{ product.selected_or_first_available_variant.price | money }}</div>
+              </span>
+              <span class="discount-price">
+                {% assign compare_price = product.selected_or_first_available_variant.compare_at_price %}
+                {% assign product_price = product.selected_or_first_available_variant.price %}
+                {% assign quantity = 2 %}
+                {% assign total_compare_price = compare_price | times: quantity %}
+                {% assign total_product_price = product_price | times: quantity %}
+                <div class="new-price">Total</div>
+                <div class="old-price" id="totalComparePrice">{{ total_compare_price | money }}</div>
+                <div class="new-price" id="totalProductPrice">{{ total_product_price | money }}</div>
+              </span>
+            </div>
+          </div>
+          
+          <div id="selectorDiv-1" class="">
+            <div class="carry-hld">
+             <span class="disc-opt-mun">
+              #1
+            </span>
+            <div class="selection-div">
+              <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options" enctype="multipart/form-data" id="add-item-form-2">
+              {% if product.variants.size > 1 %}
+                <select
+                  name="id"
+                  id="productSelect"
+                  class="product-single__variants">
+                  {% for variant in product.variants %}
+                    <option
+                      data-stocks="{{ variant.inventory_quantity }}"
+                      {% if variant == current_variant %}
+                      selected="selected"
+                      {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      value="{{ variant.id }}">{{ variant.title }}</option>
+                  {% endfor %}
+                </select>
+              {% endif %}       
+              </form>
+            </div>
+          </div>
+            <div class="carry-hld">
+            <span class="disc-opt-mun">
+              #2
+            </span>
+            <div class="selection-div">
+              <form action="/cart/add" method="post" class="cart-{{ product.id }}-multi-options-2" enctype="multipart/form-data" id="add-item-form-3">
+              {% if product.variants.size > 1 %}
+                <select
+                  name="id"
+                  id="productSelect-2"
+                  class="product-single__variants">
+                  {% for variant in product.variants %}
+                    <option
+                      data-stocks="{{ variant.inventory_quantity }}"
+                      {% if variant == current_variant %}
+                      selected="selected"
+                      {% endif %}
+                      data-sku="{{ variant.sku }}"
+                      value="{{ variant.id }}">{{ variant.title }}</option>
+                  {% endfor %}
+                </select>
+              {% endif %}       
+              </form>         
+            </div>
+          </div>  
+          </div>
+        </div>
         <div class="btn-cont">
           {% render 'discount-instant-buy', product: product %}
         </div>
