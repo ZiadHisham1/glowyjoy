@@ -1,30 +1,14 @@
 {% if product.available %}
-<a href="javascript:void(0)" class="discount-buy-btn pointer-cursor" id="buyNow25" onClick="instantMultiBuying{{ product.id }}(); return false;">
-  <span class="button-text">{{ 'products.product.buy_now' | t }}</span>
+<a href="javascript:void(0)" class="discount-buy-btn pointer-cursor" id="buyNow25" onClick="instantMultiBuying{{ product.id }}()">
+  {{ 'products.product.buy_now' | t }}
   <span class="spinner" style="display: none;"></span>
 </a>
 {% endif %}
 <script type="text/javascript">
 function instantMultiBuying{{ product.id }}() {
-    const button = $('#discount-buy-btn');
-    const spinner = button.find('.spinner');
-    const buttonText = button.find('.button-text');
-
     // Helper function to add a delay
     function delay(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    // Show loading spinner and disable button
-    function showLoading() {
-        spinner.show();
-        button.css('background', "#000");
-    }
-
-    // Hide loading spinner and enable button
-    function hideLoading() {
-        spinner.hide();
-        // button.prop('disabled', false);
     }
 
     // Find all checked option divs within the context
@@ -38,7 +22,6 @@ function instantMultiBuying{{ product.id }}() {
 
     // Function to handle AJAX requests with delay
     async function processFormsSequentially(forms) {
-        showLoading(); // Show spinner and disable button
         for (let i = 0; i < forms.length; i++) {
             let serializedData = forms[i];
             try {
@@ -46,27 +29,18 @@ function instantMultiBuying{{ product.id }}() {
                 console.log("Item added to cart:", serializedData);
             } catch (error) {
                 console.error("Error adding item to cart:", error.responseText);
-                // Handle error (e.g., show a message to the user)
-                showConfirmationMessage("There was an issue adding some items to your cart.");
             }
             // Delay before the next request
-            await delay(1000); // Adjust delay as needed (1000ms = 1 second)
+            await delay(500); // Adjust delay as needed (1000ms = 1 second)
         }
         
-        // Hide spinner and show confirmation message
-        hideLoading();
-        showConfirmationMessage("All items have been added to your cart. Redirecting to checkout...");
-        
-        // Redirect to checkout after a short delay
-        setTimeout(function() {
-            window.location.href = '/checkout'; // Redirect after delay
-        }, 2000); // Adjust the delay (2000ms = 2 seconds) as needed
+        // Redirect to checkout after all requests are processed
+        window.location.href = '/checkout';
     }
 
     // Start processing forms
     processFormsSequentially(forms);
 }
-
 </script>
 <!-- <script type="text/javascript">
   function instantMultiBuying{{ product.id }}(){
@@ -80,23 +54,7 @@ function instantMultiBuying{{ product.id }}() {
   }
 </script> -->
 <style>
-  .spinner {
-    border: 3px solid #f3f3f3; /* Light grey */
-    border-top: 3px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px; /* Adjust spacing as needed */
-}
-
-/* Spin animation */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+  
   a.discount-buy-btn{
     font-family: "poppins", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
     box-sizing: border-box;
