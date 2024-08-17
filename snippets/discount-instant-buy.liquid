@@ -10,11 +10,12 @@
         // For each form inside the checked option div, make a POST request
         $(this).find("form").each(function() {
             jQuery.post('/cart/add', $(this).serialize());
+            console.log($(this).serialize())
         });
     });
 
     // Redirect to checkout after all requests are made
-    window.location.href = '/checkout';
+    // window.location.href = '/checkout';
 }
 </script>
 <!-- <script type="text/javascript">
