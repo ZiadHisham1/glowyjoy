@@ -5,22 +5,24 @@
 {% endif %}
 <script type="text/javascript">
 function instantMultiBuying{{ product.id }}() {
-    let postRequests = [];
+    let postRequests = []; // Array to hold all POST request promises
 
+    // Find all checked option divs within the context
     $(".checked-option").each(function() {
+        // For each form inside the checked option div, make a POST request
         $(this).find("form").each(function() {
-            let serializedData = $(this).serialize();
-            console.log("Form Data:", serializedData); // Log serialized data
-
-            let postRequest = jQuery.post('/cart/add', serializedData);
+            // Make the POST request and push the promise to the array
+            let postRequest = jQuery.post('/cart/add', $(this).serialize());
             postRequests.push(postRequest);
         });
     });
 
+    // Wait for all POST requests to complete before redirecting
     jQuery.when.apply(jQuery, postRequests).done(function() {
-        window.location.href = '/checkout';
+        window.location.href = '/checkout'; // Redirect to checkout after all requests are done
     }).fail(function() {
         console.log("Error occurred while adding items to the cart.");
+        // Optionally handle the error here
     });
 }
 </script>
