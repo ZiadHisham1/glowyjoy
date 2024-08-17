@@ -11,12 +11,10 @@
         $(this).find("form").each(function() {
             jQuery.post('/cart/add', $(this).serialize());
         });
-    })
-      .always(function(data){
-       window.location.href ='/checkout';});
+    });
 
-    // // Redirect to checkout after all requests are made
-    // window.location.href = '/checkout';
+    // Redirect to checkout after all requests are made
+    alwasys().window.location.href = '/checkout';
 }
 </script>
 <!-- <script type="text/javascript">
