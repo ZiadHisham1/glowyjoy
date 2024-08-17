@@ -30,7 +30,7 @@ function instantMultiBuying{{ product.id }}() {
                 console.error("Error adding item to cart:", error.responseText);
             }
             // Delay before the next request
-            await delay(1000); // Adjust delay as needed (1000ms = 1 second)
+            await delay(500); // Adjust delay as needed (1000ms = 1 second)
         }
         
         // Redirect to checkout after all requests are processed
@@ -40,7 +40,6 @@ function instantMultiBuying{{ product.id }}() {
     // Start processing forms
     processFormsSequentially(forms);
 }
-
 </script>
 <!-- <script type="text/javascript">
   function instantMultiBuying{{ product.id }}(){
