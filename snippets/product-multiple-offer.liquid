@@ -288,15 +288,33 @@
   // Initial call to update prices
   updateTotalPrice();
 
-  document.addEventListener('DOMContentLoaded', function () {
+ document.addEventListener('DOMContentLoaded', function () {
     const offers = document.querySelectorAll('.box-cont');
+
+    if (offers.length > 0) {
+        // Set the first div as checked by default
+        const firstOffer = offers[0];
+        firstOffer.classList.add('checked-option');
+
+        // Show the selection div in the first offer div
+        const firstSelectionDiv = firstOffer.querySelector('.selection-div'); // Replace with the actual selector
+        if (firstSelectionDiv) {
+            firstSelectionDiv.style.display = 'block';
+        }
+
+        // Set the corresponding radio button as checked
+        const firstRadio = firstOffer.querySelector('input[type="radio"]');
+        if (firstRadio) {
+            firstRadio.checked = true;
+        }
+    }
 
     offers.forEach(offer => {
         offer.addEventListener('click', function () {
             // Remove the checked-option class from all offers and hide their selection div
             offers.forEach(offer => {
                 offer.classList.remove('checked-option');
-                const selectionDiv = offer.querySelector('.selectorDiv'); // Replace with the actual selector
+                const selectionDiv = offer.querySelector('.selection-div'); // Replace with the actual selector
                 if (selectionDiv) {
                     selectionDiv.style.display = 'none';
                 }
@@ -306,7 +324,7 @@
             this.classList.add('checked-option');
 
             // Show the selection div in the clicked offer div
-            const selectionDiv = this.querySelector('.selectorDiv'); // Replace with the actual selector
+            const selectionDiv = this.querySelector('.selection-div'); // Replace with the actual selector
             if (selectionDiv) {
                 selectionDiv.style.display = 'block';
             }
@@ -319,6 +337,7 @@
         });
     });
 });
+
 
 </script>
 
