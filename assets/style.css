@@ -976,7 +976,7 @@ product css
     font-weight: var(--font-custom-weight-header);
 }
 .price-box span.old-price:before {
-    content: "~";
+    content: "";
     position: absolute;
     bottom: 50%;
     transform: translateY(50%);
