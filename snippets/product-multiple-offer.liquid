@@ -262,6 +262,7 @@
 </div>
 
 <script>
+  $('.checked-option').find('.selectorDiv').css("display", "block");
   function updateTotalPrice() {
     const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }};
     const productPrice = {{ product.selected_or_first_available_variant.price }};
@@ -334,8 +335,6 @@
       }
     }
   });
-
-  $('.checked-option').find('.selectorDiv').css("display", "block")
 </script>
 
 <style>
