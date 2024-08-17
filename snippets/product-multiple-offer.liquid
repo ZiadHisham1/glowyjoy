@@ -296,7 +296,7 @@
             // Remove the checked-option class from all offers and hide their selection div
             offers.forEach(offer => {
                 offer.classList.remove('checked-option');
-                const selectionDiv = offer.querySelector('.selection-div'); // Replace with the actual selector
+                const selectionDiv = offer.querySelector('.selectorDiv'); // Replace with the actual selector
                 if (selectionDiv) {
                     selectionDiv.style.display = 'none';
                 }
@@ -306,7 +306,7 @@
             this.classList.add('checked-option');
 
             // Show the selection div in the clicked offer div
-            const selectionDiv = this.querySelector('.selection-div'); // Replace with the actual selector
+            const selectionDiv = this.querySelector('.selectorDiv'); // Replace with the actual selector
             if (selectionDiv) {
                 selectionDiv.style.display = 'block';
             }
