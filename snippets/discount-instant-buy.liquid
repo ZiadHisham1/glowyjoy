@@ -1,12 +1,12 @@
 {% if product.available %}
 <a href="javascript:void(0)" class="discount-buy-btn pointer-cursor" id="buyNow25" onClick="instantMultiBuying{{ product.id }}()">
-  {{ 'products.product.buy_now' | t }}
+  <span class="button-text">{{ 'products.product.buy_now' | t }}</span>
   <span class="spinner" style="display: none;"></span>
 </a>
 {% endif %}
 <script type="text/javascript">
 function instantMultiBuying{{ product.id }}() {
-    const button = $('#buy-button');
+    const button = $('#discount-buy-btn');
     const spinner = button.find('.spinner');
     const buttonText = button.find('.button-text');
 
