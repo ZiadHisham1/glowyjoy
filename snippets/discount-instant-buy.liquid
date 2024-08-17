@@ -4,26 +4,20 @@
 </a>
 {% endif %}
 <script type="text/javascript">
- function instantMultiBuying{{ product.id }}() {
-    // Create an array to hold the promises of the jQuery POST requests
+function instantMultiBuying{{ product.id }}() {
     let postRequests = [];
 
-    // Find all divs with the class .checked-option
     $(".checked-option").each(function() {
-        // Within each .checked-option div, find all forms and iterate over them
         $(this).find("form").each(function() {
-            // Serialize the form data
             let serializedData = $(this).serialize();
+            console.log("Form Data:", serializedData); // Log serialized data
 
-            // Make a POST request and push the promise into the postRequests array
             let postRequest = jQuery.post('/cart/add', serializedData);
             postRequests.push(postRequest);
         });
     });
 
-    // Use jQuery.when to ensure all POST requests are completed before proceeding
     jQuery.when.apply(jQuery, postRequests).done(function() {
-        // Redirect to checkout only after all POST requests have succeeded
         window.location.href = '/checkout';
     }).fail(function() {
         console.log("Error occurred while adding items to the cart.");
