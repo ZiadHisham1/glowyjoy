@@ -6,7 +6,7 @@
           <div class="carry-hld">  
             <div class="box-cont-holder">
               <div>
-                <input type="radio" id="quantity-option-1" name="quantity-option"/>
+                <input type="radio" id="quantity-option-1" class="radio" name="quantity-option"/>
               </div>
               <div>               
                 <span>Most Popular</span>
@@ -89,7 +89,7 @@
           <div class="carry-hld">  
             <div class="box-cont-holder">
               <div>
-                <input type="radio" id="quantity-option-1" name="quantity-option"/>
+                <input type="radio" id="quantity-option-1" class="radio" name="quantity-option"/>
               </div>
               <div>               
                 <span>Most Popular</span>
@@ -172,7 +172,7 @@
           <div class="carry-hld">  
             <div class="box-cont-holder">
               <div>
-                <input type="radio" id="quantity-option-1" name="quantity-option"/>
+                <input type="radio" id="quantity-option-1" class="radio" name="quantity-option"/>
               </div>
               <div>               
                 <span>Most Popular</span>
@@ -264,6 +264,7 @@
 <script>
   const parent = document.querySelector(".checked-option .selectorDiv");
   parent.style.display = 'block';
+  
   function updateTotalPrice() {
     const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }};
     const productPrice = {{ product.selected_or_first_available_variant.price }};
