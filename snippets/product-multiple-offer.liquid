@@ -294,50 +294,23 @@
   updateTotalPrice();
 
   document.addEventListener('DOMContentLoaded', function () {
-    const containers = document.querySelectorAll('.box-cont');
+    const offers = document.querySelectorAll('.box-cont');
+    const radios = document.querySelectorAll('.box-cont input[type="radio"]');
 
-    containers.forEach(container => {
-      const group = container.getAttribute('data-group');
-      const secondaryRadio = container.querySelector(`#quantity-option-${group}`);
-      const card = document.getElementById(`box-cont-${group}`);
+    // Add event listener to each radio button
+    radios.forEach(radio => {
+        radio.addEventListener('change', function () {
+            // Remove the checked-option class from all offers
+            offers.forEach(offer => {
+                offer.classList.remove('checked-option');
+            });
 
-      secondaryRadio.addEventListener('change', function () {
-        if (this.checked) {
-          // Remove the highlight class from all containers
-          containers.forEach(cont => cont.classList.remove('highlight'));
-
-          // Add the highlight class to the currently checked container
-          card.classList.add('highlight');
-          secondaryRadio.checked = true;
-
-          // Toggle visibility
-          toggleVisibility(group);
-        }
-      });
-
-      secondaryRadio.addEventListener('change', function () {
-        if (this.checked) {
-          // Remove the highlight class from all containers
-          containers.forEach(cont => cont.classList.remove('highlight'));
-
-          // Add the highlight class to the currently checked container
-          card.classList.add('highlight');
-          primaryRadio.checked = true;
-        }
-      });
+            // Add the checked-option class to the parent offer of the selected radio button
+            this.closest('.box-cont').classList.add('checked-option');
+        });
     });
+});
 
-    // Add highlight class to the first checked box
-    const firstChecked = document.querySelector('.box-cont input[type="radio"]:checked');
-    if (firstChecked) {
-      const firstCheckedContainer = firstChecked.closest('.box-cont');
-      if (firstCheckedContainer) {
-        firstCheckedContainer.classList.add('highlight');
-        const group = firstCheckedContainer.getAttribute('data-group');
-        toggleVisibility(group);
-      }
-    }
-  });
 </script>
 
 <style>
