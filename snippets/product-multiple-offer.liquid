@@ -262,8 +262,10 @@
 </div>
 
 <script>
-  const parent = document.querySelector(".checked-option .selectorDiv");
-  parent.style.display = 'block';
+  const selectedDiv = document.querySelector(".checked-option .selectorDiv");
+  const radioInput = document.querySelector(".checked-option .radio");
+  selectedDiv.style.display = 'block';
+  radioInput.checked = true;
   
   function updateTotalPrice() {
     const comparePrice = {{ product.selected_or_first_available_variant.compare_at_price }};
