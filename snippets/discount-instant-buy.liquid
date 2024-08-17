@@ -5,19 +5,42 @@
 {% endif %}
 <script type="text/javascript">
 function instantMultiBuying{{ product.id }}() {
+    // Helper function to add a delay
+    function delay(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
     // Find all checked option divs within the context
+    const forms = [];
     $(".checked-option").each(function() {
-        // For each form inside the checked option div, make a POST request
-        $(this).find(".cart-{{ product.id }}-multi-options").each(function() {
-            jQuery.post('/cart/add', $(this).serialize());
+        // Collect all forms inside the checked option div
+        $(this).find("form").each(function() {
+            forms.push($(this).serialize());
         });
     });
 
-    // Redirect to checkout after all requests are made
-     setTimeout(function() {
-        window.location.href = '/checkout'; // Redirect after delay
-    }, 3000); 
+    // Function to handle AJAX requests with delay
+    async function processFormsSequentially(forms) {
+        for (let i = 0; i < forms.length; i++) {
+            let serializedData = forms[i];
+            try {
+                await jQuery.post('/cart/add.js', serializedData);
+                console.log("Item added to cart:", serializedData);
+            } catch (error) {
+                console.error("Error adding item to cart:", error.responseText);
+            }
+            // Delay before the next request
+            await delay(1000); // Adjust delay as needed (1000ms = 1 second)
+        }
+        
+        // Redirect to checkout after all requests are processed
+        window.location.href = '/checkout';
+    }
+
+    // Start processing forms
+    processFormsSequentially(forms);
 }
+
 </script>
 <!-- <script type="text/javascript">
   function instantMultiBuying{{ product.id }}(){
