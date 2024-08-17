@@ -1,6 +1,7 @@
 {% if product.available %}
 <a href="javascript:void(0)" class="discount-buy-btn pointer-cursor" id="buyNow25" onClick="instantMultiBuying{{ product.id }}()">
   {{ 'products.product.buy_now' | t }}
+  <span class="spinner" style="display: none;"></span>
 </a>
 {% endif %}
 <script type="text/javascript">
