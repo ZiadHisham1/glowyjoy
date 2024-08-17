@@ -288,11 +288,6 @@
   // Initial call to update prices
   updateTotalPrice();
 
-  const selectedDiv = document.querySelector(".checked-option .selectorDiv");
-  const radioInput = document.querySelector(".checked-option .radio");
-  selectedDiv.style.display = 'block';
-  radioInput.checked = true;
-  
   document.addEventListener('DOMContentLoaded', function () {
     const offers = document.querySelectorAll('.box-cont');
     const radios = document.querySelectorAll('.box-cont input[type="radio"]');
@@ -311,6 +306,10 @@
     });
 });
 
+  const selectedDiv = document.querySelector(".checked-option .selectorDiv");
+  const radioInput = document.querySelector(".checked-option .radio");
+  selectedDiv.style.display = 'block';
+  radioInput.checked = true;
 </script>
 
 <style>
