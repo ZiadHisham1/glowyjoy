@@ -1826,6 +1826,9 @@
       },
       "transformation_Hf4tPe": {
         "type": "transformation",
+        "custom_css": [
+          "section {background-attachment: fixed !important;}"
+        ],
         "settings": {
           "background_style": "bg-style1",
           "bg_color1_radial": "#ffffff",
@@ -1879,6 +1882,9 @@
       },
       "transformation_rYJmTJ": {
         "type": "transformation",
+        "custom_css": [
+          "section{background-attachment: fixed!important;}"
+        ],
         "settings": {
           "background_style": "bg-style1",
           "bg_color1_radial": "#225da1",
