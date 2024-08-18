@@ -43,7 +43,7 @@
                             loading: 'lazy',
                             width: block.settings.service_icon_image.width,
                             height: block.settings.service_icon_image.height,
-                            class: "img-fluid image-1",
+                            class: "img-fluid image-1 aboutHomeImage",
                             style: "max-width:250px; max-height: 250px;",
                             alt: block.settings.service_icon_image.alt | escape }}
                             {%- else -%}  
@@ -334,6 +334,9 @@
 {% endschema %}
 
 <style>
+.aboutHomeImage{
+  max-width: 100px!important;
+}
 .home-about-area {
   padding-top: {{ section.settings.section_padding_top }}px;
   padding-bottom: {{ section.settings.section_padding_bottom }}px;
