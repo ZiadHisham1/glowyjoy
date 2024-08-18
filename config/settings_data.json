@@ -1921,7 +1921,7 @@
       "photo_to_transtion_Qt9yN8": {
         "type": "photo-to-transtion",
         "custom_css": [
-          "section {background: #001836;}"
+          "section {background: linear-gradient( #040225 , #051e3e);}"
         ],
         "settings": {
           "bg_img": "",
