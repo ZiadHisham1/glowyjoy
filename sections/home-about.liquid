@@ -10,7 +10,7 @@
               loading: 'lazy',
               width: section.settings.home_about_image.width,
               height: section.settings.home_about_image.height,
-              class: "img-fluid image-1",
+              class: "img-fluid image-1 aboutHomeImage-1",
               alt: section.settings.home_about_image.alt | escape }}
               {%- else -%}  
               {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -336,6 +336,9 @@
 <style>
 .aboutHomeImage{
   max-width: 100px!important;
+}
+.aboutHomeImage-1{
+  max-width: 300px;
 }
 .home-about-area {
   padding-top: {{ section.settings.section_padding_top }}px;
