@@ -1917,23 +1917,12 @@
         ],
         "settings": {
         }
-      },
-      "photo_to_transtion_Qt9yN8": {
-        "type": "photo-to-transtion",
-        "custom_css": [
-          "section {background: linear-gradient( #040225 , #051e3e);}"
-        ],
-        "settings": {
-          "bg_img": "",
-          "height_length": 80
-        }
       }
     },
     "content_for_index": [
       "1605848244aeafd51a",
       "9139de7f-66ee-4826-a858-1cd9a7531267",
       "af6db34d-a076-4955-8a2f-810f290f81f5",
-      "photo_to_transtion_Qt9yN8",
       "clients_bU9mh9",
       "transformation_Hf4tPe",
       "clients_7k9K8Y",
