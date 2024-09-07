@@ -8,7 +8,10 @@
     {% for block in section.blocks %}
     <div class="item">
       <div class="slide-image">
-        {%- if block.settings.slider_img -%}
+        <video class="tik-video" controls preload="metadata" poster="{{ block.settings.poster_link | img_url: 'master' }}">
+          <source src="{{ block.settings.video_link | video_url }}" type="video/mp4">
+        </video>
+        <!-- {%- if block.settings.slider_img -%}
         {{ block.settings.slider_img | image_url: width: 1920 | image_tag:
         loading: 'lazy',
         width: block.settings.slider_img.width,
@@ -28,7 +31,7 @@
         {%- else -%}
         {%- capture placeholder -%}collection-{% cycle 1, 2, 3, 4, 5, 6 %}{%- endcapture -%}
         {{ placeholder | placeholder_svg_tag: 'placeholder-svg mobile-img' }}
-        {%- endif -%}
+        {%- endif -%} -->
         <div class="container slider-info-content">
           <div class="row">
             <div class="col">
