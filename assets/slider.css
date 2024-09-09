@@ -27,7 +27,7 @@
     position:unset;
     line-height:1.2;
     text-align: center;
-    
+    display: block;
     font-size:13px;
     visibility:visible;
     max-width:300px;
