@@ -141,9 +141,9 @@
     animation-duration: 2.0s;
   }
 
-.slider-content .home-slider .owl-item.active .slide-image .slider-info-content .slider-text-info h2.e1{color:#3f309a;}
+.slider-content .home-slider .owl-item.active .slide-image .slider-info-content .slider-text-info h2.e1{color:#fff;}
 
-@media (min-width:600px){
+@media (max-width:600px){
 .slider-content .home-slider .owl-item.active .slide-image .slider-info-content .slider-text-info h2.e1{
   background-image: linear-gradient(90deg, #B2A5FF, #3F309A); 
   -webkit-background-clip: text; 
