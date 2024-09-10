@@ -188,7 +188,7 @@
     font-weight: var(--font-custom-weight-section-header);
   }
   .slider-content .home-slider .slide-image .slider-info-content .slider-text-info .slider-service {
-    margin-top: 49px;
+    margin-top: 10px;
   } 
   .slider-service ul.slider-service-ul {
     display: flex;
