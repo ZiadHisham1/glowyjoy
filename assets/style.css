@@ -199,6 +199,9 @@ mainmenu css
 .megamenu-content ul.main-menu li.menu-link:hover a.link-title{
   color: #fff;
 }
+.megamenu-content ul.main-menu li.menu-link a.link-title{
+  color: #828282;
+}
 .megamenu-content ul.main-menu li.menu-link a.link-title.link-title-lg{
   display: none;
 }
