@@ -1488,7 +1488,7 @@
         "type": "top-nocification-bar",
         "settings": {
           "topbar_notification_enable": true,
-          "topbar_notification_bg_color": "#100056",
+          "topbar_notification_bg_color": "#ff0018",
           "topbar_notification_txt_color": "#ffffff",
           "rich_text1": "<p>Free shipping + 30-day happiness guarantee<\/p>"
         }
