@@ -256,7 +256,7 @@
   }
   @media(max-width: 1199px) {
     .slider-content .home-slider .slide-image .slider-info-content .slider-text-info .slider-service {
-      margin-top: 33px;
+      margin-top: 10px;
     }
     .slider-service ul.slider-service-ul {
       margin-left: -30px;
