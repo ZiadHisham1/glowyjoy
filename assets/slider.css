@@ -10,7 +10,8 @@
 @media (max-width: 600px) {
     .slider-rates{
         visibility:visible; 
-        margin:10px auto; display: flex;
+        margin:0; 
+        display: flex;
         justify-content: center;
         align-items: center;
     }
